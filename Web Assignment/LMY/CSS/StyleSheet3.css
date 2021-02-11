@@ -1,0 +1,24 @@
+﻿#content {
+    padding-right: 80px;
+    padding-left: 80px;
+}
+
+.ism-slider {
+    position: absolute;
+    left: 20%;
+    height: 400px;
+}
+
+.prod img {
+    width: 590px;
+    max-height: 400px;
+}
+
+.sale, .prod {
+    display: block;
+}
+
+    .sale img {
+        width: 300px;
+        max-height: 250px;
+    }

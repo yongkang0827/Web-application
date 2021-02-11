@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+	<siteMapNode url="~/LMY/ASPX/Homepage.aspx" title="Homepage"  description="Homepage/">
+		<siteMapNode url="~/LMY/ASPX/Test.aspx" title="StudentInfo"  description="Student Info" />
+		<siteMapNode url="~/TYK/ASPX/WebForm1.aspx" title="StudentInfo"  description="Student Info" />
+	</siteMapNode>
+</siteMap>

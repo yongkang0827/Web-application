@@ -1,0 +1,152 @@
+﻿@charset "utf-8";
+/* CSS Document */
+body * {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body a {
+    color: black;
+    text-decoration: none;
+}
+
+.fix {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: white;
+    border-bottom: 1px solid black;
+    z-index: 5;
+}
+
+.topRight > li:hover, .btm > ul > li > a:hover, footer a:hover {
+    background-color: rgba(199,199,199,0.52);
+}
+
+.btm {
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+    .btm > ul {
+        clear: both;
+    }
+
+.search > input {
+    box-sizing: border-box;
+    padding-left: 20px;
+    position: absolute;
+    right: 60px;
+    display: block;
+    width: 18%;
+    transition: 2s;
+    text-align: left;
+    font-size: 1.6em;
+    line-height: 48px;
+    border: 1px solid black;
+}
+
+    .search > input:focus {
+        width: 23%;
+    }
+
+.btm > ul > li {
+    float: left;
+    display: block;
+    width: 23%;
+}
+
+    .btm > ul > li > a {
+        font-size: 1.6em;
+        line-height: 48px;
+        display: block;
+        text-align: center;
+        border: 1px solid black;
+    }
+
+footer {
+    line-height: 1.5em;
+    position: relative;
+    width: 100%;
+    clear: both;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+
+    footer ul, footer ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+
+    footer li {
+        list-style: none;
+        line-height: 1.5em;
+        margin: 0;
+        padding: 0;
+        vertical-align: baseline;
+        border: 0;
+    }
+
+.icon {
+    display: block;
+}
+
+    .icon > ul > li {
+        float: left;
+        padding-left: 4%;
+    }
+
+hr {
+    color: black;
+}
+
+.flower {
+    margin-left: auto;
+    margin-right: auto;
+    width: 68%;
+    clear: both;
+}
+
+.fleft, .fmid, .fright {
+    width: 18%;
+    float: left;
+}
+
+.fmid {
+    border-left: 1px solid;
+    border-right: 1px solid;
+}
+
+.fleft {
+    padding-left: 19%;
+}
+
+.fmid, .fright {
+    padding-left: 7%;
+}
+
+.topRight > li {
+    top: 0px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    height: 40px;
+    display: block;
+    transform: skew(20deg);
+    text-align: center;
+    width: 10%;
+    position: absolute;
+}
+
+    .topRight > li > a > span {
+        display: block;
+        transform: skew(-20deg);
+        font-size: 1.1em;
+        padding: 13px 17px;
+    }
