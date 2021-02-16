@@ -101,8 +101,8 @@
     <Content Include="LMY\IMG\Torso of a Woman.jpg" />
     <Content Include="LMY\IMG\twitter icon.png" />
     <Content Include="LMY\IMG\youtube icon.png" />
-    <Content Include="login.aspx" />
-    <Content Include="LogOut.aspx" />
+    <Content Include="LHY\login.aspx" />
+    <Content Include="LHY\LogOut.aspx" />
     <Content Include="map.aspx" />
     <Content Include="policy.aspx" />
     <Content Include="Customer.aspx" />
@@ -161,18 +161,18 @@
     <Compile Include="LMY\ASPX\Purchase History.aspx.designer.cs">
       <DependentUpon>Purchase History.aspx</DependentUpon>
     </Compile>
-    <Compile Include="login.aspx.cs">
+    <Compile Include="LHY\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="login.aspx.designer.cs">
+    <Compile Include="LHY\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LogOut.aspx.cs">
+    <Compile Include="LHY\LogOut.aspx.cs">
       <DependentUpon>LogOut.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LogOut.aspx.designer.cs">
+    <Compile Include="LHY\LogOut.aspx.designer.cs">
       <DependentUpon>LogOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="map.aspx.cs">
@@ -238,7 +238,9 @@
     <Content Include="Web.sitemap" />
     <Content Include="Web1.sitemap" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="LHY\ASPX\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
