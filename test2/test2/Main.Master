@@ -146,7 +146,8 @@
 		<div class="top">
 			<div class="box">
 				<ul class="topRight">
-					<li style="left:5%"><img src="logo.png" alt="logo" height="50px" width="200px" style="vertical-align:central; padding-top:50px"/></li>
+					<li style="left:5%">
+                        <asp:Image ID="Image1" runat="server" ImageUrl="~/logo.png" Height="50px" Width="200px" style="vertical-align:central; padding-top:50px"/></li>
 				</ul> 
 			</div>
 		</div>
@@ -175,16 +176,21 @@
         <br/><br/>
 		<div class="icon">
 			<ul>
-				<li style="padding-left:36%"><a href="https://www.facebook.com/"><img src="LMY/IMG/facebook icon.png" alt="Facebook" width="50" height="50" /></a></li>
-				<li><a href="https://www.youtube.com/"><img src="youtube icon.png" alt="Youtube" width="50" height="50" /></a></li>
-				<li><a href="https://www.instagram.com/?hl=en"><img src="instagram icon.png" alt="Instagram" width="50" height="50"/></a></li>
-				<li style="padding-right:30%"><a href="https://twitter.com/login"><img src="twitter icon.png" alt="Twitter" width="50" height="50"/></a></li>
+				<li style="padding-left:36%"><a href="https://www.facebook.com/">
+                    <asp:Image ID="Image2" runat="server" ImageUrl="~/facebook icon.png" alt="Facebook" width="50" height="50"/></a></li>
+				<li><a href="https://www.youtube.com/">
+                    <asp:Image ID="Image3" runat="server" ImageUrl="~/youtube icon.png" alt="Youtube" width="50" height="50"/></a></li>
+				<li><a href="https://www.instagram.com/?hl=en">
+                    <asp:Image ID="Image4" runat="server" ImageUrl="~/instagram icon.png" alt="Instagram" width="50" height="50"/></a></li>
+				<li style="padding-right:30%"><a href="https://twitter.com/login">
+                    <asp:Image ID="Image5" runat="server" ImageUrl="~/twitter icon.png" alt="Twitter" width="50" height="50"/></a></li>
 			</ul>
 			<br/><br/><br/>
 			<hr/>
 		</div>
 		<div class="flower">
-			<img src="footerLogo.jpg" alt="logo" height="150px" width="200px" style="position:absolute;left:100px"/>
+            <asp:Image ID="Image6" runat="server" ImageUrl="~/footerLogo.jpg" alt="logo" height="150px" width="200px" style="position:absolute;left:100px"/>
+			
 			<div class="fleft">
 			<ul>
 				
