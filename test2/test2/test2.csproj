@@ -108,6 +108,8 @@
     <Content Include="policy.aspx" />
     <Content Include="Customer.aspx" />
     <Content Include="terms.aspx" />
+    <Content Include="TYK\Gallery.aspx" />
+    <Content Include="TYK\uploadImg.aspx" />
     <Content Include="Web.config" />
     <Content Include="aboutus.aspx" />
     <Content Include="contact.aspx" />
@@ -232,6 +234,20 @@
     </Compile>
     <Compile Include="terms.aspx.designer.cs">
       <DependentUpon>terms.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TYK\Gallery.aspx.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TYK\Gallery.aspx.designer.cs">
+      <DependentUpon>Gallery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TYK\uploadImg.aspx.cs">
+      <DependentUpon>uploadImg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TYK\uploadImg.aspx.designer.cs">
+      <DependentUpon>uploadImg.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
