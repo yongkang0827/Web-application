@@ -75,7 +75,6 @@
     <Content Include="cart.aspx" />
     <Content Include="Favourite.aspx" />
     <Content Include="HDY\ASPX\gallery.aspx" />
-    <Content Include="HDY\ASPX\testing.aspx" />
     <Content Include="HDY\IMG\Artifact.jpg" />
     <Content Include="HDY\IMG\Death Masks.jpg" />
     <Content Include="HDY\IMG\facebook icon.png" />
@@ -142,13 +141,6 @@
     </Compile>
     <Compile Include="HDY\ASPX\gallery.aspx.designer.cs">
       <DependentUpon>gallery.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="HDY\ASPX\testing.aspx.cs">
-      <DependentUpon>testing.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="HDY\ASPX\testing.aspx.designer.cs">
-      <DependentUpon>testing.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

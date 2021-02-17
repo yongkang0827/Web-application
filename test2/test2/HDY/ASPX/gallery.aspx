@@ -1,130 +1,56 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="gallery.aspx.cs" Inherits="test2.HDY.ASPX.gallery" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <style>
-     /* Create four equal columns that floats next to each other */
-* {
-  box-sizing: border-box;
-}
+        .div1{
+            font-family:cursive;
+            text-align:left;
+        }
+        .div2{
+            font-family:cursive;
+            text-align:left;
+        }
+    </style>
+    <div class="div1">
+        <h1>
+            Galleries
+        </h1>
+    </div>
+     <div class="div1">         
+           <asp:DataList ID="DataList1" runat="server" HorizontalAlign="Justify" RepeatColumns="3" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound" CellPadding="4" ForeColor="#34ebd2">
+               <AlternatingItemStyle BackColor="White" ForeColor="#34ebd2" />
+               <FooterStyle BackColor="#5534eb" Font-Bold="True" ForeColor="#f8f7fa" />
+               <HeaderStyle BackColor="#5534eb" Font-Bold="True" ForeColor="#f8f7fa" />
+               <ItemStyle BackColor="#5534eb" ForeColor="#f8f7fa" />
+            <ItemTemplate>
+                <table>
+                    <tr>
+                       <td> <%# Eval("Title") %></td>
+                    </tr>
+                    <tr><td><asp:Image  Width="320" Height="150" ID="Image1" runat="server" /></td></tr>
+                    <tr> 
+                        <td>
+                            <h4>Price : <%# Eval("Price") %> </h4>
+                            <h5>Quantity Remaining : <%# Eval("Quantity") %> </h5>
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
+                        </td>
 
-/* Float four columns side by side */
-.column {
-  float: left;
-  width: 25%;
-  padding: 0 10px;
-  text-align: center;
-  font-family:cursive;
-}
+                    </tr>
+                     <tr> <td> <%# Eval("Description") %> </td></tr>
+                     <tr> <td> <h6>Upload Date: <%# Eval("DateUpload") %> </h6>  </td></tr>
+                                        <tr><td>
+                                            <asp:Button ID="btnView" runat="server" Text="Details" />
 
-/* Remove extra left and right margins, due to padding in columns */
-.row {margin: 0 -5px;}
+                                         </td></tr>
+                    <tr><td>
+                        <asp:CheckBox ID="checkFa" runat="server" /> Add to fav</td></tr>
+               </table>
+                            
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+            </ItemTemplate>
+               <SelectedItemStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            </asp:DataList>
+            <br />
+            <br />
 
-.button {
-  border: none;
-  outline: 0;
-  padding: 12px;
-  color: white;
-  background-color:darkblue;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-  font-family:cursive;
-}
-
-/* Style the counter cards */
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-  padding: 16px;
-  text-align: center;
-  background-color: #f1f1f1;
-}
-
-/* Responsive columns - one column layout (vertical) on small screens */
-@media screen and (max-width: 600px) {
-  .column {
-    width: 100%;
-    display: block;
-    margin-bottom: 20px;
-  }
-.price {
-  color: black;
-  font-size: 22px;
-  font-family:cursive;
-}
-
-
-}
-          .imgSize {
-              width: 345px;
-              height: 413px;
-          }
-          .title{
-              text-align:center;
-              font-family:cursive;
-          }
- </style>
-    <br />
-    <h1 class="title">Galleries</h1>
-   <div class="row">
-  <div class="column">
-    <div class="card"><img src="../IMG/Torso of a Woman.jpg" class="imgSize"/>
-        <h1>Torso of a Women</h1>
-        <p class="price">RM1000</p>
-        <p>Gallery 1</p>
-        <p>
-         <asp:Button ID="btnBuy" runat="server" Text="Buy Now" class="button" OnClick="btnBuy_Click" PostBackUrl="~/cart.aspx"/>
-        </p></div>
-  </div>
-  <div class="column">
-    <div class="card"><img src="../IMG/Machines for Suffering.jpeg"  class="imgSize"/>
-        <h1>Machines for Suffering</h1>
-        <p class="price">RM1000</p>
-        <p>Gallery 2</p>
-        <p>
-        <asp:Button ID="btnBuy2" runat="server" Text="Buy Now" class="button" OnClick="btnBuy_Click" PostBackUrl="~/cart.aspx"/>
-        </p></div>
-  </div>
-  <div class="column">
-    <div class="card"><img src="../IMG/Death Masks.jpg"  class="imgSize"/>
-        <h1>Death Masks</h1>
-        <p class="price">RM1000</p>
-        <p>Gallery 3</p>
-      <br />
-        <p>
-            <asp:Button ID="btnBuy3" runat="server" Text="Buy Now" class="button" OnClick="btnBuy_Click" PostBackUrl="~/cart.aspx"/>
-        </p></div>
-  </div>
-  <div class="column">
-    <div class="card"><img src="../IMG/Artifact.jpg"  class="imgSize"/>
-        <h1>Artifact</h1>
-        <p class="price">RM1000</p>
-        <p>Gallery 4</p>
-      <br />
-        <p>
-            <asp:Button ID="btnBuy4" runat="server" Text="Buy Now" class="button" OnClick="btnBuy_Click" PostBackUrl="~/cart.aspx"/>
-        </p></div>
-  </div>
-<div class="column">
-    <div class="card"><img src="../IMG/Prodromes.jpg" class="imgSize"/>
-        <h1>Prodromes</h1>
-        <p class="price">RM1000</p>
-        <p>Gallery 5</p>
-      <br />
-        <p>
-            <asp:Button ID="btnBuy5" runat="server" Text="Buy Now" class="button" OnClick="btnBuy_Click" PostBackUrl="~/cart.aspx"/>
-        </p></div>
-  </div>
-    
-</div>
+         </div>
 </asp:Content>
