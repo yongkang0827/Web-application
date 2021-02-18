@@ -1,7 +1,14 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Gallery.aspx.cs" Inherits="test2.TYK.Gallery" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+<style type="text/css">
+    .addImg{
+        margin-left:400px;
+        border-style:double;
+        border-color:black;    
+        width:230px;
+    }
+</style>
         <div>
 <!--          <asp:GridView ID="GridGallery" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" AllowSorting="True" BorderStyle="Groove" RowHeaderColumn="Title">
                 <Columns>
@@ -45,6 +52,8 @@
             </asp:DataList>
             <br />
             <br />
+            </div>
+        <div class="addImg">
             Add new image&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnAdd" runat="server"  PostBackUrl="~/TYK/uploadImg.aspx" Text="Upload" />
 

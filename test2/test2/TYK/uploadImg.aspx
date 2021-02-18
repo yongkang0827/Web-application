@@ -4,7 +4,7 @@
 
 <style type="text/css">
     .upload{
-        margin-left:500px;
+        margin-left:200px;
     }
     
 
@@ -63,6 +63,7 @@
                     <td class="auto-style1"></td>
                     <td></td>
                 </tr>
+                <tr>
                     <td class="auto-style1">Selling Price :</td>
                     <td>
 
@@ -108,5 +109,4 @@
 
             </table>
         </div>
-    </div>
 </asp:Content>

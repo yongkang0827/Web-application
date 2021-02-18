@@ -40,7 +40,7 @@
 			vertical-align:central;			
 			color:black;
 			border-radius:5px;
-			margin-left:400px;
+			margin-left:300px;
 			margin-bottom:100px;		
 		}
 
