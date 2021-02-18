@@ -43,9 +43,8 @@ namespace test2.HDY.ASPX
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            string sql = "INSERT INTO ImgFav VALUES(@imgid, @img)";
-            SqlCommand cmd = new SqlCommand(sql, con);
-            cmd.Parameters.AddWithValue("@id", new_id);
+            SqlDataAdapter sdi = new SqlDataAdapter("SELECT * FROM Img WHERE PostId=@PostId", con);
+            //cmd.Parameters.AddWithValue("@id", new_id);
             //cmd.Parameters.AddWithValue("@photo", bytes);
 
 
