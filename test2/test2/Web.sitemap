@@ -9,7 +9,7 @@
 	</siteMapNode>
 
 	<siteMapNode url="Customer.aspx" title="Customer"  description="">
-	  <siteMapNode url="Favourite.aspx" title="Favourite"  description="" />
+	  <siteMapNode url="~/HDY/ASPX/ImgFav.aspx" title="Favourite"  description="" />
 	  <siteMapNode url="~/LMY/ASPX/Purchase History.aspx" title="Purchase History"  description="" />
       <siteMapNode url="~/HDY/ASPX/gallery.aspx" title="Galleries"  description="" />
 	</siteMapNode>

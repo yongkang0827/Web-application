@@ -7,12 +7,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace test2.HDY.ASPX
 {
     public partial class gallery : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+        String new_id;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -41,7 +43,20 @@ namespace test2.HDY.ASPX
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
+            string sql = "INSERT INTO ImgFav VALUES(@imgid, @img)";
+            SqlCommand cmd = new SqlCommand(sql, con);
+            cmd.Parameters.AddWithValue("@id", new_id);
+            //cmd.Parameters.AddWithValue("@photo", bytes);
 
+
+        }
+
+        private void GenerateId()
+        {
+            SqlCommand cmdId = new SqlCommand("Select Count(ImgId) FROM ImgFav", con);
+            int i = Convert.ToInt32(cmdId.ExecuteScalar());
+            i++;
+            new_id = "FO" + i.ToString();
         }
     }
 }
