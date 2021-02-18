@@ -1,53 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Data.SqlClient;
-using System.Configuration;
 
 namespace test2.LMY.ASPX
 {
     public partial class Purchase_History : System.Web.UI.Page
     {
+        SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Love Button
-            //imgLove1.ImageUrl = "~/LMY/IMG/not love.png";
-            //img1.ImageUrl = "~/LMY/IMG/Prodromes.jpg";
-
-            //Open Database
-            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
             con.Open();
-
-            //Retrieve Data
-            string strSelect = "Select * from PurchaseHistory where CustId=@id";
-
-            SqlCommand cmdSelect = new SqlCommand(strSelect, con);
-            String com = "C001";
-
-            cmdSelect.Parameters.AddWithValue("@id", com);
-
-            SqlDataReader dtrProd = cmdSelect.ExecuteReader();
-
-            if (dtrProd.HasRows)
+            if (!this.IsPostBack)
             {
-                while (dtrProd.Read())
-                {
-                    //string msg = dtrProd["Photo_Name"].ToString();
 
-                    img1.ImageUrl = dtrProd["Photo"].ToString();
-                    img2.ImageUrl = dtrProd["Photo"].ToString();
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM PurchaseHistory", con);
 
-                    //lblimg1.Text = msg;
-                    //lblimg2.Text = msg;
-
-                    //Label1.Text = dtrProd["Photo"].ToString();
-                }
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                dlHistory.DataSource = dt;
+                dlHistory.DataBind();
             }
+        }
 
-            con.Close();
+        protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+
+            DataRowView dr = (DataRowView)e.Item.DataItem;
+            string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])dr["Image"]);
+            (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
+
         }
     }
 }

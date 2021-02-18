@@ -27,19 +27,18 @@ namespace test2.HDY.ASPX
                 DataList1.DataSource = dt;
                 DataList1.DataBind();
             }
-
         }
 
-        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                DataRowView dr = (DataRowView)e.Row.DataItem;
-                string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])dr["ImgUpload"]);
-                (e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
-            }
+        //protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
+        //{
+        //    if (e.Row.RowType == DataControlRowType.DataRow)
+        //    {
+        //        DataRowView dr = (DataRowView)e.Row.DataItem;
+        //        string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])dr["ImgUpload"]);
+        //        (e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
+        //    }
 
-        }
+        //}
 
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {

@@ -2,9 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="server">
 
-    <asp:Image ID="img" runat="server" />
-    <asp:TextBox ID="txt1" runat="server"></asp:TextBox>
-    <asp:TextBox ID="txt2" runat="server"></asp:TextBox>
-    <asp:TextBox ID="txt3" runat="server"></asp:TextBox>
-    <asp:Button ID="Button" runat="server" Text="Button" OnClick="Button_Click" />
+    <asp:FileUpload ID="FileUpload1" runat="server" />
+        <asp:Button ID="btnUpload" runat="server" Text="Upload" OnClick="Upload" />
+       <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+    <asp:TextBox ID="txtDate" runat="server" Enabled="False"></asp:TextBox>
 </asp:Content>

@@ -1,67 +1,44 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Main.Master"  AutoEventWireup="true" CodeBehind="Purchase History.aspx.cs" Inherits="test2.LMY.ASPX.Purchase_History" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="server">
-<style type="text/css">
+<style>
+        .div1{
+            font-family:cursive;
+            text-align:left;
+        }
+        .div2{
+            font-family:cursive;
+            text-align:left;
+        }
+    </style>
+    <div class="div1">
+        <h1>
+            Purchase History
+        </h1>
+    </div>
+     <div class="div1">         
+           <asp:DataList ID="dlHistory" runat="server" HorizontalAlign="Justify" RepeatColumns="3" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound" CellPadding="4" ForeColor="#34ebd2">
+                   <AlternatingItemStyle BackColor="White" ForeColor="#34ebd2" />
+               <FooterStyle BackColor="#5534eb" Font-Bold="True" ForeColor="#f8f7fa" />
+               <HeaderStyle BackColor="#5534eb" Font-Bold="True" ForeColor="#f8f7fa" />
+               <ItemStyle BackColor="#5534eb" ForeColor="#f8f7fa" />
+            <ItemTemplate>
+                ImageName:
+                <asp:Label ID="ImageNameLabel" runat="server" Text='<%# Eval("ImageName") %>' />
+                <br />
+                Image:
+                <asp:Image  Width="320" Height="150" ID="Image1" runat="server" />
+                <br />
+                <br />
+                            
 
-    .img img{
-        padding-top:100px;
-	    width:500px;
-        height: 400px;      
-    }   
-    .img1{
-	    padding-left:200px;
-    }
-    .img2{
-	    padding-left:100px;
-    }
-    .label{
-        text-align:center;
-    }
+            </ItemTemplate>
+               <SelectedItemStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            </asp:DataList>
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [ImageName], [Image] FROM [PurchaseHistory]"></asp:SqlDataSource>
+            <br />
+            <br />
 
-</style>
-
-    <table class="img">
-        <tr><td class="img1">
-            <asp:Image ID="img1" runat="server"/>        
-            <%--<asp:ImageButton ID="imgLove1" runat="server" OnClick="ImageButton1_Click" />--%>
-
-            </td><td class="img2">
-                <asp:Image ID="img2" runat="server" /></td></tr>
-
-        <tr class="label"><td >
-            <asp:Label ID="lblimg1" runat="server" Text=""></asp:Label>
-            <asp:CheckBox ID="CheckBox1" runat="server"  AutoPostBack="True" />
-            
-            </td><td><asp:Label ID="lblimg2" runat="server" Text=""></asp:Label>
-                <asp:CheckBox ID="CheckBox2" runat="server"  AutoPostBack="True" />
-                 </td></tr>
-
-
-
-        <tr><td class="img1">
-            <asp:Image ID="img3" runat="server" />
-            </td><td class="img2">
-                <asp:Image ID="img4" runat="server" /></td></tr>
-
-        <tr class="label"><td>
-            <asp:Label ID="lblimg3" runat="server" Text="Label"></asp:Label>
-            <asp:CheckBox ID="CheckBox3" runat="server" /></td><td>
-                <asp:Label ID="lblimg4" runat="server" Text="Label"></asp:Label>
-                <asp:CheckBox ID="CheckBox4" runat="server" /></td></tr>
-
-
-
-        <tr><td class="img1">
-            <asp:Image ID="img5" runat="server" />
-            </td><td class="img2">
-                <asp:Image ID="img6" runat="server" /></td></tr>
-
-        <tr class="label"><td>
-            <asp:Label ID="lblimg5" runat="server" Text="Label"></asp:Label>
-            <asp:CheckBox ID="CheckBox5" runat="server" /></td><td>
-            <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
-            <asp:CheckBox ID="lblimg6" runat="server" /></td></tr>
-    </table>
-      
+         </div>
 </asp:Content>
 

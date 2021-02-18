@@ -1,7 +1,16 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="uploadImg.aspx.cs" Inherits="test2.TYK.uploadImg" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div>
+
+<style type="text/css">
+    .upload{
+        margin-left:500px;
+    }
+    
+
+</style>
+
+        <div class="upload">
 
             <table>
                 <tr>
@@ -99,4 +108,5 @@
 
             </table>
         </div>
+    </div>
 </asp:Content>

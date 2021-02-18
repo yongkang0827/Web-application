@@ -86,6 +86,7 @@
     <Content Include="HDY\IMG\twitter icon.png" />
     <Content Include="HDY\IMG\youtube icon.png" />
     <Content Include="Home.aspx" />
+    <Content Include="LMY\ASPX\Favourite.aspx" />
     <Content Include="LMY\ASPX\Insert.aspx" />
     <Content Include="LMY\ASPX\Purchase History.aspx" />
     <Content Include="LMY\IMG\Artifact.jpg" />
@@ -148,6 +149,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LMY\ASPX\Favourite.aspx.cs">
+      <DependentUpon>Favourite.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LMY\ASPX\Favourite.aspx.designer.cs">
+      <DependentUpon>Favourite.aspx</DependentUpon>
     </Compile>
     <Compile Include="LMY\ASPX\Insert.aspx.cs">
       <DependentUpon>Insert.aspx</DependentUpon>
