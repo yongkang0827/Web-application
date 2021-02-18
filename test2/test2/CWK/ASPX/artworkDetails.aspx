@@ -54,8 +54,7 @@
     <table class="item">
                 <tr ><td rowspan="2" ><img src="../IMG/Death Masks.jpg" class="img" />
                     </td><td class="name">
-                        <strong>Death Masks<br />
-                        1000.00 MYR</strong></td></tr>
+                        &nbsp;</td></tr>
                 <tr><td class="details">
                     <asp:Button ID="btnAddToCart" runat="server" Text="Add To Cart"  OnClick="btnAddToCart_Click"  CssClass="pdbtn"/>
                     <br />

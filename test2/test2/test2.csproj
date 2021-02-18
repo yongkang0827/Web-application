@@ -73,6 +73,7 @@
     </Content>
     <Content Include="Artist.aspx" />
     <Content Include="cart.aspx" />
+    <Content Include="CWK\ASPX\artworkDetails.aspx" />
     <Content Include="Favourite.aspx" />
     <Content Include="HDY\ASPX\gallery.aspx" />
     <Content Include="HDY\IMG\Artifact.jpg" />
@@ -128,6 +129,13 @@
     </Compile>
     <Compile Include="cart.aspx.designer.cs">
       <DependentUpon>cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CWK\ASPX\artworkDetails.aspx.cs">
+      <DependentUpon>artworkDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CWK\ASPX\artworkDetails.aspx.designer.cs">
+      <DependentUpon>artworkDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Favourite.aspx.cs">
       <DependentUpon>Favourite.aspx</DependentUpon>
@@ -263,6 +271,7 @@
     <Content Include="Web1.sitemap" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="CWK\IMG\" />
     <Folder Include="LHY\ASPX\" />
   </ItemGroup>
   <PropertyGroup>
