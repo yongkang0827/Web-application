@@ -29,16 +29,6 @@ namespace test2.HDY.ASPX
             }
         }
 
-        //protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
-        //{
-        //    if (e.Row.RowType == DataControlRowType.DataRow)
-        //    {
-        //        DataRowView dr = (DataRowView)e.Row.DataItem;
-        //        string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])dr["ImgUpload"]);
-        //        (e.Row.FindControl("Image1") as Image).ImageUrl = imageUrl;
-        //    }
-
-        //}
 
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {
@@ -49,6 +39,9 @@ namespace test2.HDY.ASPX
           
         }
 
-        
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

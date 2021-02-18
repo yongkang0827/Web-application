@@ -42,7 +42,7 @@
 
                                          </td></tr>
                     <tr><td>
-                        <asp:CheckBox ID="checkFa" runat="server" /> Add to fav</td></tr>
+                        <asp:Button ID="btnAdd" runat="server" Text="Favourite" OnClick="btnAdd_Click" /></td></tr>
                </table>
                             
 
