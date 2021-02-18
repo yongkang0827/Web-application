@@ -87,8 +87,10 @@
     <Content Include="HDY\IMG\twitter icon.png" />
     <Content Include="HDY\IMG\youtube icon.png" />
     <Content Include="Home.aspx" />
+    <Content Include="LHY\ASPX\123.jpeg" />
     <Content Include="LHY\ASPX\CreateUser.aspx" />
     <Content Include="LHY\ASPX\login.aspx" />
+    <Content Include="LHY\ASPX\logo.png" />
     <Content Include="LHY\ASPX\user icon.png" />
     <Content Include="LMY\ASPX\Favourite.aspx" />
     <Content Include="LMY\ASPX\Insert.aspx" />

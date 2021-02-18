@@ -22,28 +22,50 @@ namespace test2.LHY.ASPX
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            string strAdd = "Select * From Customer Where Username=@id";
-
-            SqlCommand cmdAdd = new SqlCommand(strAdd, con);
-
-            cmdAdd.Parameters.AddWithValue("@ID", txtUsername.Text);
-            SqlDataReader dtrProd = cmdAdd.ExecuteReader();
-
-            if (dtrProd.HasRows)
+            if (ddlRole.SelectedValue.Equals("Customer"))
             {
-                while (dtrProd.Read())
+                string strAdd = "Select * From Customer Where Username=@ID and Password=@Pass";
+
+                SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+                cmdAdd.Parameters.AddWithValue("@ID", txtUsername.Text);
+                cmdAdd.Parameters.AddWithValue("@Pass", txtPassw.Text);
+                SqlDataReader dtrProd = cmdAdd.ExecuteReader();
+
+                if (dtrProd.HasRows)
                 {
-                    string password = txtPassw.Text;
-                    if (password.Equals(dtrProd["Password"].ToString()))
-                    {
-                        Login = true;
-
-                    }
-
-
-
+                    Response.Redirect("~/Home.aspx");
+                }
+                else
+                {
+                    string msg = "Invalid username or password";
+                    Response.Write("<script>alert('" + msg + "')</script>");
                 }
             }
+            else
+            {
+                string strAdd = "Select * From Artist Where Username=@ID and Password=@Pass";
+
+                SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+                cmdAdd.Parameters.AddWithValue("@ID", txtUsername.Text);
+                cmdAdd.Parameters.AddWithValue("@Pass", txtPassw.Text);
+                SqlDataReader dtrProd = cmdAdd.ExecuteReader();
+
+                if (dtrProd.HasRows)
+                {
+                    Response.Redirect("~/Home.aspx");
+                }
+                else
+                {
+                    string msg = "Invalid username or password";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                }
+            }
+
+
+
+
 
             con.Close();
         }

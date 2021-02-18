@@ -101,7 +101,7 @@
             <tr><td colspan="2">
                 <asp:Label ID="lblUserName" runat="server" Text="User Name"></asp:Label></td></tr>
             <tr><td colspan="2">
-                <asp:TextBox ID="txtUsername" runat="server" class="textfield" placeholder="First name and Last name"></asp:TextBox></td></tr>
+                <asp:TextBox ID="txtUsername" runat="server" class="textfield" placeholder="First name and Last name" AutoPostBack="True" OnTextChanged="txtUsername_TextChanged"></asp:TextBox></td></tr>
             <tr><td colspan="2">
                 <asp:Label ID="lblPhone" runat="server" Text="Phone Number"></asp:Label></td></tr>
             <tr><td colspan="2">
@@ -109,11 +109,11 @@
             <tr><td colspan="2">
                 <asp:Label ID="lblPassw" runat="server" Text="Password" ></asp:Label></td></tr>
             <tr><td colspan="2">
-                <asp:TextBox ID="txtPassw" runat="server" class="pass"></asp:TextBox></td></tr>
+                <asp:TextBox ID="txtPassw" runat="server" TextMode="Password" class="pass"></asp:TextBox></td></tr>
             <tr><td colspan="2">
                 <asp:Label ID="lblComfirmPassw" runat="server" Text=" Comfirm Password" ></asp:Label></td></tr>
             <tr><td colspan="2">
-                <asp:TextBox ID="txtComfirmPassw" runat="server" class="pass"></asp:TextBox></td></tr>
+                <asp:TextBox ID="txtComfirmPassw" runat="server" TextMode="Password" class="pass"></asp:TextBox></td></tr>
             <tr><td colspan="2">
                 <asp:DropDownList ID="ddlRole" runat="server" class="ddlRole">
                     <asp:ListItem>Customer</asp:ListItem>

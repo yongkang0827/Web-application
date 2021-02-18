@@ -13,7 +13,7 @@ namespace test2.LHY.ASPX
     {
         // create connection -> sampleDB
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-        string CustomerID;
+        string CustomerID, ArtistID;
         protected void Page_Load(object sender, EventArgs e)
         {
             con.Open();
@@ -22,28 +22,119 @@ namespace test2.LHY.ASPX
 
         protected void btnCreate_Click(object sender, EventArgs e)
         {
-            string strAdd = "INSERT INTO Customer VALUES(@ID, @name, @phone,@pass)";
+            if (ddlRole.SelectedValue.Equals("Customer"))
+            {
+                string strAdd = "INSERT INTO Customer VALUES(@ID, @name, @phone,@pass)";
 
-            SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+                SqlCommand cmdAdd = new SqlCommand(strAdd, con);
 
-            cmdAdd.Parameters.AddWithValue("@ID", CustomerID);
+                cmdAdd.Parameters.AddWithValue("@ID", CustomerID);
 
-            cmdAdd.Parameters.AddWithValue("@name", txtUsername.Text);
+                cmdAdd.Parameters.AddWithValue("@name", txtUsername.Text);
 
-            cmdAdd.Parameters.AddWithValue("@phone", txtPhone.Text);
+                cmdAdd.Parameters.AddWithValue("@phone", txtPhone.Text);
+                if (txtComfirmPassw.Text.Equals(txtPassw.Text))
+                {
+                    cmdAdd.Parameters.AddWithValue("@pass", txtPassw.Text);
+                    string msg = "Register succesfully";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                    cmdAdd.ExecuteNonQuery();
+                }
+                else
+                {
+                    string msg = "Password does not match";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                    txtPassw.Text = "";
+                    txtComfirmPassw.Text = "";
 
-            cmdAdd.Parameters.AddWithValue("@pass", txtPassw.Text);
+                }
 
-            cmdAdd.ExecuteNonQuery();
+            }
+            else
+            {
+                string strAdd = "INSERT INTO Artist VALUES(@ID, @name, @phone,@pass)";
+
+                SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+                cmdAdd.Parameters.AddWithValue("@ID", ArtistID);
+
+                cmdAdd.Parameters.AddWithValue("@name", txtUsername.Text);
+
+                cmdAdd.Parameters.AddWithValue("@phone", txtPhone.Text);
+
+                if (txtComfirmPassw.Text.Equals(txtPassw.Text))
+                {
+                    cmdAdd.Parameters.AddWithValue("@pass", txtPassw.Text);
+                    string msg = "Register succesfully";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                    cmdAdd.ExecuteNonQuery();
+
+                }
+                else
+                {
+                    string msg = "Password does not match";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                    txtPassw.Text = "";
+                    txtComfirmPassw.Text = "";
+
+                }
+
+            }
             con.Close();
         }
 
+        protected void txtUsername_TextChanged(object sender, EventArgs e)
+        {
+            if (ddlRole.SelectedValue.Equals("Customer"))
+            {
+                string strAdd = "Select * From Customer Where Username=@ID ";
+
+                SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+                cmdAdd.Parameters.AddWithValue("@ID", txtUsername.Text);
+                SqlDataReader dtrProd = cmdAdd.ExecuteReader();
+
+                if (dtrProd.HasRows)
+                {
+                    string msg = "Username already exist";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                }
+
+            }
+            else
+            {
+                string strAdd = "Select * From Artist Where Username=@ID ";
+
+                SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+                cmdAdd.Parameters.AddWithValue("@ID", txtUsername.Text);
+                SqlDataReader dtrProd = cmdAdd.ExecuteReader();
+
+                if (dtrProd.HasRows)
+                {
+                    string msg = "Username already exist";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                }
+            }
+        }
+    
+
         private void GenerateId()
         {
-            SqlCommand cmdId = new SqlCommand("Select Count(CustID) FROM Customer", con);
-            int i = Convert.ToInt32(cmdId.ExecuteScalar());
-            i++;
-            CustomerID = "CO" + i.ToString();
+            if (ddlRole.SelectedValue.Equals("Customer"))
+            {
+                SqlCommand cmdId = new SqlCommand("Select Count(CustID) FROM Customer", con);
+                int i = Convert.ToInt32(cmdId.ExecuteScalar());
+                i++;
+                CustomerID = "CO" + i.ToString();
+            }
+            else
+            {
+                SqlCommand cmdId = new SqlCommand("Select Count(ArtistID) FROM Artist", con);
+                int i = Convert.ToInt32(cmdId.ExecuteScalar());
+                i++;
+                ArtistID = "A0" + i.ToString();
+            }
         }
     }
 }

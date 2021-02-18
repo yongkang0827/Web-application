@@ -102,7 +102,7 @@
             <tr><td colspan="2">
                 <asp:Label ID="lblPassw" runat="server" Text="Password" ></asp:Label></td></tr>
             <tr><td colspan="2">
-                <asp:TextBox ID="txtPassw" runat="server" class="pass"></asp:TextBox></td></tr>
+                <asp:TextBox ID="txtPassw" runat="server" TextMode="Password" class="pass"></asp:TextBox></td></tr>
             <tr><td colspan="2">
                 <asp:DropDownList ID="ddlRole" runat="server" class="ddlRole">
                     <asp:ListItem>Customer</asp:ListItem>
