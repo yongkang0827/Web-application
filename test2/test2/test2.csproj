@@ -87,6 +87,9 @@
     <Content Include="HDY\IMG\twitter icon.png" />
     <Content Include="HDY\IMG\youtube icon.png" />
     <Content Include="Home.aspx" />
+    <Content Include="LHY\ASPX\CreateUser.aspx" />
+    <Content Include="LHY\ASPX\login.aspx" />
+    <Content Include="LHY\ASPX\user icon.png" />
     <Content Include="LMY\ASPX\Favourite.aspx" />
     <Content Include="LMY\ASPX\Insert.aspx" />
     <Content Include="LMY\ASPX\Purchase History.aspx" />
@@ -103,8 +106,6 @@
     <Content Include="LMY\IMG\Torso of a Woman.jpg" />
     <Content Include="LMY\IMG\twitter icon.png" />
     <Content Include="LMY\IMG\youtube icon.png" />
-    <Content Include="LHY\login.aspx" />
-    <Content Include="LHY\LogOut.aspx" />
     <Content Include="map.aspx" />
     <Content Include="policy.aspx" />
     <Content Include="Customer.aspx" />
@@ -158,6 +159,20 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LHY\ASPX\CreateUser.aspx.cs">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LHY\ASPX\CreateUser.aspx.designer.cs">
+      <DependentUpon>CreateUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LHY\ASPX\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LHY\ASPX\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LMY\ASPX\Favourite.aspx.cs">
       <DependentUpon>Favourite.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -178,20 +193,6 @@
     </Compile>
     <Compile Include="LMY\ASPX\Purchase History.aspx.designer.cs">
       <DependentUpon>Purchase History.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LHY\login.aspx.cs">
-      <DependentUpon>login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LHY\login.aspx.designer.cs">
-      <DependentUpon>login.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="LHY\LogOut.aspx.cs">
-      <DependentUpon>LogOut.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="LHY\LogOut.aspx.designer.cs">
-      <DependentUpon>LogOut.aspx</DependentUpon>
     </Compile>
     <Compile Include="map.aspx.cs">
       <DependentUpon>map.aspx</DependentUpon>
@@ -272,7 +273,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CWK\IMG\" />
-    <Folder Include="LHY\ASPX\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
