@@ -25,8 +25,7 @@
             <ItemTemplate>
                 ImageName:
                 <asp:Label ID="ImageNameLabel" runat="server" Text='<%# Eval("ImageName") %>' />
-                <br />
-                Image:
+                <br /><br />
                 <asp:Image  Width="320" Height="150" ID="Image1" runat="server" />
                 <br />
                 <br />

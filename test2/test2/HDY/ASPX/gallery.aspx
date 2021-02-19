@@ -23,6 +23,7 @@
                <ItemStyle BackColor="#5534eb" ForeColor="#f8f7fa" />
             <ItemTemplate>
                 <table>
+                    <tr><td><%# Eval("PostId") %></td></tr>
                     <tr>
                        <td> <%# Eval("Title") %></td>
                     </tr>
@@ -42,7 +43,7 @@
 
                                          </td></tr>
                     <tr><td>
-                        <asp:CheckBox ID="checkFa" runat="server" /> Add to fav</td></tr>
+                        <asp:Button ID="btnAdd" runat="server" Text="Favourite" OnClick="btnAdd_Click" /></td></tr>
                </table>
                             
 
