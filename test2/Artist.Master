@@ -193,7 +193,7 @@
 		</div>
 	</div>	
         <div class="content">
-								<div class="login">
+			<div class="login">
 			<asp:Label ID="lblCustOrArt" runat="server" Text="Label"></asp:Label>
 			<asp:Label ID="lblName" runat="server" Text="Label"></asp:Label>
 				</div>

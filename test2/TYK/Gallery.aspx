@@ -10,19 +10,6 @@
     }
 </style>
         <div>
-<!--          <asp:GridView ID="GridGallery" runat="server" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound" AllowSorting="True" BorderStyle="Groove" RowHeaderColumn="Title">
-                <Columns>
-                    <asp:TemplateField HeaderText="Image">
-                        <ItemTemplate>
-                            <asp:Image  Width="400" Height="120" ID="Image1" runat="server" />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                    <asp:BoundField DataField="Title" HeaderText="Title" />
-                    <asp:BoundField DataField="Quantity" HeaderText="Quantity remaining" />
-                    <asp:BoundField DataField="Description" HeaderText="Description" />
-                </Columns>
-            </asp:GridView>
--->            
            <asp:DataList ID="DataList1" runat="server" HorizontalAlign="Justify" RepeatColumns="3" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound" CellPadding="4" ForeColor="#333333">
                <AlternatingItemStyle BackColor="White" ForeColor="#284775" />
                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

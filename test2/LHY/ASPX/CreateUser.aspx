@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CreateUser.aspx.cs" Inherits="test2.LHY.ASPX.CreateUser" %>
+﻿<%@ Page Language="C#" Debug="true" AutoEventWireup="true" CodeBehind="CreateUser.aspx.cs" Inherits="test2.LHY.ASPX.CreateUser" %>
 
 <!DOCTYPE html>
 
