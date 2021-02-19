@@ -23,6 +23,7 @@
                <ItemStyle BackColor="#5534eb" ForeColor="#f8f7fa" />
             <ItemTemplate>
                 <table>
+                    <tr><td><%# Eval("PostId") %></td></tr>
                     <tr>
                        <td> <%# Eval("Title") %></td>
                     </tr>

@@ -198,10 +198,10 @@
 			<div class="fleft">
 			<ul>
 				
-				<li><a href="contact.aspx">Contact Us</a></li>
-				<li><a href="terms.aspx">Terms and Condition</a></li>
-				<li><a href="policy.aspx">Policy and Condition</a></li>
-				<li><a href="map.aspx">Map</a></li>
+				<li><a href="~/Master/ASPX/contact.aspx">Contact Us</a></li>
+				<li><a href="~/Master/ASPX/terms.aspx">Terms and Condition</a></li>
+				<li><a href="~/Master/ASPX/policy.aspx">Policy and Condition</a></li>
+				<li><a href="~/Master/ASPX/map.aspx">Map</a></li>
 				
 			</ul>
 			</div>

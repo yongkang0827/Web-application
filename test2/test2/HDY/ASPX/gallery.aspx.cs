@@ -49,7 +49,6 @@ namespace test2.HDY.ASPX
         {
             SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO10";
-
             sdi.Parameters.AddWithValue("@PostId", id);
             SqlDataReader dtrProd = sdi.ExecuteReader();
 
@@ -79,6 +78,8 @@ namespace test2.HDY.ASPX
                 
                 favourite.ExecuteNonQuery();
                 con.Close();
+
+                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
             }
         }
 

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
   <siteMapNode url="" title="Menu"  description="">
-    <siteMapNode url="Home.aspx" title="Home"  description="" />
+    <siteMapNode url="~/Master/ASPX/Home.aspx" title="Home"  description="" />
 
 	  <siteMapNode url="Artist.aspx" title="Artist"  description="" >
 		<siteMapNode url="~/TYK/Gallery.aspx" title="My Gallery"  description="" />
@@ -14,7 +14,7 @@
       <siteMapNode url="~/HDY/ASPX/gallery.aspx" title="Galleries"  description="" />
 	</siteMapNode>
 	  
-    <siteMapNode url="aboutus.aspx" title="About Us"  description="" />
+    <siteMapNode url="~/Master/ASPX/aboutus.aspx" title="About Us"  description="" />
 	  <siteMapNode url="LogOut.aspx" title="Log Out"  description="" />
   </siteMapNode>
 
