@@ -48,7 +48,7 @@ namespace test2.LHY.ASPX
                     cmdLogin.ExecuteNonQuery();
                     con.Close();
 
-                    Response.Redirect("~/Master/ASPX/Home.aspx");
+                    Response.Redirect("~/Master/ASPX/custHome.aspx");
                 }
                 else
                 {
@@ -80,7 +80,7 @@ namespace test2.LHY.ASPX
                     cmdLogin.ExecuteNonQuery();
                     con.Close();
 
-                    Response.Redirect("~/Master/ASPX/Home.aspx");
+                    Response.Redirect("~/Master/ASPX/artistHome.aspx");
                 }
                 else
                 {

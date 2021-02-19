@@ -72,6 +72,7 @@
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
     <Content Include="Artist.aspx" />
+    <Content Include="Master\ASPX\artistHome.aspx" />
     <Content Include="Master\ASPX\cart.aspx" />
     <Content Include="CWK\ASPX\artworkDetails.aspx" />
     <Content Include="Favourite.aspx" />
@@ -86,12 +87,12 @@
     <Content Include="HDY\IMG\Torso of a Woman.jpg" />
     <Content Include="HDY\IMG\twitter icon.png" />
     <Content Include="HDY\IMG\youtube icon.png" />
-    <Content Include="Master\ASPX\Home.aspx" />
-    <Content Include="LHY\ASPX\123.jpeg" />
+    <Content Include="Master\ASPX\custHome.aspx" />
+    <Content Include="LHY\IMG\123.jpeg" />
     <Content Include="LHY\ASPX\CreateUser.aspx" />
     <Content Include="LHY\ASPX\login.aspx" />
-    <Content Include="LHY\ASPX\logo.png" />
-    <Content Include="LHY\ASPX\user icon.png" />
+    <Content Include="LHY\IMG\logo.png" />
+    <Content Include="LHY\IMG\user icon.png" />
     <Content Include="LMY\ASPX\Favourite.aspx" />
     <Content Include="LMY\ASPX\Insert.aspx" />
     <Content Include="LMY\ASPX\Purchase History.aspx" />
@@ -112,6 +113,13 @@
     <Content Include="Master\ASPX\policy.aspx" />
     <Content Include="Master\ASPX\terms.aspx" />
     <Content Include="Customer.aspx" />
+    <Content Include="Master\IMG\1.jpg" />
+    <Content Include="Master\IMG\2.jpg" />
+    <Content Include="Master\IMG\3.jpg" />
+    <Content Include="Master\IMG\4.jpg" />
+    <Content Include="Master\IMG\5.jpg" />
+    <Content Include="Master\IMG\sample1.jpg" />
+    <Content Include="Master\IMG\sample2.jpg" />
     <Content Include="TYK\Gallery.aspx" />
     <Content Include="TYK\uploadImg.aspx" />
     <Content Include="Web.config" />
@@ -132,6 +140,13 @@
     </Compile>
     <Compile Include="Artist.Master.designer.cs">
       <DependentUpon>Artist.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Master\ASPX\artistHome.aspx.cs">
+      <DependentUpon>artistHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\ASPX\artistHome.aspx.designer.cs">
+      <DependentUpon>artistHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master\ASPX\cart.aspx.cs">
       <DependentUpon>cart.aspx</DependentUpon>
@@ -161,12 +176,12 @@
     <Compile Include="HDY\ASPX\gallery.aspx.designer.cs">
       <DependentUpon>gallery.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Master\ASPX\Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="Master\ASPX\custHome.aspx.cs">
+      <DependentUpon>custHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Master\ASPX\Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="Master\ASPX\custHome.aspx.designer.cs">
+      <DependentUpon>custHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="LHY\ASPX\CreateUser.aspx.cs">
       <DependentUpon>CreateUser.aspx</DependentUpon>

@@ -6,7 +6,7 @@
 <head runat="server">
      <style>
         body{
-            background-image:url('123.jpeg');
+            background-image:url("../IMG/123.jpeg");
             background-repeat:no-repeat;
             background-attachment:fixed;
             background-size: 100% 100%;
@@ -88,13 +88,13 @@
 </head>
 <body>
     <div class="header">
-        <img src="logo.png" class="imgSize"/>
+        <img src="../IMG/logo.png" class="imgSize"/>
     </div>
 
    <form runat="server">
         <table class="form">
             <tr><td colspan="2">
-                <img src="user%20icon.png" class="imgSize2"/></td></tr>
+                <img src="../IMG/user icon.png" class="imgSize2"/></td></tr>
             <tr><td colspan="2">
                 <asp:Label ID="lblUserName" runat="server" Text="User Name"></asp:Label></td></tr>
             <tr><td colspan="2">

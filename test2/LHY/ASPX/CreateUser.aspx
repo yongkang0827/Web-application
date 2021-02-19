@@ -6,7 +6,7 @@
 <head runat="server">
      <style>
         body{
-            background-image:url('123.jpeg');
+            background-image:url("../IMG/123.jpeg");
             background-repeat:no-repeat;
             background-attachment:fixed;
             background-size: 100% 100%;
@@ -93,7 +93,7 @@
 </head>
 <body>
     <div class="header">
-        <img src="logo.png" class="imgSize"/>
+        <img src="../IMG/logo.png" class="imgSize"/>
     </div>
 
    <form runat="server">
@@ -121,7 +121,7 @@
                 </asp:DropDownList></td></tr>
             <tr><td colspan="2">
                 <asp:CheckBoxList ID="cblTNC" runat="server">
-                    <asp:ListItem>Agree to <a href="">Terms and Condition</asp:ListItem>
+                    <asp:ListItem>Agree to Terms and Condition</asp:ListItem>
                 </asp:CheckBoxList></td></tr>
             <tr><td colspan="2">
                 <asp:Button ID="btnCreate" runat="server" Text="Create User" class="buttonCreate" OnClick="btnCreate_Click"/></td></tr>
