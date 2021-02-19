@@ -6,10 +6,11 @@
         .div1{
             font-family:cursive;
             text-align:left;
-        }
-        .div2{
-            font-family:cursive;
-            text-align:left;
+            border-width:1px;    
+            border-color:Black;    
+            border-style:solid;    
+            background-color: #E3E3E3; 
+            padding:5px 10px 30px 30px;
         }
     </style>
     <div class="div1">
@@ -19,10 +20,10 @@
     </div>
      <div class="div1">         
            <asp:DataList ID="dlFavourite" runat="server" HorizontalAlign="Justify" RepeatColumns="3" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound" CellPadding="4" ForeColor="#34ebd2">
-                   <AlternatingItemStyle BackColor="White" ForeColor="#34ebd2" />
-               <FooterStyle BackColor="#5534eb" Font-Bold="True" ForeColor="#f8f7fa" />
-               <HeaderStyle BackColor="#5534eb" Font-Bold="True" ForeColor="#f8f7fa" />
-               <ItemStyle BackColor="#5534eb" ForeColor="#f8f7fa" />
+               <AlternatingItemStyle BackColor="White" ForeColor="#284775" />
+               <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+               <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+               <ItemStyle BackColor="#F7F6F3" ForeColor="#333333" />
             <ItemTemplate>
                 ImageName:
                 <asp:Label ID="ImageNameLabel" runat="server" Text='<%# Eval("ImageName") %>' />
@@ -38,6 +39,5 @@
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT [ImageName], [Image] FROM [PurchaseHistory]"></asp:SqlDataSource>
             <br />
             <br />
-<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
          </div>
 </asp:Content>

@@ -66,6 +66,9 @@
 			padding-left:85%;
 			font-weight:bold;
 			font-size:small;
+			font-size:large;
+			color:brown;
+			font-family:cursive;
 		}
 
 

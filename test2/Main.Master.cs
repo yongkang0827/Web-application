@@ -35,7 +35,7 @@ namespace test2
                 {
                     name = dtrProd["CustOrArt"].ToString();
                     //Transfer data to header
-                    lblCustOrArt.Text = dtrProd["CustOrArt"].ToString() + " = ";
+                    lblCustOrArt.Text = dtrProd["CustOrArt"].ToString() + " : ";
                     lblName.Text = dtrProd["Username"].ToString();
                 }               
             }

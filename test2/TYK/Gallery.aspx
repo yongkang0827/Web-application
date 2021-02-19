@@ -8,7 +8,16 @@
         border-color:black;    
         width:230px;
     }
+    .div1{
+            font-family:cursive;
+            text-align:left;
+        }
 </style>
+    <div class="div1">
+        <h1>
+            My Gallery
+        </h1>
+    </div>
         <div>
            <asp:DataList ID="DataList1" runat="server" HorizontalAlign="Justify" RepeatColumns="3" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound" CellPadding="4" ForeColor="#333333">
                <AlternatingItemStyle BackColor="White" ForeColor="#284775" />

@@ -12,7 +12,6 @@ namespace test2.LHY.ASPX
 {
     public partial class login : System.Web.UI.Page
     {
-        bool Login = false;
         char CustOrArt;
 
         // create connection -> sampleDB

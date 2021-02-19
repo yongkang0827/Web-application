@@ -71,11 +71,9 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
-    <Content Include="Artist.aspx" />
     <Content Include="Master\ASPX\artistHome.aspx" />
     <Content Include="Master\ASPX\cart.aspx" />
     <Content Include="CWK\ASPX\artworkDetails.aspx" />
-    <Content Include="Favourite.aspx" />
     <Content Include="HDY\ASPX\gallery.aspx" />
     <Content Include="HDY\IMG\Artifact.jpg" />
     <Content Include="HDY\IMG\Death Masks.jpg" />
@@ -112,7 +110,6 @@
     <Content Include="Master\ASPX\map.aspx" />
     <Content Include="Master\ASPX\policy.aspx" />
     <Content Include="Master\ASPX\terms.aspx" />
-    <Content Include="Customer.aspx" />
     <Content Include="Master\IMG\1.jpg" />
     <Content Include="Master\IMG\2.jpg" />
     <Content Include="Master\IMG\3.jpg" />
@@ -127,13 +124,6 @@
     <Content Include="Master\ASPX\contact.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Artist.aspx.cs">
-      <DependentUpon>Artist.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Artist.aspx.designer.cs">
-      <DependentUpon>Artist.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Artist.Master.cs">
       <DependentUpon>Artist.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -161,13 +151,6 @@
     </Compile>
     <Compile Include="CWK\ASPX\artworkDetails.aspx.designer.cs">
       <DependentUpon>artworkDetails.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Favourite.aspx.cs">
-      <DependentUpon>Favourite.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Favourite.aspx.designer.cs">
-      <DependentUpon>Favourite.aspx</DependentUpon>
     </Compile>
     <Compile Include="HDY\ASPX\gallery.aspx.cs">
       <DependentUpon>gallery.aspx</DependentUpon>
@@ -246,13 +229,6 @@
     </Compile>
     <Compile Include="Main.Master.designer.cs">
       <DependentUpon>Main.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Customer.aspx.cs">
-      <DependentUpon>Customer.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customer.aspx.designer.cs">
-      <DependentUpon>Customer.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master\ASPX\aboutus.aspx.cs">
       <DependentUpon>aboutus.aspx</DependentUpon>
