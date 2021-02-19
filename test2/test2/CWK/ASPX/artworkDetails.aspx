@@ -52,7 +52,9 @@
     </style>
 
     <table class="item">
-                <tr ><td rowspan="2" ><img src="../IMG/Death Masks.jpg" class="img" />
+                <tr ><td rowspan="2" >
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+                    <img src="../IMG/Death Masks.jpg" class="img" />
                     </td><td class="name">
                         &nbsp;</td></tr>
                 <tr><td class="details">
