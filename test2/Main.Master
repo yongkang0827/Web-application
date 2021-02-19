@@ -61,6 +61,13 @@
 			font-size: 1.1em;
 			padding: 13px 17px;
 		}
+		
+		.login{
+			padding-left:85%;
+			font-weight:bold;
+			font-size:small;
+		}
+
 
 		.footerBackground{			
 			font-family:cursive;
@@ -179,11 +186,14 @@
 			</LevelMenuItemStyles>
 
         </asp:Menu>
-			<asp:Label ID="lblCustOrArt" runat="server" Text="Label"></asp:Label>
-			<asp:Label ID="lblName" runat="server" Text="Label"></asp:Label>
 		</div>
 	</div>	
         <div >
+			<div class="login">
+			<asp:Label ID="lblCustOrArt" runat="server" Text="Label"></asp:Label>
+			<asp:Label ID="lblName" runat="server" Text="Label"></asp:Label>
+				</div>
+
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
         </div>
