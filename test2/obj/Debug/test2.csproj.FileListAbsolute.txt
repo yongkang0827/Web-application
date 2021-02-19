@@ -647,6 +647,7 @@ C:\Users\Yeu\Downloads\Web-application-master\Web-application-master\test2\test2
 C:\Users\Yeu\Downloads\Web-application-master\Web-application-master\test2\test2\obj\Debug\test2.csproj.CopyComplete
 C:\Users\Yeu\Downloads\Web-application-master\Web-application-master\test2\test2\obj\Debug\test2.dll
 C:\Users\Yeu\Downloads\Web-application-master\Web-application-master\test2\test2\obj\Debug\test2.pdb
+<<<<<<< HEAD:test2/obj/Debug/test2.csproj.FileListAbsolute.txt
 <<<<<<< HEAD:Web-application-master/Web-application-master/test2/test2/obj/Debug/test2.csproj.FileListAbsolute.txt
 C:\Users\User\Desktop\test2\New folder\Web-application-master\Web-application-master\test2\test2\bin\test2.dll.config
 C:\Users\User\Desktop\test2\New folder\Web-application-master\Web-application-master\test2\test2\bin\test2.dll
@@ -827,3 +828,5 @@ C:\Users\user\Documents\GitHub\Web-application\test2\obj\Debug\test2.csproj.Copy
 C:\Users\user\Documents\GitHub\Web-application\test2\obj\Debug\test2.dll
 C:\Users\user\Documents\GitHub\Web-application\test2\obj\Debug\test2.pdb
 >>>>>>> 35db90a7ba9d7feae032155984c865349ad1c4bc:test2/obj/Debug/test2.csproj.FileListAbsolute.txt
+=======
+>>>>>>> parent of 9b853bb (details update):Web-application-master/Web-application-master/test2/test2/obj/Debug/test2.csproj.FileListAbsolute.txt
