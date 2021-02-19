@@ -4,28 +4,13 @@
     .item {
         font-family:cursive;
         height:400px;
-        width:800px;
+        width:100%;
         margin-left:auto;
         margin-right:auto;
         
     }
 
-    .name{
-        font-family: cursive;
-        font-size:x-large;
-        text-align: left;
-        float: left;
-        height:100px;
-        width: 500px;
-    }
-
-    .details {
-            font-family: cursive;
-            text-align: left;
-            float: left;
-            width: 500px;
-            height: 300px;
-     }
+      
      .status{
             font-family:cursive;
             font-size:small;
@@ -43,19 +28,41 @@
             font-family:cursive;
        }
         
-      .img{
-          height:400px;
-          width:415px;
-      }
-       
+      
+      .detailsview{
+          height:200px;
+          width: 100%;
+      } 
 
     </style>
 
     <table class="item">
-                <tr ><td rowspan="2" ><img src="../IMG/Death Masks.jpg" class="img" />
-                    </td><td class="name">
-                        &nbsp;</td></tr>
-                <tr><td class="details">
+                <tr ><td >
+                    <asp:Image ID="Image1" runat="server" />
+                    </td><td>
+                        <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" CellPadding="4" DataKeyNames="PostId" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" CssClass="detailsview" >
+                            <AlternatingRowStyle BackColor="White" />
+                            <CommandRowStyle BackColor="#D1DDF1" Font-Bold="True" />
+                            <EditRowStyle BackColor="#2461BF" />
+                            <FieldHeaderStyle BackColor="#DEE8F5" Font-Bold="True" />
+                            <Fields>
+                                <asp:BoundField DataField="PostId" HeaderText="PostId" ReadOnly="True" SortExpression="PostId" />
+                                <asp:BoundField DataField="Title" HeaderText="Title" SortExpression="Title" />
+                                <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                                <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
+                                <asp:BoundField DataField="DateUpload" HeaderText="DateUpload" SortExpression="DateUpload" />
+                                <asp:BoundField DataField="ArtistId" HeaderText="ArtistId" SortExpression="ArtistId" />
+                                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+                            </Fields>
+                            <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
+                            <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
+                            <RowStyle BackColor="#EFF3FB" />
+                        </asp:DetailsView>
+                        <br />
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Img]"></asp:SqlDataSource>
+                    </td></tr>
+                <tr><td></td><td class="details">
                     <asp:Button ID="btnAddToCart" runat="server" Text="Add To Cart"  OnClick="btnAddToCart_Click"  CssClass="pdbtn"/>
                     <br />
                     <br />
