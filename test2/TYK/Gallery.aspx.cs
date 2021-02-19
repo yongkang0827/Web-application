@@ -13,15 +13,15 @@ namespace test2.TYK
     public partial class Gallery : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
-        String ArtistID;
+        String ArtistName;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetArtistID();
+            GetArtistName();
             con.Open();
             if (!this.IsPostBack)
             {
-                String query = "SELECT * FROM Img WHERE ArtistId LIKE'" + ArtistID + "%'";
+                String query = "SELECT * FROM Img WHERE ArtistName LIKE'" + ArtistName + "%'";
 
                 SqlDataAdapter sda = new SqlDataAdapter(query, con);
 
@@ -34,7 +34,7 @@ namespace test2.TYK
 
         }
 
-        protected void GetArtistID()
+        protected void GetArtistName()
         {
             ////Get Now is who webpage
             con.Open();
@@ -53,13 +53,14 @@ namespace test2.TYK
             {
                 while (dtrProd.Read())
                 {
-                    ArtistID = dtrProd["Id"].ToString();
+                    ArtistName = dtrProd["Username"].ToString();
                 }
             }
             con.Close();
+        
         }
 
-        protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
+    protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {
             
  //           if (e.Item.ItemType == ListItemType.Item)

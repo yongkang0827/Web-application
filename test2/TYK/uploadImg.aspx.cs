@@ -13,20 +13,20 @@ namespace test2.TYK
 {
     public partial class uploadImg : System.Web.UI.Page
     {
-        String ArtistID;
+        String ArtistName;
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetArtistID();
+            GetArtistName();
             con.Open();
             GenerateId();
-            String query = "SELECT * FROM Img WHERE ArtistId LIKE'" + ArtistID + "%'";
+            String query = "SELECT * FROM Img WHERE ArtistName LIKE'" + ArtistName + "%'";
             SqlDataAdapter sda = new SqlDataAdapter(query, con);
             if (IsPostBack == false)
             {
                 txtDate.Text = DateTime.Now.ToString();
-                txtArtist.Text = ArtistID;
+                txtArtist.Text = ArtistName;
             }
         }
 
@@ -70,7 +70,7 @@ namespace test2.TYK
             FileUpload1.Dispose();
         }
 
-        protected void GetArtistID()
+        protected void GetArtistName()
         {
             ////Get Now is who webpage
             con.Open();
@@ -89,10 +89,11 @@ namespace test2.TYK
             {
                 while (dtrProd.Read())
                 {
-                    ArtistID = dtrProd["Id"].ToString();
+                    ArtistName = dtrProd["Username"].ToString();
                 }
             }
             con.Close();
+
         }
 
 
