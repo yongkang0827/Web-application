@@ -46,710 +46,122 @@ namespace test2.HDY.ASPX
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
-            String id = "PO10";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
-        }
+            string id = "PO10";
+            AddFavourite(id);
+        } 
 
         protected void btnFav1_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO1";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav2_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO10";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);  
         }
 
         protected void btnFav3_Click(object sender, EventArgs e)
-        {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
+        {           
             String id = "PO11";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav4_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO12";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav5_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO13";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav6_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO14";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav7_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO15";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav8_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO16";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav9_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO17";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav10_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO18";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav11_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO2";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav12_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO3";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav13_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO4";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav14_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO5";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav15_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO6";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav16_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO7";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav17_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO8";
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-                con.Open();
-
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
-
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                favourite.ExecuteNonQuery();
-                con.Close();
-
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
-            }
+            AddFavourite(id);
         }
 
         protected void btnFav18_Click(object sender, EventArgs e)
         {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = "PO9";
+            AddFavourite(id);
+        }
+
+        public void AddFavourite(string favid)
+        {
+            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
+            String id = favid;
             sdi.Parameters.AddWithValue("@PostId", id);
             SqlDataReader dtrProd = sdi.ExecuteReader();
 

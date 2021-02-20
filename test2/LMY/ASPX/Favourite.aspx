@@ -6,11 +6,6 @@
         .div1{
             font-family:cursive;
             text-align:left;
-            border-width:1px;    
-            border-color:Black;    
-            border-style:solid;    
-            background-color: #E3E3E3; 
-            padding:5px 10px 30px 30px;
         }
     </style>
     <div class="div1">
