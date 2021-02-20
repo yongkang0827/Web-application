@@ -3,7 +3,7 @@
 	<siteMapNode url="" title="Menu"  description="">
 		<siteMapNode url="~/Master/ASPX/artistHome.aspx" title="Home"  description="" />
 
-		<siteMapNode url="~/TYK/Gallery.aspx" title="Artist"  description="">
+		<siteMapNode url="~/TYK/Gallery.aspx" title="My Gallery"  description="">
 			<siteMapNode url="~/TYK/uploadImg.aspx" title="Add new Image"  description=""/>
 		</siteMapNode>
 
