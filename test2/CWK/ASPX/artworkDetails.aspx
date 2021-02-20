@@ -4,7 +4,7 @@
     .item {
         font-family:cursive;
         height:400px;
-        width:100%;
+        width:80%;
         margin-left:auto;
         margin-right:auto;
         
@@ -31,14 +31,14 @@
       
       .detailsview{
           height:200px;
-          width: 100%;
+          width: 80%;
       } 
 
     </style>
 
     <table class="item">
                 <tr ><td >
-                    <asp:Image ID="Image1" runat="server" />
+                    <asp:Image ID="Image1" runat="server"/>
                     </td><td>
                         <asp:DetailsView ID="DetailsView1" runat="server" AutoGenerateRows="False" CellPadding="4" DataKeyNames="PostId" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" CssClass="detailsview" >
                             <AlternatingRowStyle BackColor="White" />
@@ -51,7 +51,7 @@
                                 <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
                                 <asp:BoundField DataField="Quantity" HeaderText="Quantity" SortExpression="Quantity" />
                                 <asp:BoundField DataField="DateUpload" HeaderText="DateUpload" SortExpression="DateUpload" />
-                                <asp:BoundField DataField="ArtistId" HeaderText="ArtistId" SortExpression="ArtistId" />
+                                <asp:BoundField DataField="ArtistName" HeaderText="ArtistName" SortExpression="ArtistName" />
                                 <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
                             </Fields>
                             <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
