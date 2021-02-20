@@ -17,6 +17,7 @@
         .auto-style3 {
             width: 320px;
         }
+        
        .div3{
             left:780px;
             top:700px;
@@ -185,7 +186,7 @@
            
 
          </div>
-
+    <div class="btnPosition">
           <div class="div3">
          <table>
              <tr><td><asp:Button ID="btnOrder1" runat="server" Text="Order" />
@@ -341,5 +342,5 @@
                 </tr>
             </table>
         </div>
-
+    </div>
 </asp:Content>
