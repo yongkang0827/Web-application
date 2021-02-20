@@ -183,23 +183,46 @@ namespace test2.HDY.ASPX
                 }
 
                 con.Close();
-                con.Open();
 
-                string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand favourite = new SqlCommand(add, con);
+                if (HaveFavouriteRow())
+                {
+                    con.Open();
 
-                favourite.Parameters.AddWithValue("@id", favourite_id);
-                favourite.Parameters.AddWithValue("@cust", custname);
-                favourite.Parameters.AddWithValue("@name", title);
-                favourite.Parameters.AddWithValue("@photo", img);
-                favourite.Parameters.AddWithValue("@price", price);
-                favourite.Parameters.AddWithValue("@CustName", CustomerName);
+                    string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
+                    SqlCommand favourite = new SqlCommand(add, con);
 
-                favourite.ExecuteNonQuery();
-                con.Close();
+                    favourite.Parameters.AddWithValue("@id", favourite_id);
+                    favourite.Parameters.AddWithValue("@cust", custname);
+                    favourite.Parameters.AddWithValue("@name", title);
+                    favourite.Parameters.AddWithValue("@photo", img);
+                    favourite.Parameters.AddWithValue("@price", price);
+                    favourite.Parameters.AddWithValue("@CustName", CustomerName);
 
-
+                    favourite.ExecuteNonQuery();
+                    con.Close();
+                }               
             }
+        }
+
+        public Boolean HaveFavouriteRow()
+        {
+            //Checking
+            con.Open();
+
+            SqlCommand check = new SqlCommand("SELECT * FROM Favourite WHERE CustName=@Cust AND ImageName=@img", con);
+
+            check.Parameters.AddWithValue("@Cust", CustomerName);
+            check.Parameters.AddWithValue("@img", title);
+            SqlDataReader dtr = check.ExecuteReader();
+
+            if (dtr.HasRows)
+            {
+                con.Close();
+                return false;
+            }
+
+            con.Close();
+            return true;
         }
 
         public void AddOrder(string Ordid)
@@ -463,7 +486,6 @@ namespace test2.HDY.ASPX
                 details.ExecuteNonQuery();
                 con.Close();
                 Response.Redirect("~/CWK/ASPX/Details.aspx");
-
 
             }
         }

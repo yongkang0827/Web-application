@@ -11,15 +11,11 @@
             font-family:cursive;
        }
         
-     
-
         .div1{
             font-family:cursive;
             text-align:left;        
            
-        }
-
-        
+        }       
 
          .auto-style2 {
              height: 65px;
@@ -34,6 +30,7 @@
         .div2{
             margin-left:auto;
             margin-right:auto;
+            padding-left:400px;
         }
 
     </style>
@@ -52,26 +49,27 @@
             <ItemTemplate>
                 <table>
                     <tr>
-                       <td> <%# Eval("DetailsId") %></td>
+                       <td style="font-size:large"> <%# Eval("DetailsId") %></td>
                     </tr>
                     <tr><td><asp:Image  Width="320" Height="300px" ID="Image1" runat="server" /></td></tr>
                     <tr> 
                         <td class="auto-style3">
-                            <h4>Price : <%# Eval("Price") %> </h4>
-                            <h5 class="auto-style4">Name : <%# Eval("ImageName") %> </h5>
+                            <h2>Price : <%# Eval("Price") %> </h2>
+                            <h2 class="auto-style4">Name : <%# Eval("ImageName") %> </h2>
 
                         </td>
 
                     </tr>                  
-                   
+                   <tr>
+
+                   </tr>
                </table>
                             
 
             </ItemTemplate>
                <SelectedItemStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
             </asp:DataList>
-            <br />
-            <br />
+
           
         <div >
              <asp:Button ID="btnBuyNow" runat="server" Text="Buy Now" CssClass="pdbtn" OnClick="btnBuyNow_Click"/>

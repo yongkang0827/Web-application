@@ -14,18 +14,21 @@ namespace test2.CWK.ASPX
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
         String ArtistName;
-        
-
+        String history_id;
+        string CustomerName, title, price;
+        byte[] img;
+        string date;
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetArtistName();          
+            GetArtistName();
+            GetCustomerName();
             con.Open();
+            GenerateHistoryId();
             if (!this.IsPostBack)
             {
-
+                date = DateTime.Now.ToString();
 
                 SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Details", con);
-
 
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -71,7 +74,79 @@ namespace test2.CWK.ASPX
 
         protected void btnBuyNow_Click(object sender, EventArgs e)
         {
+            Purchase("PO1");
+        }
 
+        public void Purchase(string WantBuyid)
+        {
+            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
+            String id = WantBuyid;
+            sdi.Parameters.AddWithValue("@PostId", id);
+            SqlDataReader dtrProd = sdi.ExecuteReader();
+
+            if (dtrProd.HasRows)
+            {
+                while (dtrProd.Read())
+                {
+                    title = dtrProd["Title"].ToString();
+                    price = dtrProd["Price"].ToString();
+
+                    img = (byte[])(dtrProd["ImgUpload"]);
+                }
+
+                con.Close();
+                con.Open();
+
+                string add = "INSERT INTO PurchaseHistory VALUES (@id, @cust, @name, @date, @photo, @price)";
+                SqlCommand history = new SqlCommand(add, con);
+
+                date = " ";
+
+                history.Parameters.AddWithValue("@id", history_id);
+                history.Parameters.AddWithValue("@cust", CustomerName);
+                history.Parameters.AddWithValue("@name", title);
+                history.Parameters.AddWithValue("@date", date);
+                history.Parameters.AddWithValue("@photo", img);
+                history.Parameters.AddWithValue("@price", price);
+
+                history.ExecuteNonQuery();
+                con.Close();
+
+
+            }
+        }
+
+        protected void GetCustomerName()
+        {
+            ////Get Now is who webpage
+            con.Open();
+            string strAdd = "Select * From Login where Id=@ID";
+            SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+            //Find ID
+            SqlCommand cmdId = new SqlCommand("Select Count(Id) FROM Login", con);
+            int numLogin = Convert.ToInt32(cmdId.ExecuteScalar());
+
+            //Enter Search
+            cmdAdd.Parameters.AddWithValue("@ID", numLogin);
+            SqlDataReader dtrProd = cmdAdd.ExecuteReader();
+
+            if (dtrProd.HasRows)
+            {
+                while (dtrProd.Read())
+                {
+                    CustomerName = dtrProd["Username"].ToString();
+                }
+            }
+            con.Close();
+        }
+
+        private void GenerateHistoryId()
+        {
+            SqlCommand cmdId = new SqlCommand("Select Count(HistoryId) FROM PurchaseHistory", con);
+            int i = Convert.ToInt32(cmdId.ExecuteScalar());
+            i++;
+            history_id = "HO" + i.ToString();
         }
 
         protected void btnBack_Click(object sender, EventArgs e)

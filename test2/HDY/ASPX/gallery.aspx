@@ -20,126 +20,126 @@
         
        .div3{
             left:580px;
-            top:700px;
+            top:680px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
         .div3a{
-            left:880px;
-            top:700px;
+            left:900px;
+            top:680px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
         .div4{
             left:580px;
-            top:1200px;
+            top:1150px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
         .div4a{
-            left:880px;
-            top:1200px;
+            left:900px;
+            top:1150px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
         .div5{
             left:580px;
-            top:1650px;
+            top:1620px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
         .div5a{
-            left:880px;
-            top:1650px;
+            left:900px;
+            top:1620px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
         .div6{
             left:580px;
-            top:2150px;
+            top:2080px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
         .div6a{
-            left:880px;
-            top:2150px;
+            left:900px;
+            top:2080px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
          .div7{
             left:580px;
-            top:2650px;
+            top:2540px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
          .div7a{
-            left:880px;
-            top:2650px;
+            left:900px;
+            top:2540px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
           .div8{
             left:580px;
-            top:3150px;
+            top:3050px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
           .div8a{
-            left:880px;
-            top:3150px;
+            left:900px;
+            top:3050px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
           .div9{
             left:580px;
-            top:3650px;
+            top:3510px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
           .div9a{
-            left:880px;
-            top:3650px;
+            left:900px;
+            top:3510px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
            .div10{
             left:580px;
-            top:4100px;
+            top:3970px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
            .div10a{
-            left:880px;
-            top:4100px;
+            left:900px;
+            top:3970px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
            .div11{
             left:580px;
-            top:4600px;
+            top:4430px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
            .div11a{
-            left:880px;
-            top:4600px;
+            left:900px;
+            top:4430px;
             position:absolute;
             width: 239px;
             height: 35px;
@@ -158,7 +158,7 @@
                <ItemStyle BackColor="#F7F6F3" ForeColor="#333333" />
             <ItemTemplate>
                 <table>
-                    <tr><td class="auto-style3"><%# Eval("PostId") %></td></tr>
+                    <tr><td>&nbsp;</td></tr>
                     <tr>
                        <td class="auto-style3"> <%# Eval("Title") %></td>
                     </tr>
