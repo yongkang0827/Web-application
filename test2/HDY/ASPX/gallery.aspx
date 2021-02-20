@@ -19,127 +19,127 @@
         }
         
        .div3{
-            left:680px;
+            left:580px;
             top:700px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
         .div3a{
-            left:1000px;
+            left:880px;
             top:700px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
         .div4{
-            left:680px;
+            left:580px;
             top:1200px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
         .div4a{
-            left:1000px;
+            left:880px;
             top:1200px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
         .div5{
-            left:680px;
-            top:1720px;
+            left:580px;
+            top:1650px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
         .div5a{
-            left:1000px;
-            top:1720px;
+            left:880px;
+            top:1650px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
         .div6{
-            left:680px;
-            top:2180px;
+            left:580px;
+            top:2150px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
         .div6a{
-            left:1000px;
-            top:2180px;
+            left:880px;
+            top:2150px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
          .div7{
-            left:680px;
-            top:2700px;
+            left:580px;
+            top:2650px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
          .div7a{
-            left:1000px;
-            top:2700px;
+            left:880px;
+            top:2650px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
           .div8{
-            left:680px;
-            top:3200px;
+            left:580px;
+            top:3150px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
           .div8a{
-            left:1000px;
-            top:3200px;
+            left:880px;
+            top:3150px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
           .div9{
-            left:680px;
-            top:3700px;
+            left:580px;
+            top:3650px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
           .div9a{
-            left:1000px;
-            top:3700px;
+            left:880px;
+            top:3650px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
            .div10{
-            left:680px;
-            top:4170px;
+            left:580px;
+            top:4100px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
            .div10a{
-            left:1000px;
-            top:4170px;
+            left:880px;
+            top:4100px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
            .div11{
-            left:680px;
-            top:4660px;
+            left:580px;
+            top:4600px;
             position:absolute;
             width: 239px;
             height: 35px;
         }
            .div11a{
-            left:1000px;
-            top:4660px;
+            left:880px;
+            top:4600px;
             position:absolute;
             width: 239px;
             height: 35px;

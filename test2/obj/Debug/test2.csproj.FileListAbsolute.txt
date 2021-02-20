@@ -942,3 +942,13 @@ C:\Users\user\Documents\GitHub\Web-application\test2\bin\roslyn\vbc.exe.config
 C:\Users\user\Documents\GitHub\Web-application\test2\bin\roslyn\vbc.rsp
 C:\Users\user\Documents\GitHub\Web-application\test2\bin\roslyn\VBCSCompiler.exe
 C:\Users\user\Documents\GitHub\Web-application\test2\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\IM10\Documents\GitHub\Web-application\test2\bin\test2.dll.config
+C:\Users\IM10\Documents\GitHub\Web-application\test2\bin\test2.dll
+C:\Users\IM10\Documents\GitHub\Web-application\test2\bin\test2.pdb
+C:\Users\IM10\Documents\GitHub\Web-application\test2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\IM10\Documents\GitHub\Web-application\test2\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\IM10\Documents\GitHub\Web-application\test2\obj\Debug\test2.csprojAssemblyReference.cache
+C:\Users\IM10\Documents\GitHub\Web-application\test2\obj\Debug\test2.csproj.CoreCompileInputs.cache
+C:\Users\IM10\Documents\GitHub\Web-application\test2\obj\Debug\test2.csproj.CopyComplete
+C:\Users\IM10\Documents\GitHub\Web-application\test2\obj\Debug\test2.dll
+C:\Users\IM10\Documents\GitHub\Web-application\test2\obj\Debug\test2.pdb
