@@ -15,6 +15,7 @@ namespace test2.HDY.ASPX
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
         String favourite_id;
+        String order_id;
         string custname, title, price;
         string CustomerName;
         byte[] img;
@@ -24,6 +25,7 @@ namespace test2.HDY.ASPX
             GetCustomerName();
             con.Open();
             GenerateId();
+            GenerateOrderId();
             if (!this.IsPostBack)
             {
                 SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Img", con);
@@ -197,12 +199,169 @@ namespace test2.HDY.ASPX
             }
         }
 
+       
+
+        public void AddOrder(string Ordid)
+        {
+            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
+            String id = Ordid;
+            sdi.Parameters.AddWithValue("@PostId", id);
+            SqlDataReader dtrProd = sdi.ExecuteReader();
+
+            if (dtrProd.HasRows)
+            {
+                while (dtrProd.Read())
+                {
+                    custname = dtrProd["PostId"].ToString();
+                    title = dtrProd["Title"].ToString();
+                    price = dtrProd["Price"].ToString();
+
+                    img = (byte[])(dtrProd["ImgUpload"]);
+
+                }
+
+                con.Close();
+                con.Open();
+
+                string add = "INSERT INTO [Order] VALUES (@id, @cust, @name, @photo, @price, @CustName)";
+                SqlCommand order = new SqlCommand(add, con);
+
+                order.Parameters.AddWithValue("@id", order_id);
+                order.Parameters.AddWithValue("@cust", custname);
+                order.Parameters.AddWithValue("@name", title);
+                order.Parameters.AddWithValue("@photo", img);
+                order.Parameters.AddWithValue("@price", price);
+                order.Parameters.AddWithValue("@CustName", CustomerName);
+
+                order.ExecuteNonQuery();
+                con.Close();
+
+                Response.Redirect("~/HDY/ASPX/Order.aspx?id=" + order_id);
+            }
+        }
         private void GenerateId()
         {
             SqlCommand cmdId = new SqlCommand("Select Count(FavouriteId) FROM Favourite", con);
             int i = Convert.ToInt32(cmdId.ExecuteScalar());
             i++;
             favourite_id = "FO" + i.ToString();
+        }
+
+        protected void btnOrder2_Click(object sender, EventArgs e)
+        {
+            String id = "PO1";
+            AddOrder(id);
+        }
+
+        protected void btnOrder3_Click(object sender, EventArgs e)
+        {
+            String id = "PO11";
+            AddOrder(id);
+        }
+
+        protected void btnOrder4_Click(object sender, EventArgs e)
+        {
+            String id = "PO12";
+            AddOrder(id);
+        }
+
+        protected void btnOrder5_Click(object sender, EventArgs e)
+        {
+            String id = "PO13";
+            AddOrder(id);
+        }
+
+        protected void btnOrder6_Click(object sender, EventArgs e)
+        {
+            String id = "PO14";
+            AddOrder(id);
+        }
+
+        protected void btnOrder7_Click(object sender, EventArgs e)
+        {
+            String id = "PO15";
+            AddOrder(id);
+        }
+
+        protected void btnOrder8_Click(object sender, EventArgs e)
+        {
+            String id = "PO16";
+            AddOrder(id);
+        }
+
+        protected void btnOrder9_Click(object sender, EventArgs e)
+        {
+            String id = "PO17";
+            AddOrder(id);
+        }
+
+        protected void btnOrder10_Click(object sender, EventArgs e)
+        {
+            String id = "PO18";
+            AddOrder(id);
+        }
+
+        protected void btnOrder11_Click(object sender, EventArgs e)
+        {
+            String id = "PO2";
+            AddOrder(id);
+        }
+
+        protected void btnOrder12_Click(object sender, EventArgs e)
+        {
+            String id = "PO3";
+            AddOrder(id);
+        }
+
+        protected void btnOrder13_Click(object sender, EventArgs e)
+        {
+            String id = "PO4";
+            AddOrder(id);
+        }
+
+        protected void btnOrder14_Click(object sender, EventArgs e)
+        {
+            String id = "PO5";
+            AddOrder(id);
+        }
+
+        protected void btnOrder15_Click(object sender, EventArgs e)
+        {
+            String id = "PO6";
+            AddOrder(id);
+        }
+
+        protected void btnOrder16_Click(object sender, EventArgs e)
+        {
+            String id = "PO7";
+            AddOrder(id);
+        }
+
+        protected void btnOrder17_Click(object sender, EventArgs e)
+        {
+            String id = "PO8";
+            AddOrder(id);
+        }
+
+        protected void btnOrder18_Click(object sender, EventArgs e)
+        {
+            String id = "PO9";
+            AddOrder(id);
+        }
+
+        protected void btnOrder1_Click(object sender, EventArgs e)
+        {
+            String id = "PO1";
+            AddOrder(id);
+        }
+
+        private void GenerateOrderId()
+        {
+           
+            SqlCommand cmdId = new SqlCommand("Select Count(OrderId) FROM [Order]", con);
+            int i = Convert.ToInt32(cmdId.ExecuteScalar());
+            i++;
+            order_id = "O" + i.ToString();
         }
 
         protected void GetCustomerName()

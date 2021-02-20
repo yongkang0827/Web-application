@@ -189,7 +189,7 @@
     <div class="btnPosition">
           <div class="div3">
          <table>
-             <tr><td><asp:Button ID="btnOrder1" runat="server" Text="Order" />
+             <tr><td><asp:Button ID="btnOrder1" runat="server" Text="Order" OnClick="btnOrder1_Click" />
                  <td><asp:Button ID="btnFav1" runat="server" Text="Add Favourite" OnClick="btnFav1_Click" />
                     </td></td></tr>
 
@@ -197,13 +197,13 @@
          </div>
           <div class="div3a">
               <table>
-                  <tr><td><asp:Button ID="btnOrder2" runat="server" Text="Order" />
+                  <tr><td><asp:Button ID="btnOrder2" runat="server" Text="Order" OnClick="btnOrder2_Click" />
                      <td><asp:Button ID="btnFav2" runat="server" Text="Add Favourite" OnClick="btnFav2_Click" /></td></td></tr>
               </table>
           </div>
           <div class="div4">
          <table>
-             <tr><td><asp:Button ID="btnOrder3" runat="server" Text="Order" />
+             <tr><td><asp:Button ID="btnOrder3" runat="server" Text="Order" OnClick="btnOrder3_Click" />
                  <td><asp:Button ID="btnFav3" runat="server" Text="Add Favourite" OnClick="btnFav3_Click" />
                     </td></td></tr>
 
@@ -212,14 +212,14 @@
           <div class="div4a">
               <table>
                   <tr>
-                      <td><asp:Button ID="btnOrder4" runat="server" Text="Order" />
+                      <td><asp:Button ID="btnOrder4" runat="server" Text="Order" OnClick="btnOrder4_Click" />
                      <td><asp:Button ID="btnFav4" runat="server" Text="Add Favourite" OnClick="btnFav4_Click" /></td></td>
                   </tr>
               </table>
           </div>
           <div class="div5">
          <table>
-             <tr><td><asp:Button ID="btnOrder5" runat="server" Text="Order" />
+             <tr><td><asp:Button ID="btnOrder5" runat="server" Text="Order" OnClick="btnOrder5_Click" />
                  <td><asp:Button ID="btnFav5" runat="server" Text="Add Favourite" OnClick="btnFav5_Click" />
                    </td></td></tr>
 
@@ -229,7 +229,7 @@
         <div class="div5a">
             <table>
                 <tr>
-                     <td><asp:Button ID="btnOrder6" runat="server" Text="Order" />
+                     <td><asp:Button ID="btnOrder6" runat="server" Text="Order" OnClick="btnOrder6_Click" />
                      <td> <asp:Button ID="btnFav6" runat="server" Text="Add Favourite" OnClick="btnFav6_Click" /></td></td>
                 </tr>
             </table>
@@ -237,7 +237,7 @@
 
         <div class="div6">
          <table>
-             <tr><td><asp:Button ID="btnOrder7" runat="server" Text="Order" />
+             <tr><td><asp:Button ID="btnOrder7" runat="server" Text="Order" OnClick="btnOrder7_Click" />
                  <td><asp:Button ID="btnFav7" runat="server" Text="Add Favourite" OnClick="btnFav7_Click" />
                     </td></td></tr>
 
@@ -247,7 +247,7 @@
         <div class="div6a">
             <table>
                 <tr>
-                    <td><asp:Button ID="btnOrder8" runat="server" Text="Order" />
+                    <td><asp:Button ID="btnOrder8" runat="server" Text="Order" OnClick="btnOrder8_Click" />
                      <td><asp:Button ID="btnFav8" runat="server" Text="Add Favourite" OnClick="btnFav8_Click" /></td></td>
                 </tr>
             </table>
@@ -255,7 +255,7 @@
 
         <div class="div7">
          <table>
-             <tr><td><asp:Button ID="btnOrder9" runat="server" Text="Order" />
+             <tr><td><asp:Button ID="btnOrder9" runat="server" Text="Order" OnClick="btnOrder9_Click" />
                  <td><asp:Button ID="btnFav9" runat="server" Text="Add Favourite" OnClick="btnFav9_Click" />
                     </td></td></tr>
 
@@ -265,7 +265,7 @@
          <div class="div7a">
              <table>
                  <tr>
-                     <td><asp:Button ID="btnOrder10" runat="server" Text="Order" />
+                     <td><asp:Button ID="btnOrder10" runat="server" Text="Order" OnClick="btnOrder10_Click" />
                      <td><asp:Button ID="btnFav10" runat="server" Text="Add Favourite" OnClick="btnFav10_Click" /></td></td>
                  </tr>
              </table>
@@ -273,7 +273,7 @@
 
          <div class="div8">
          <table>
-             <tr><td><asp:Button ID="btnOrder11" runat="server" Text="Order" />
+             <tr><td><asp:Button ID="btnOrder11" runat="server" Text="Order" OnClick="btnOrder11_Click" />
                  <td> <asp:Button ID="btnFav11" runat="server" Text="Add Favourite" OnClick="btnFav11_Click" />
                     </td></td></tr>
 
@@ -283,7 +283,7 @@
          <div class="div8a">
              <table>
                  <tr>
-                     <td><asp:Button ID="btnOrder12" runat="server" Text="Order" />
+                     <td><asp:Button ID="btnOrder12" runat="server" Text="Order" OnClick="btnOrder12_Click" />
                      <td><asp:Button ID="btnFav12" runat="server" Text="Add Favourite" OnClick="btnFav12_Click" /></td></td>
                  </tr>
              </table>
@@ -291,7 +291,7 @@
 
          <div class="div9">
          <table>
-             <tr><td><asp:Button ID="btnOrder13" runat="server" Text="Order" />
+             <tr><td><asp:Button ID="btnOrder13" runat="server" Text="Order" OnClick="btnOrder13_Click" />
                  <td><asp:Button ID="btnFav13" runat="server" Text="Add Favourite" OnClick="btnFav13_Click" />
                     </td></td></tr>
 
@@ -301,7 +301,7 @@
           <div class="div9a">
               <table>
                   <tr>
-                      <td><asp:Button ID="btnOrder14" runat="server" Text="Order" />
+                      <td><asp:Button ID="btnOrder14" runat="server" Text="Order" OnClick="btnOrder14_Click" />
                      <td><asp:Button ID="btnFav14" runat="server" Text="Add Favourite" OnClick="btnFav14_Click" /></td></td>
                   </tr>
               </table>
@@ -309,7 +309,7 @@
 
          <div class="div10">
          <table>
-             <tr><td><asp:Button ID="btnOrder15" runat="server" Text="Order" />
+             <tr><td><asp:Button ID="btnOrder15" runat="server" Text="Order" OnClick="btnOrder15_Click" />
                  <td><asp:Button ID="btnFav15" runat="server" Text="Add Favourite" OnClick="btnFav15_Click" />
                    </td></td></tr>
 
@@ -319,7 +319,7 @@
         <div class="div10a">
             <table>
                 <tr>
-                     <td><asp:Button ID="btnOrder16" runat="server" Text="Order" />
+                     <td><asp:Button ID="btnOrder16" runat="server" Text="Order" OnClick="btnOrder16_Click" />
                      <td><asp:Button ID="btnFav16" runat="server" Text="Add Favourite" OnClick="btnFav16_Click" /></td></td>
                 </tr>
             </table>
@@ -327,7 +327,7 @@
 
           <div class="div11">
          <table>
-             <tr><td><asp:Button ID="btnOrder17" runat="server" Text="Order" />
+             <tr><td><asp:Button ID="btnOrder17" runat="server" Text="Order" OnClick="btnOrder17_Click" />
                  <td><asp:Button ID="btnFav17" runat="server" Text="Add Favourite" OnClick="btnFav17_Click" />
                     </td></td></tr>
 
@@ -337,7 +337,7 @@
         <div class="div11a">
             <table>
                 <tr>
-                    <td><asp:Button ID="btnOrder18" runat="server" Text="Order" />
+                    <td><asp:Button ID="btnOrder18" runat="server" Text="Order" OnClick="btnOrder18_Click" />
                      <td><asp:Button ID="btnFav18" runat="server" Text="Add Favourite" OnClick="btnFav18_Click" /></td></td>
                 </tr>
             </table>

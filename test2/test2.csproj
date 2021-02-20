@@ -71,6 +71,7 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="HDY\ASPX\Order.aspx" />
     <Content Include="Master\ASPX\artistHome.aspx" />
     <Content Include="Master\ASPX\cart.aspx" />
     <Content Include="CWK\ASPX\artworkDetails.aspx" />
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="Artist.Master.designer.cs">
       <DependentUpon>Artist.Master</DependentUpon>
+    </Compile>
+    <Compile Include="HDY\ASPX\Order.aspx.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HDY\ASPX\Order.aspx.designer.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master\ASPX\artistHome.aspx.cs">
       <DependentUpon>artistHome.aspx</DependentUpon>
