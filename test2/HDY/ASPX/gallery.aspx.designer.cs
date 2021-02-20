@@ -24,6 +24,15 @@ namespace test2.HDY.ASPX
         protected global::System.Web.UI.WebControls.DataList DataList1;
 
         /// <summary>
+        /// btnView1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView1;
+
+        /// <summary>
         /// btnOrder1 control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace test2.HDY.ASPX
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFav1;
+
+        /// <summary>
+        /// btnView2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView2;
 
         /// <summary>
         /// btnOrder2 control.
@@ -60,6 +78,15 @@ namespace test2.HDY.ASPX
         protected global::System.Web.UI.WebControls.Button btnFav2;
 
         /// <summary>
+        /// btnView3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView3;
+
+        /// <summary>
         /// btnOrder3 control.
         /// </summary>
         /// <remarks>
@@ -76,6 +103,15 @@ namespace test2.HDY.ASPX
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFav3;
+
+        /// <summary>
+        /// btnView4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView4;
 
         /// <summary>
         /// btnOrder4 control.
@@ -96,6 +132,15 @@ namespace test2.HDY.ASPX
         protected global::System.Web.UI.WebControls.Button btnFav4;
 
         /// <summary>
+        /// btnView5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView5;
+
+        /// <summary>
         /// btnOrder5 control.
         /// </summary>
         /// <remarks>
@@ -112,6 +157,15 @@ namespace test2.HDY.ASPX
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFav5;
+
+        /// <summary>
+        /// btnView6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView6;
 
         /// <summary>
         /// btnOrder6 control.
@@ -132,6 +186,15 @@ namespace test2.HDY.ASPX
         protected global::System.Web.UI.WebControls.Button btnFav6;
 
         /// <summary>
+        /// btnView7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView7;
+
+        /// <summary>
         /// btnOrder7 control.
         /// </summary>
         /// <remarks>
@@ -148,6 +211,15 @@ namespace test2.HDY.ASPX
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFav7;
+
+        /// <summary>
+        /// btnView8 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView8;
 
         /// <summary>
         /// btnOrder8 control.
@@ -168,6 +240,15 @@ namespace test2.HDY.ASPX
         protected global::System.Web.UI.WebControls.Button btnFav8;
 
         /// <summary>
+        /// btnView9 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView9;
+
+        /// <summary>
         /// btnOrder9 control.
         /// </summary>
         /// <remarks>
@@ -184,6 +265,15 @@ namespace test2.HDY.ASPX
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFav9;
+
+        /// <summary>
+        /// btnView10 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView10;
 
         /// <summary>
         /// btnOrder10 control.
@@ -204,6 +294,15 @@ namespace test2.HDY.ASPX
         protected global::System.Web.UI.WebControls.Button btnFav10;
 
         /// <summary>
+        /// btnView11 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView11;
+
+        /// <summary>
         /// btnOrder11 control.
         /// </summary>
         /// <remarks>
@@ -220,6 +319,15 @@ namespace test2.HDY.ASPX
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFav11;
+
+        /// <summary>
+        /// btnView12 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView12;
 
         /// <summary>
         /// btnOrder12 control.
@@ -240,6 +348,15 @@ namespace test2.HDY.ASPX
         protected global::System.Web.UI.WebControls.Button btnFav12;
 
         /// <summary>
+        /// btnView13 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView13;
+
+        /// <summary>
         /// btnOrder13 control.
         /// </summary>
         /// <remarks>
@@ -256,6 +373,15 @@ namespace test2.HDY.ASPX
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFav13;
+
+        /// <summary>
+        /// btnView14 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView14;
 
         /// <summary>
         /// btnOrder14 control.
@@ -276,6 +402,15 @@ namespace test2.HDY.ASPX
         protected global::System.Web.UI.WebControls.Button btnFav14;
 
         /// <summary>
+        /// btnView15 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView15;
+
+        /// <summary>
         /// btnOrder15 control.
         /// </summary>
         /// <remarks>
@@ -292,6 +427,15 @@ namespace test2.HDY.ASPX
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFav15;
+
+        /// <summary>
+        /// btnView16 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView16;
 
         /// <summary>
         /// btnOrder16 control.
@@ -312,6 +456,15 @@ namespace test2.HDY.ASPX
         protected global::System.Web.UI.WebControls.Button btnFav16;
 
         /// <summary>
+        /// btnView17 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView17;
+
+        /// <summary>
         /// btnOrder17 control.
         /// </summary>
         /// <remarks>
@@ -328,6 +481,15 @@ namespace test2.HDY.ASPX
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFav17;
+
+        /// <summary>
+        /// btnView18 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnView18;
 
         /// <summary>
         /// btnOrder18 control.

@@ -71,10 +71,10 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="CWK\ASPX\Details.aspx" />
     <Content Include="HDY\ASPX\Order.aspx" />
     <Content Include="Master\ASPX\artistHome.aspx" />
     <Content Include="Master\ASPX\cart.aspx" />
-    <Content Include="CWK\ASPX\artworkDetails.aspx" />
     <Content Include="HDY\ASPX\gallery.aspx" />
     <Content Include="HDY\IMG\Artifact.jpg" />
     <Content Include="HDY\IMG\Death Masks.jpg" />
@@ -132,6 +132,13 @@
     <Compile Include="Artist.Master.designer.cs">
       <DependentUpon>Artist.Master</DependentUpon>
     </Compile>
+    <Compile Include="CWK\ASPX\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CWK\ASPX\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="HDY\ASPX\Order.aspx.cs">
       <DependentUpon>Order.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -152,13 +159,6 @@
     </Compile>
     <Compile Include="Master\ASPX\cart.aspx.designer.cs">
       <DependentUpon>cart.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CWK\ASPX\artworkDetails.aspx.cs">
-      <DependentUpon>artworkDetails.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CWK\ASPX\artworkDetails.aspx.designer.cs">
-      <DependentUpon>artworkDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="HDY\ASPX\gallery.aspx.cs">
       <DependentUpon>gallery.aspx</DependentUpon>

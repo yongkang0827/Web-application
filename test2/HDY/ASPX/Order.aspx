@@ -42,12 +42,5 @@
             <br />
             <br />
          </div>
-    <div class="div2">
-        <table>
-            <tr>
-                <td>
-                    <asp:Button ID="btnBuy" runat="server" Text="BuyNow" /></td>
-            </tr>
-        </table>
-    </div>
+    
 </asp:Content>

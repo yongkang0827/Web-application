@@ -195,7 +195,7 @@ namespace test2.HDY.ASPX
                 favourite.ExecuteNonQuery();
                 con.Close();
 
-                Response.Redirect("~/LMY/ASPX/Favourite.aspx?id=" + favourite_id);
+
             }
         }
 
@@ -236,9 +236,11 @@ namespace test2.HDY.ASPX
                 order.ExecuteNonQuery();
                 con.Close();
 
-                Response.Redirect("~/HDY/ASPX/Order.aspx?id=" + order_id);
+
             }
         }
+
+
         private void GenerateId()
         {
             SqlCommand cmdId = new SqlCommand("Select Count(FavouriteId) FROM Favourite", con);

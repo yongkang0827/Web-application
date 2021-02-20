@@ -5,6 +5,7 @@
 
 	<siteMapNode url="~/HDY/ASPX/gallery.aspx" title="Gallery"  description="" roles="C">
 	  <siteMapNode url="~/LMY/ASPX/Favourite.aspx" title="Favourite"  description=""/>
+    <siteMapNode url="~/HDY/ASPX/Order.aspx" title="Order"  description=""/>
 	  <siteMapNode url="~/LMY/ASPX/Purchase History.aspx" title="Purchase History"  description=""/>
 	</siteMapNode>
 	  
