@@ -15,15 +15,25 @@
 
         .div1{
             font-family:cursive;
-            text-align:left;            
-            margin-left:auto;
-            margin-right:auto;
+            text-align:left;        
+           
         }
 
-        .formview{
+        
+
+         .auto-style2 {
+             height: 65px;
+         }
+         .auto-style3 {
+             height: 174px;
+         }
+         .auto-style4 {
+             height: 59px;
+         }
+
+        .div2{
             margin-left:auto;
             margin-right:auto;
-
         }
 
     </style>
@@ -33,39 +43,49 @@
            Artwork Details
         </h1>
     </div>
-    <div class="div1">
-        <asp:FormView ID="FormView1" runat="server" DataKeyNames="PostId" DataSourceID="SqlDataSource1" CssClass="formview" OnPageIndexChanging="FormView1_PageIndexChanging">
-                    
+     <div class="div2">
+           <asp:DataList ID="dlDetails" runat="server" HorizontalAlign="Justify" RepeatColumns="1" RepeatDirection="Horizontal" OnItemDataBound="dlDetails_ItemDataBound" CellPadding="4" ForeColor="#333333" RepeatLayout="Flow">
+               <AlternatingItemStyle BackColor="White" ForeColor="#284775" />
+               <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+               <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+               <ItemStyle BackColor="#F7F6F3" ForeColor="#333333" />
             <ItemTemplate>
                 <table>
-                    <tr><td><asp:Image  Width="400" Height="200" ID="Image1" runat="server"/></td></tr>
-                    <tr><td>Post ID :   <%# Eval("PostId") %></td></tr>
                     <tr>
-                       <td>Name :   <%# Eval("Title") %></td>
-                    </tr>                   
+                       <td> <%# Eval("DetailsId") %></td>
+                    </tr>
+                    <tr><td><asp:Image  Width="320" Height="300px" ID="Image1" runat="server" /></td></tr>
                     <tr> 
-                        <td>
-                            Price : <%# Eval("Price") %></br>
-                            Quantity Remaining : <%# Eval("Quantity") %>
+                        <td class="auto-style3">
+                            <h4>Price : <%# Eval("Price") %> </h4>
+                            <h5 class="auto-style4">Name : <%# Eval("ImageName") %> </h5>
 
-                    </td><td>
+                        </td>
+
+                    </tr>                  
                    
-                    <asp:Button ID="btnBuyNow" runat="server" Text="Buy Now" OnClick="btnBuyNow_Click" CssClass="pdbtn"/>
+               </table>
+                            
+
+            </ItemTemplate>
+               <SelectedItemStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            </asp:DataList>
+            <br />
+            <br />
+          
+        <div >
+             <asp:Button ID="btnBuyNow" runat="server" Text="Buy Now" CssClass="pdbtn" OnClick="btnBuyNow_Click"/>
+            <asp:Button ID="btnBack" runat="server" Text="Back To Gallery" CssClass="pdbtn" OnClick="btnBack_Click"/>
+                     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Details]"></asp:SqlDataSource>
+                                
                     <asp:BulletedList ID="BulletedList1" runat="server">
                         <asp:ListItem>Express Shipping</asp:ListItem>
                         <asp:ListItem>Artwork sign by artist</asp:ListItem>
                         <asp:ListItem>Returns Accepted 14 days</asp:ListItem>
                     </asp:BulletedList>
-                    </td>
-                    </tr>
-                     <tr> <td>Description   :    <%# Eval("Description") %> </td></tr>
-                     <tr> <td>Upload Date   : <%# Eval("DateUpload") %></td></tr>                                                           
-               </table>
-
-            </ItemTemplate>
-        </asp:FormView>
-                    
-               <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Img]"></asp:SqlDataSource>
-                                
+      
             </div>
+                                
+            </div> 
+              
 </asp:Content>

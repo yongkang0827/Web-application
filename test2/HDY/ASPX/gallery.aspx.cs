@@ -19,6 +19,8 @@ namespace test2.HDY.ASPX
         string custname, title, price;
         string CustomerName;
         byte[] img;
+        String details_id;
+             
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,6 +28,7 @@ namespace test2.HDY.ASPX
             con.Open();
             GenerateId();
             GenerateOrderId();
+            GenerateDetailsId();
             if (!this.IsPostBack)
             {
                 SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Img", con);
@@ -50,7 +53,7 @@ namespace test2.HDY.ASPX
         {
             string id = "PO10";
             AddFavourite(id);
-        } 
+        }
 
         protected void btnFav1_Click(object sender, EventArgs e)
         {
@@ -61,11 +64,11 @@ namespace test2.HDY.ASPX
         protected void btnFav2_Click(object sender, EventArgs e)
         {
             String id = "PO10";
-            AddFavourite(id);  
+            AddFavourite(id);
         }
 
         protected void btnFav3_Click(object sender, EventArgs e)
-        {           
+        {
             String id = "PO11";
             AddFavourite(id);
         }
@@ -199,8 +202,6 @@ namespace test2.HDY.ASPX
             }
         }
 
-       
-
         public void AddOrder(string Ordid)
         {
             SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
@@ -235,7 +236,6 @@ namespace test2.HDY.ASPX
 
                 order.ExecuteNonQuery();
                 con.Close();
-
 
             }
         }
@@ -359,7 +359,7 @@ namespace test2.HDY.ASPX
 
         private void GenerateOrderId()
         {
-           
+
             SqlCommand cmdId = new SqlCommand("Select Count(OrderId) FROM [Order]", con);
             int i = Convert.ToInt32(cmdId.ExecuteScalar());
             i++;
@@ -389,6 +389,90 @@ namespace test2.HDY.ASPX
                 }
             }
             con.Close();
+        }
+
+        protected void btnView1_Click(object sender, EventArgs e)
+        {
+            String id = "PO1";
+            AddDetails(id);
+        }
+
+        protected void btnView2_Click(object sender, EventArgs e)
+        {
+            String id = "PO10";
+            AddDetails(id);
+        }
+
+        protected void btnView3_Click(object sender, EventArgs e)
+        {
+            String id = "PO11";
+            AddDetails(id);
+        }
+
+        protected void btnView4_Click(object sender, EventArgs e)
+        {
+            String id = "PO12";
+            AddDetails(id);
+        }
+
+        protected void btnView5_Click(object sender, EventArgs e)
+        {
+            String id = "PO13";
+            AddDetails(id);
+        }
+
+        protected void btnView6_Click(object sender, EventArgs e)
+        {
+            String id = "PO14";
+            AddDetails(id);
+        }
+
+        public void AddDetails(string Detid)
+        {
+        
+            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
+            String id = Detid;
+            sdi.Parameters.AddWithValue("@PostId", id);
+            SqlDataReader dtrProd = sdi.ExecuteReader();
+
+            if (dtrProd.HasRows)
+            {
+                while (dtrProd.Read())
+                {
+                    custname = dtrProd["PostId"].ToString();
+                    title = dtrProd["Title"].ToString();
+                    price = dtrProd["Price"].ToString();
+
+                    img = (byte[])(dtrProd["ImgUpload"]);
+
+                }
+
+                con.Close();
+                con.Open();
+
+                string add = "INSERT INTO [Details] VALUES (@id, @cust, @name, @photo, @price, @CustName)";
+                SqlCommand details = new SqlCommand(add, con);
+
+                details.Parameters.AddWithValue("@id", details_id);
+                details.Parameters.AddWithValue("@cust", custname);
+                details.Parameters.AddWithValue("@name", title);
+                details.Parameters.AddWithValue("@photo", img);
+                details.Parameters.AddWithValue("@price", price);
+                details.Parameters.AddWithValue("@CustName", CustomerName);
+
+                details.ExecuteNonQuery();
+                con.Close();
+                Response.Redirect("~/CWK/ASPX/Details.aspx");
+
+
+            }
+        }
+        private void GenerateDetailsId()
+        {
+            SqlCommand cmdId = new SqlCommand("Select Count(DetailsId) FROM Details", con);
+            int i = Convert.ToInt32(cmdId.ExecuteScalar());
+            i++;
+            details_id = "PO" + i.ToString();
         }
     }
 }
