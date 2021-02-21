@@ -226,7 +226,7 @@ namespace test2.HDY.ASPX
         }
 
         public void AddOrder(string Ordid)
-        {
+        {          
             SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = Ordid;
             sdi.Parameters.AddWithValue("@PostId", id);
@@ -524,7 +524,13 @@ namespace test2.HDY.ASPX
 
         public void AddDetails(string Detid)
         {
-        
+            string strAdd = "Delete From Details";
+            SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+            cmdAdd.ExecuteNonQuery();
+            con.Close();
+            con.Open();
+
             SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
             String id = Detid;
             sdi.Parameters.AddWithValue("@PostId", id);

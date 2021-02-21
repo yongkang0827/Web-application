@@ -169,15 +169,12 @@ namespace test2.CWK.ASPX
 
         protected void btnBack_Click(object sender, EventArgs e)
         {
-            string strAdd = "Delete From Details where DetailsId=@Id";
+            string strAdd = "Delete From Details";
             SqlCommand cmdAdd = new SqlCommand(strAdd, con);
-            String id = "PO1";
-            cmdAdd.Parameters.AddWithValue("@ID", id);
+
             cmdAdd.ExecuteNonQuery();
             con.Close();
             Response.Redirect("~/HDY/ASPX/Gallery.aspx");
-        }
-        
-
+        }     
     }
 }
