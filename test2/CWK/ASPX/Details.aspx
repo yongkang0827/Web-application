@@ -32,21 +32,27 @@
             margin-right:auto;
             padding-left:400px;
         }
-
+        .dateLay{
+            padding-left:1200px;
+        }
     </style>
-
+    <div class="dateLay">
+    <asp:TextBox ID="txtDate" runat="server" Enabled="False"></asp:TextBox>
+        </div>
      <div class="div1">
         <h1>
            Artwork Details
         </h1>
     </div>
      <div class="div2">
+         <div>
            <asp:DataList ID="dlDetails" runat="server" HorizontalAlign="Justify" RepeatColumns="1" RepeatDirection="Horizontal" OnItemDataBound="dlDetails_ItemDataBound" CellPadding="4" ForeColor="#333333" RepeatLayout="Flow">
                <AlternatingItemStyle BackColor="White" ForeColor="#284775" />
                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                <ItemStyle BackColor="#F7F6F3" ForeColor="#333333" />
             <ItemTemplate>
+                </div>
                 <table>
                     <tr>
                        <td style="font-size:large"> <%# Eval("DetailsId") %></td>
@@ -55,13 +61,12 @@
                     <tr> 
                         <td class="auto-style3">
                             <h2>Price : <%# Eval("Price") %> </h2>
-                            <h2 class="auto-style4">Name : <%# Eval("ImageName") %> </h2>
-
+                            <h2 class="auto-style4">Name : <%# Eval("ImageName") %> </h2>                           
                         </td>
 
                     </tr>                  
                    <tr>
-
+                       
                    </tr>
                </table>
                                           

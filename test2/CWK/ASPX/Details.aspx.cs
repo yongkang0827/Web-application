@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.IO;
+using System.Data;
 
 namespace test2.CWK.ASPX
 {
@@ -17,7 +18,6 @@ namespace test2.CWK.ASPX
         String history_id;
         string CustomerName, title, price;
         byte[] img;
-        string date;
       
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,8 +26,8 @@ namespace test2.CWK.ASPX
             con.Open();
             GenerateHistoryId();
             if (!this.IsPostBack)
-            {
-                date = DateTime.Now.ToString();
+            {             
+                txtDate.Text = DateTime.Now.ToString();
 
                 SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Details", con);
 
@@ -80,22 +80,30 @@ namespace test2.CWK.ASPX
 
         protected void btnBuyNow_Click(object sender, EventArgs e)
         {
-            string id = "PO1";
-            Purchase(id);
-            
-            SqlCommand cmdUpd = new SqlCommand("Select quantity FROM Img WHERE ImageName = @title",con);                                         
-           
-            cmdUpd.CommandText = ("Update Img SET quantity = quantity-1 WHERE ImageName = @title");
-            cmdUpd.ExecuteNonQuery();
+            SqlCommand sdi = new SqlCommand("SELECT * FROM Details WHERE DetailsId=@PostId", con);
+
+            sdi.Parameters.AddWithValue("@PostId", "PO1");
+            SqlDataReader dtrPr = sdi.ExecuteReader();
+            string imageid = " ";
+
+            if (dtrPr.HasRows)
+            {
+                while (dtrPr.Read())
+                {
+                    imageid = dtrPr["ImageId"].ToString();
+                }
+            }
             con.Close();
+            Purchase(imageid);
            
         }
 
         public void Purchase(string WantBuyid)
         {
+            con.Open();
             SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
-            String id = WantBuyid;
-            sdi.Parameters.AddWithValue("@PostId", id);
+
+            sdi.Parameters.AddWithValue("@PostId", WantBuyid);
             SqlDataReader dtrProd = sdi.ExecuteReader();
 
             if (dtrProd.HasRows)
@@ -114,19 +122,15 @@ namespace test2.CWK.ASPX
                 string add = "INSERT INTO PurchaseHistory VALUES (@id, @cust, @name, @date, @photo, @price)";
                 SqlCommand history = new SqlCommand(add, con);
 
-                date = " ";
-
                 history.Parameters.AddWithValue("@id", history_id);
                 history.Parameters.AddWithValue("@cust", CustomerName);
                 history.Parameters.AddWithValue("@name", title);
-                history.Parameters.AddWithValue("@date", date);
+                history.Parameters.AddWithValue("@date", txtDate.Text);
                 history.Parameters.AddWithValue("@photo", img);
                 history.Parameters.AddWithValue("@price", price);
 
                 history.ExecuteNonQuery();
                 con.Close();
-
-
             }
         }
 

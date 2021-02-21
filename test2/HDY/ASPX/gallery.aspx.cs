@@ -545,7 +545,7 @@ namespace test2.HDY.ASPX
                 con.Close();
                 con.Open();
 
-                string add = "INSERT INTO [Details] VALUES (@id, @cust, @name, @photo, @price, @CustName)";
+                string add = "INSERT INTO [Details] VALUES (@id, @cust, @name, @photo, @price, @CustName, @imgId)";
                 SqlCommand details = new SqlCommand(add, con);
 
                 details.Parameters.AddWithValue("@id", details_id);
@@ -554,6 +554,7 @@ namespace test2.HDY.ASPX
                 details.Parameters.AddWithValue("@photo", img);
                 details.Parameters.AddWithValue("@price", price);
                 details.Parameters.AddWithValue("@CustName", CustomerName);
+                details.Parameters.AddWithValue("@imgId", Detid);
 
                 details.ExecuteNonQuery();
                 con.Close();
