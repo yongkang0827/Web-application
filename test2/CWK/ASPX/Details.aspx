@@ -64,14 +64,12 @@
 
                    </tr>
                </table>
-                            
-
+                                          
             </ItemTemplate>
                <SelectedItemStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
             </asp:DataList>
 
-          
-        <div >
+             <div >
              <asp:Button ID="btnBuyNow" runat="server" Text="Buy Now" CssClass="pdbtn" OnClick="btnBuyNow_Click"/>
             <asp:Button ID="btnBack" runat="server" Text="Back To Gallery" CssClass="pdbtn" OnClick="btnBack_Click"/>
                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Details]"></asp:SqlDataSource>
@@ -83,6 +81,7 @@
                     </asp:BulletedList>
       
             </div>
+       
                                 
             </div> 
               

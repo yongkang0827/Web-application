@@ -18,6 +18,7 @@ namespace test2.CWK.ASPX
         string CustomerName, title, price;
         byte[] img;
         string date;
+      
         protected void Page_Load(object sender, EventArgs e)
         {
             GetArtistName();
@@ -34,9 +35,14 @@ namespace test2.CWK.ASPX
                 sda.Fill(dt);
                 dlDetails.DataSource = dt;
                 dlDetails.DataBind();
+
+               
+
             }
 
         }
+
+        
 
         protected void GetArtistName()
         {
@@ -74,7 +80,15 @@ namespace test2.CWK.ASPX
 
         protected void btnBuyNow_Click(object sender, EventArgs e)
         {
-            Purchase("PO1");
+            string id = "PO1";
+            Purchase(id);
+            
+            SqlCommand cmdUpd = new SqlCommand("Select quantity FROM Img WHERE ImageName = @title",con);                                         
+           
+            cmdUpd.CommandText = ("Update Img SET quantity = quantity-1 WHERE ImageName = @title");
+            cmdUpd.ExecuteNonQuery();
+            con.Close();
+           
         }
 
         public void Purchase(string WantBuyid)
@@ -150,8 +164,13 @@ namespace test2.CWK.ASPX
         }
 
         protected void btnBack_Click(object sender, EventArgs e)
-        {          
-
+        {
+            string strAdd = "Delete From Details where DetailsId=@Id";
+            SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+            String id = "PO1";
+            cmdAdd.Parameters.AddWithValue("@ID", id);
+            cmdAdd.ExecuteNonQuery();
+            con.Close();
             Response.Redirect("~/HDY/ASPX/Gallery.aspx");
         }
         

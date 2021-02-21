@@ -441,12 +441,84 @@ namespace test2.HDY.ASPX
         protected void btnView5_Click(object sender, EventArgs e)
         {
             String id = "PO13";
-            AddDetails(id);
+            AddDetails (id);
         }
 
         protected void btnView6_Click(object sender, EventArgs e)
         {
             String id = "PO14";
+            AddDetails(id);
+        }
+
+        protected void btnView7_Click(object sender, EventArgs e)
+        {
+            String id = "PO15";
+            AddDetails(id);
+        }
+
+        protected void btnView8_Click(object sender, EventArgs e)
+        {
+            String id = "PO16";
+            AddDetails(id);
+        }
+
+        protected void btnView9_Click(object sender, EventArgs e)
+        {
+            String id = "PO17";
+            AddDetails(id);
+        }
+
+        protected void btnView10_Click(object sender, EventArgs e)
+        {
+            String id = "PO18";
+            AddDetails(id);
+        }
+
+        protected void btnView11_Click(object sender, EventArgs e)
+        {
+            String id = "PO2";
+            AddDetails(id);
+        }
+
+        protected void btnView12_Click(object sender, EventArgs e)
+        {
+            String id = "PO3";
+            AddDetails(id);
+        }
+
+        protected void btnView13_Click(object sender, EventArgs e)
+        {
+            String id = "PO4";
+            AddDetails(id);
+        }
+
+        protected void btnView14_Click(object sender, EventArgs e)
+        {
+            String id = "PO5";
+            AddDetails(id);
+        }
+
+        protected void btnView15_Click(object sender, EventArgs e)
+        {
+            String id = "PO6";
+            AddDetails(id);
+        }
+
+        protected void btnView16_Click(object sender, EventArgs e)
+        {
+            String id = "PO7";
+            AddDetails(id);
+        }
+
+        protected void btnView17_Click(object sender, EventArgs e)
+        {
+            String id = "PO8";
+            AddDetails(id);
+        }
+
+        protected void btnView18_Click(object sender, EventArgs e)
+        {
+            String id = "PO9";
             AddDetails(id);
         }
 
