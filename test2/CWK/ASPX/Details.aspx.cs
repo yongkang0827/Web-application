@@ -18,12 +18,14 @@ namespace test2.CWK.ASPX
         String history_id;
         string CustomerName, title, price;
         byte[] img;
-      
+        String order_id;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             GetArtistName();
             GetCustomerName();
             con.Open();
+            GenerateOrderId();
             GenerateHistoryId();
             if (!this.IsPostBack)
             {             
@@ -100,20 +102,20 @@ namespace test2.CWK.ASPX
 
         public void Purchase(string WantBuyid)
         {
+            //Store in purchase history
             con.Open();
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
+            SqlCommand sdi = new SqlCommand("SELECT * FROM Details", con);
 
-            sdi.Parameters.AddWithValue("@PostId", WantBuyid);
             SqlDataReader dtrProd = sdi.ExecuteReader();
 
             if (dtrProd.HasRows)
             {
                 while (dtrProd.Read())
                 {
-                    title = dtrProd["Title"].ToString();
+                    title = dtrProd["ImageName"].ToString();
                     price = dtrProd["Price"].ToString();
 
-                    img = (byte[])(dtrProd["ImgUpload"]);
+                    img = (byte[])(dtrProd["Image"]);
                 }
 
                 con.Close();
@@ -130,8 +132,54 @@ namespace test2.CWK.ASPX
                 history.Parameters.AddWithValue("@price", price);
 
                 history.ExecuteNonQuery();
-                con.Close();
+                
             }
+            con.Close();
+
+            //Store in order
+            //con.Open();
+            //SqlCommand sdOrder = new SqlCommand("SELECT * FROM Details", con);
+  
+ 
+            //SqlDataReader dtrPro = sdOrder.ExecuteReader();
+
+            //if (dtrPro.HasRows)
+            //{
+            //    while (dtrPro.Read())
+            //    {
+            //        CustomerName = dtrPro["CustName"].ToString();
+            //        title = dtrPro["ImageName"].ToString();
+            //        price = dtrPro["Price"].ToString();
+
+            //        img = (byte[])(dtrPro["Image"]);
+
+            //    }
+
+            //    con.Close();
+            //    con.Open();
+
+            //    string add = "INSERT INTO [Order] VALUES (@id, @cust, @name, @photo, @price, @CustName)";
+            //    SqlCommand order = new SqlCommand(add, con);
+
+            //    order.Parameters.AddWithValue("@id", order_id);
+            //    order.Parameters.AddWithValue("@cust", CustomerName);
+            //    order.Parameters.AddWithValue("@name", title);
+            //    order.Parameters.AddWithValue("@photo", img);
+            //    order.Parameters.AddWithValue("@price", price);
+            //    order.Parameters.AddWithValue("@CustName", CustomerName);
+
+            //    order.ExecuteNonQuery();               
+            //}
+            //con.Close();
+        }
+
+        private void GenerateOrderId()
+        {
+
+            SqlCommand cmdId = new SqlCommand("Select Count(OrderId) FROM [Order]", con);
+            int i = Convert.ToInt32(cmdId.ExecuteScalar());
+            i++;
+            order_id = "O" + i.ToString();
         }
 
         protected void GetCustomerName()

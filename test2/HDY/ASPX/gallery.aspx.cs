@@ -227,40 +227,40 @@ namespace test2.HDY.ASPX
 
         public void AddOrder(string Ordid)
         {          
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
-            String id = Ordid;
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
+            //SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
+            //String id = Ordid;
+            //sdi.Parameters.AddWithValue("@PostId", id);
+            //SqlDataReader dtrProd = sdi.ExecuteReader();
 
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
+            //if (dtrProd.HasRows)
+            //{
+            //    while (dtrProd.Read())
+            //    {
+            //        custname = dtrProd["PostId"].ToString();
+            //        title = dtrProd["Title"].ToString();
+            //        price = dtrProd["Price"].ToString();
 
-                    img = (byte[])(dtrProd["ImgUpload"]);
+            //        img = (byte[])(dtrProd["ImgUpload"]);
 
-                }
+            //    }
 
-                con.Close();
-                con.Open();
+            //    con.Close();
+            //    con.Open();
 
-                string add = "INSERT INTO [Order] VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-                SqlCommand order = new SqlCommand(add, con);
+            //    string add = "INSERT INTO [Order] VALUES (@id, @cust, @name, @photo, @price, @CustName)";
+            //    SqlCommand order = new SqlCommand(add, con);
 
-                order.Parameters.AddWithValue("@id", order_id);
-                order.Parameters.AddWithValue("@cust", custname);
-                order.Parameters.AddWithValue("@name", title);
-                order.Parameters.AddWithValue("@photo", img);
-                order.Parameters.AddWithValue("@price", price);
-                order.Parameters.AddWithValue("@CustName", CustomerName);
+            //    order.Parameters.AddWithValue("@id", order_id);
+            //    order.Parameters.AddWithValue("@cust", custname);
+            //    order.Parameters.AddWithValue("@name", title);
+            //    order.Parameters.AddWithValue("@photo", img);
+            //    order.Parameters.AddWithValue("@price", price);
+            //    order.Parameters.AddWithValue("@CustName", CustomerName);
 
-                order.ExecuteNonQuery();
-                con.Close();
+            //    order.ExecuteNonQuery();
+            //    con.Close();
 
-            }
+            //}
         }
 
 
