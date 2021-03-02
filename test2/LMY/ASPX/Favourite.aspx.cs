@@ -19,7 +19,7 @@ namespace test2.LMY.ASPX
         {
             GetCustomerName();
             con.Open();
-            if (!this.IsPostBack)
+            if (!IsPostBack)
             {                
                 SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Favourite WHERE CustName = @filter", con);
 
@@ -35,11 +35,12 @@ namespace test2.LMY.ASPX
 
         protected void DataList1_ItemDataBound(object sender, DataListItemEventArgs e)
         {
-
-            DataRowView dr = (DataRowView)e.Item.DataItem;
-            string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])dr["Image"]);
-            (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
-
+            if (!IsPostBack)
+            {
+                DataRowView dr = (DataRowView)e.Item.DataItem;
+                string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])dr["Image"]);
+                (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
+            }
         }
 
         protected void GetCustomerName()
@@ -65,6 +66,26 @@ namespace test2.LMY.ASPX
                 }
             }
             con.Close();
+        }
+
+        protected void dlFavourite_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            string imgName;
+
+            if (e.CommandName == "Unfavourite")
+            {
+                imgName = e.CommandArgument.ToString();
+                
+
+                string strAdd = "Delete From Favourite WHERE CustName=@custName and ImageName=@imgName";
+                SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+                cmdAdd.Parameters.AddWithValue("@custName", CustomerName);
+                cmdAdd.Parameters.AddWithValue("@imgName", imgName);
+
+                cmdAdd.ExecuteNonQuery();
+                con.Close();
+            }
         }
     }
 }

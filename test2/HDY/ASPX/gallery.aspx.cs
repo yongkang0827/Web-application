@@ -184,15 +184,14 @@ namespace test2.HDY.ASPX
 
                 con.Close();
 
-                if (HaveFavouriteRow())
-                {
+                //if (HaveFavouriteRow())
+                //{
                     con.Open();
 
-                    string add = "INSERT INTO Favourite VALUES (@id, @cust, @name, @photo, @price, @CustName)";
+                    string add = "INSERT INTO Favourite VALUES (@name, @photo, @price, @CustName)";
                     SqlCommand favourite = new SqlCommand(add, con);
 
-                    favourite.Parameters.AddWithValue("@id", favourite_id);
-                    favourite.Parameters.AddWithValue("@cust", custname);
+                    //favourite.Parameters.AddWithValue("@id", favourite_id);
                     favourite.Parameters.AddWithValue("@name", title);
                     favourite.Parameters.AddWithValue("@photo", img);
                     favourite.Parameters.AddWithValue("@price", price);
@@ -200,30 +199,30 @@ namespace test2.HDY.ASPX
 
                     favourite.ExecuteNonQuery();
                     con.Close();
-                }               
+                //}               
             }
         }
 
-        public Boolean HaveFavouriteRow()
-        {
-            //Checking
-            con.Open();
+        //public Boolean HaveFavouriteRow()
+        //{
+        //    //Checking
+        //    con.Open();
 
-            SqlCommand check = new SqlCommand("SELECT * FROM Favourite WHERE CustName=@Cust AND ImageName=@img", con);
+        //    SqlCommand check = new SqlCommand("SELECT * FROM Favourite WHERE CustName=@Cust AND ImageName=@img", con);
 
-            check.Parameters.AddWithValue("@Cust", CustomerName);
-            check.Parameters.AddWithValue("@img", title);
-            SqlDataReader dtr = check.ExecuteReader();
+        //    check.Parameters.AddWithValue("@Cust", CustomerName);
+        //    check.Parameters.AddWithValue("@img", title);
+        //    SqlDataReader dtr = check.ExecuteReader();
 
-            if (dtr.HasRows)
-            {
-                con.Close();
-                return false;
-            }
+        //    if (dtr.HasRows)
+        //    {
+        //        con.Close();
+        //        return false;
+        //    }
 
-            con.Close();
-            return true;
-        }
+        //    con.Close();
+        //    return true;
+        //}
 
         public void AddOrder(string Ordid)
         {          
