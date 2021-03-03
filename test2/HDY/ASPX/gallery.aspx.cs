@@ -49,218 +49,6 @@ namespace test2.HDY.ASPX
             (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
         }
 
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            string id = "PO10";
-            AddFavourite(id);
-        }
-
-        protected void btnFav1_Click(object sender, EventArgs e)
-        {
-            String id = "PO1";
-            AddFavourite(id);
-        }
-
-        protected void btnFav2_Click(object sender, EventArgs e)
-        {
-            String id = "PO10";
-            AddFavourite(id);
-        }
-
-        protected void btnFav3_Click(object sender, EventArgs e)
-        {
-            String id = "PO11";
-            AddFavourite(id);
-        }
-
-        protected void btnFav4_Click(object sender, EventArgs e)
-        {
-            String id = "PO12";
-            AddFavourite(id);
-        }
-
-        protected void btnFav5_Click(object sender, EventArgs e)
-        {
-            String id = "PO13";
-            AddFavourite(id);
-        }
-
-        protected void btnFav6_Click(object sender, EventArgs e)
-        {
-            String id = "PO14";
-            AddFavourite(id);
-        }
-
-        protected void btnFav7_Click(object sender, EventArgs e)
-        {
-            String id = "PO15";
-            AddFavourite(id);
-        }
-
-        protected void btnFav8_Click(object sender, EventArgs e)
-        {
-            String id = "PO16";
-            AddFavourite(id);
-        }
-
-        protected void btnFav9_Click(object sender, EventArgs e)
-        {
-            String id = "PO17";
-            AddFavourite(id);
-        }
-
-        protected void btnFav10_Click(object sender, EventArgs e)
-        {
-            String id = "PO18";
-            AddFavourite(id);
-        }
-
-        protected void btnFav11_Click(object sender, EventArgs e)
-        {
-            String id = "PO2";
-            AddFavourite(id);
-        }
-
-        protected void btnFav12_Click(object sender, EventArgs e)
-        {
-            String id = "PO3";
-            AddFavourite(id);
-        }
-
-        protected void btnFav13_Click(object sender, EventArgs e)
-        {
-            String id = "PO4";
-            AddFavourite(id);
-        }
-
-        protected void btnFav14_Click(object sender, EventArgs e)
-        {
-            String id = "PO5";
-            AddFavourite(id);
-        }
-
-        protected void btnFav15_Click(object sender, EventArgs e)
-        {
-            String id = "PO6";
-            AddFavourite(id);
-        }
-
-        protected void btnFav16_Click(object sender, EventArgs e)
-        {
-            String id = "PO7";
-            AddFavourite(id);
-        }
-
-        protected void btnFav17_Click(object sender, EventArgs e)
-        {
-            String id = "PO8";
-            AddFavourite(id);
-        }
-
-        protected void btnFav18_Click(object sender, EventArgs e)
-        {
-            String id = "PO9";
-            AddFavourite(id);
-        }
-
-        public void AddFavourite(string favid)
-        {
-            SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
-            String id = favid;
-            sdi.Parameters.AddWithValue("@PostId", id);
-            SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    custname = dtrProd["PostId"].ToString();
-                    title = dtrProd["Title"].ToString();
-                    price = dtrProd["Price"].ToString();
-
-                    img = (byte[])(dtrProd["ImgUpload"]);
-
-                }
-
-                con.Close();
-
-                //if (HaveFavouriteRow())
-                //{
-                    con.Open();
-
-                    string add = "INSERT INTO Favourite VALUES (@name, @photo, @price, @CustName)";
-                    SqlCommand favourite = new SqlCommand(add, con);
-
-                    //favourite.Parameters.AddWithValue("@id", favourite_id);
-                    favourite.Parameters.AddWithValue("@name", title);
-                    favourite.Parameters.AddWithValue("@photo", img);
-                    favourite.Parameters.AddWithValue("@price", price);
-                    favourite.Parameters.AddWithValue("@CustName", CustomerName);
-
-                    favourite.ExecuteNonQuery();
-                    con.Close();
-                //}               
-            }
-        }
-
-        //public Boolean HaveFavouriteRow()
-        //{
-        //    //Checking
-        //    con.Open();
-
-        //    SqlCommand check = new SqlCommand("SELECT * FROM Favourite WHERE CustName=@Cust AND ImageName=@img", con);
-
-        //    check.Parameters.AddWithValue("@Cust", CustomerName);
-        //    check.Parameters.AddWithValue("@img", title);
-        //    SqlDataReader dtr = check.ExecuteReader();
-
-        //    if (dtr.HasRows)
-        //    {
-        //        con.Close();
-        //        return false;
-        //    }
-
-        //    con.Close();
-        //    return true;
-        //}
-
-        public void AddOrder(string Ordid)
-        {          
-            //SqlCommand sdi = new SqlCommand("SELECT * FROM Img WHERE PostId=@PostId", con);
-            //String id = Ordid;
-            //sdi.Parameters.AddWithValue("@PostId", id);
-            //SqlDataReader dtrProd = sdi.ExecuteReader();
-
-            //if (dtrProd.HasRows)
-            //{
-            //    while (dtrProd.Read())
-            //    {
-            //        custname = dtrProd["PostId"].ToString();
-            //        title = dtrProd["Title"].ToString();
-            //        price = dtrProd["Price"].ToString();
-
-            //        img = (byte[])(dtrProd["ImgUpload"]);
-
-            //    }
-
-            //    con.Close();
-            //    con.Open();
-
-            //    string add = "INSERT INTO [Order] VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-            //    SqlCommand order = new SqlCommand(add, con);
-
-            //    order.Parameters.AddWithValue("@id", order_id);
-            //    order.Parameters.AddWithValue("@cust", custname);
-            //    order.Parameters.AddWithValue("@name", title);
-            //    order.Parameters.AddWithValue("@photo", img);
-            //    order.Parameters.AddWithValue("@price", price);
-            //    order.Parameters.AddWithValue("@CustName", CustomerName);
-
-            //    order.ExecuteNonQuery();
-            //    con.Close();
-
-            //}
-        }
 
 
         private void GenerateId()
@@ -269,114 +57,6 @@ namespace test2.HDY.ASPX
             int i = Convert.ToInt32(cmdId.ExecuteScalar());
             i++;
             favourite_id = "FO" + i.ToString();
-        }
-
-        protected void btnOrder2_Click(object sender, EventArgs e)
-        {
-            String id = "PO1";
-            AddOrder(id);
-        }
-
-        protected void btnOrder3_Click(object sender, EventArgs e)
-        {
-            String id = "PO11";
-            AddOrder(id);
-        }
-
-        protected void btnOrder4_Click(object sender, EventArgs e)
-        {
-            String id = "PO12";
-            AddOrder(id);
-        }
-
-        protected void btnOrder5_Click(object sender, EventArgs e)
-        {
-            String id = "PO13";
-            AddOrder(id);
-        }
-
-        protected void btnOrder6_Click(object sender, EventArgs e)
-        {
-            String id = "PO14";
-            AddOrder(id);
-        }
-
-        protected void btnOrder7_Click(object sender, EventArgs e)
-        {
-            String id = "PO15";
-            AddOrder(id);
-        }
-
-        protected void btnOrder8_Click(object sender, EventArgs e)
-        {
-            String id = "PO16";
-            AddOrder(id);
-        }
-
-        protected void btnOrder9_Click(object sender, EventArgs e)
-        {
-            String id = "PO17";
-            AddOrder(id);
-        }
-
-        protected void btnOrder10_Click(object sender, EventArgs e)
-        {
-            String id = "PO18";
-            AddOrder(id);
-        }
-
-        protected void btnOrder11_Click(object sender, EventArgs e)
-        {
-            String id = "PO2";
-            AddOrder(id);
-        }
-
-        protected void btnOrder12_Click(object sender, EventArgs e)
-        {
-            String id = "PO3";
-            AddOrder(id);
-        }
-
-        protected void btnOrder13_Click(object sender, EventArgs e)
-        {
-            String id = "PO4";
-            AddOrder(id);
-        }
-
-        protected void btnOrder14_Click(object sender, EventArgs e)
-        {
-            String id = "PO5";
-            AddOrder(id);
-        }
-
-        protected void btnOrder15_Click(object sender, EventArgs e)
-        {
-            String id = "PO6";
-            AddOrder(id);
-        }
-
-        protected void btnOrder16_Click(object sender, EventArgs e)
-        {
-            String id = "PO7";
-            AddOrder(id);
-        }
-
-        protected void btnOrder17_Click(object sender, EventArgs e)
-        {
-            String id = "PO8";
-            AddOrder(id);
-        }
-
-        protected void btnOrder18_Click(object sender, EventArgs e)
-        {
-            String id = "PO9";
-            AddOrder(id);
-        }
-
-        protected void btnOrder1_Click(object sender, EventArgs e)
-        {
-            String id = "PO1";
-            AddOrder(id);
         }
 
         private void GenerateOrderId()
@@ -520,6 +200,97 @@ namespace test2.HDY.ASPX
             String id = "PO9";
             AddDetails(id);
         }
+
+        protected void Add_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+ 
+               
+            string imgName;
+            string id;
+            if (e.CommandName == "Addfavourite")
+            {
+                imgName = e.CommandArgument.ToString();
+                Label1.Text = imgName;
+                String sdi = "SELECT * FROM Img WHERE Title=@title";
+                SqlCommand cmdAdd = new SqlCommand(sdi, con);
+
+                cmdAdd.Parameters.AddWithValue("@title", imgName);
+                SqlDataReader dtrProd = cmdAdd.ExecuteReader();
+
+                if (dtrProd.HasRows)
+                {
+                    while (dtrProd.Read())
+                    {
+                        custname = dtrProd["PostId"].ToString();
+                        title = dtrProd["Title"].ToString();
+                        price = dtrProd["Price"].ToString();
+
+                        img = (byte[])(dtrProd["ImgUpload"]);
+
+                    }
+                    con.Close();
+                    con.Open();
+                    title = e.CommandArgument.ToString();
+                    Label1.Text = title;
+                    string add = "INSERT INTO Favourite VALUES (@name, @photo, @price, @CustName)";
+                    SqlCommand favourite = new SqlCommand(add, con);
+
+
+                    favourite.Parameters.AddWithValue("@name", title);
+                    favourite.Parameters.AddWithValue("@photo", img);
+                    favourite.Parameters.AddWithValue("@price", price);
+                    favourite.Parameters.AddWithValue("@CustName", CustomerName);
+
+                    favourite.ExecuteNonQuery();
+                    con.Close();
+
+                }
+            }
+            else if (e.CommandName == "Details")
+            {
+                imgName = e.CommandArgument.ToString();
+                //string strAdd = "Delete From Details";
+                imgName = e.CommandArgument.ToString();
+                Label1.Text = imgName;
+                String sdi = "SELECT * FROM Img WHERE Title=@title";
+                SqlCommand cmdAdd = new SqlCommand(sdi, con);
+
+                cmdAdd.Parameters.AddWithValue("@title", imgName);
+                SqlDataReader dtrProd = cmdAdd.ExecuteReader();
+
+                if (dtrProd.HasRows)
+                {
+                    while (dtrProd.Read())
+                    {
+                        custname = dtrProd["PostId"].ToString();
+                        title = dtrProd["Title"].ToString();
+                        price = dtrProd["Price"].ToString();
+
+                        img = (byte[])(dtrProd["ImgUpload"]);
+
+                    }
+
+                    con.Close();
+                    con.Open();
+
+                    string add = "INSERT INTO [Details] VALUES (@id, @cust, @name, @photo, @price, @CustName)";
+                    SqlCommand details = new SqlCommand(add, con);
+
+                    details.Parameters.AddWithValue("@id", details_id);
+                    details.Parameters.AddWithValue("@cust", custname);
+                    details.Parameters.AddWithValue("@name", title);
+                    details.Parameters.AddWithValue("@photo", img);
+                    details.Parameters.AddWithValue("@price", price);
+                    details.Parameters.AddWithValue("@CustName", CustomerName);
+                   // details.Parameters.AddWithValue("@imgId", imgName);
+
+                    details.ExecuteNonQuery();
+                    con.Close();
+                    Response.Redirect("~/CWK/ASPX/Details.aspx");
+                }
+            }
+        }
+        
 
         public void AddDetails(string Detid)
         {
