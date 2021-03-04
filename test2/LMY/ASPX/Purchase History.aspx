@@ -26,9 +26,13 @@
                 ImageName:
                 <asp:Label ID="ImageNameLabel" runat="server" Text='<%# Eval("ImageName") %>' />
                 <br /><br />
+                Quantity:<asp:Label ID="lblQuantity" runat="server" Text='<%# Eval("Quantity") %>'></asp:Label>
+                <br />
+                <br />
                 <asp:Image  Width="320" Height="150" ID="Image1" runat="server" />
                 <br />
                 <br />
+                
                             
 
             </ItemTemplate>

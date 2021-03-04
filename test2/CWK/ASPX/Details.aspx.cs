@@ -17,6 +17,7 @@ namespace test2.CWK.ASPX
         String ArtistName;
         String history_id;
         string CustomerName, title, price;
+        int currentQty, purchaseQty;
         byte[] img;
         String order_id;
 
@@ -37,13 +38,10 @@ namespace test2.CWK.ASPX
                 sda.Fill(dt);
                 dlDetails.DataSource = dt;
                 dlDetails.DataBind();
-
-               
-
+              
             }
 
         }
-
         
 
         protected void GetArtistName()
@@ -86,19 +84,21 @@ namespace test2.CWK.ASPX
 
             sdi.Parameters.AddWithValue("@PostId", "PO1");
             SqlDataReader dtrPr = sdi.ExecuteReader();
-            string imageid = " ";
+            string detailsid = " ";
 
             if (dtrPr.HasRows)
             {
                 while (dtrPr.Read())
                 {
-                    imageid = dtrPr["ImageId"].ToString();
+                    detailsid = dtrPr["detailsid"].ToString();
                 }
             }
             con.Close();
-            Purchase(imageid);
+            Purchase(detailsid);
+          
            
         }
+
 
         public void Purchase(string WantBuyid)
         {
@@ -120,8 +120,8 @@ namespace test2.CWK.ASPX
 
                 con.Close();
                 con.Open();
-
-                string add = "INSERT INTO PurchaseHistory VALUES (@id, @cust, @name, @date, @photo, @price)";
+                
+                string add = "INSERT INTO PurchaseHistory VALUES (@id, @cust, @name, @date, @photo, @price,@quantity)";
                 SqlCommand history = new SqlCommand(add, con);
 
                 history.Parameters.AddWithValue("@id", history_id);
@@ -129,18 +129,46 @@ namespace test2.CWK.ASPX
                 history.Parameters.AddWithValue("@name", title);
                 history.Parameters.AddWithValue("@date", txtDate.Text);
                 history.Parameters.AddWithValue("@photo", img);
-                history.Parameters.AddWithValue("@price", price);
+                history.Parameters.AddWithValue("@price", price);              
+                history.Parameters.AddWithValue("@quantity", txtQty.Text);//add quantity in purchase history
 
                 history.ExecuteNonQuery();
                 
             }
             con.Close();
 
+            //Update Stock
+            con.Open();
+            string updateStk = "Select Quantity from Img where Title=@title";
+            SqlCommand updateQuery = new SqlCommand(updateStk, con);
+            updateQuery.Parameters.AddWithValue("@title", title);
+
+            SqlDataReader dtrUpdate = updateQuery.ExecuteReader();
+
+            if (dtrUpdate.HasRows)
+            {
+                while (dtrUpdate.Read())
+                {
+                    currentQty = (int)dtrUpdate["Quantity"];
+                    purchaseQty = Int32.Parse(txtQty.Text);
+                }
+            }
+            con.Close();
+            currentQty -= purchaseQty;
+
+            con.Open();
+            string reduceStk = "UPDATE Img SET Quantity = @Quantity WHERE Title=@title";
+            SqlCommand reduceQuery = new SqlCommand(reduceStk, con);
+            reduceQuery.Parameters.AddWithValue("@Quantity", currentQty);
+            reduceQuery.Parameters.AddWithValue("@title", title);
+            reduceQuery.ExecuteNonQuery();
+            con.Close();
+
             //Store in order
             //con.Open();
             //SqlCommand sdOrder = new SqlCommand("SELECT * FROM Details", con);
-  
- 
+
+
             //SqlDataReader dtrPro = sdOrder.ExecuteReader();
 
             //if (dtrPro.HasRows)
@@ -207,7 +235,53 @@ namespace test2.CWK.ASPX
             con.Close();
         }
 
-        private void GenerateHistoryId()
+        protected void dlDetails_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void dlDetails_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            con.Open();
+            SqlCommand sdi = new SqlCommand("SELECT * FROM Details", con);
+
+            SqlDataReader dtrProd = sdi.ExecuteReader();
+          
+            if (dtrProd.HasRows)
+            {
+                while (dtrProd.Read())
+                {
+                    title = dtrProd["ImageName"].ToString();
+                    price = dtrProd["Price"].ToString();
+
+                    img = (byte[])(dtrProd["Image"]);
+                }
+
+                con.Close();
+                con.Open();
+
+                
+
+                string add = "INSERT INTO PurchaseHistory VALUES (@id, @cust, @name, @date, @photo, @price,@quantity)";
+                SqlCommand history = new SqlCommand(add, con);
+
+                history.Parameters.AddWithValue("@id", history_id);
+                history.Parameters.AddWithValue("@cust", CustomerName);
+                history.Parameters.AddWithValue("@name", title);
+                history.Parameters.AddWithValue("@date", txtDate.Text);
+                history.Parameters.AddWithValue("@photo", img);
+                history.Parameters.AddWithValue("@price", price);
+                history.Parameters.AddWithValue("@quantity",txtQty.Text);//add quantity in purchase history
+
+                history.ExecuteNonQuery();
+
+               
+
+            }
+            con.Close();
+        }
+
+            private void GenerateHistoryId()
         {
             SqlCommand cmdId = new SqlCommand("Select Count(HistoryId) FROM PurchaseHistory", con);
             int i = Convert.ToInt32(cmdId.ExecuteScalar());

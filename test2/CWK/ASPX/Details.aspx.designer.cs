@@ -33,6 +33,15 @@ namespace test2.CWK.ASPX
         protected global::System.Web.UI.WebControls.DataList dlDetails;
 
         /// <summary>
+        /// txtQty control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtQty;
+
+        /// <summary>
         /// btnBuyNow control.
         /// </summary>
         /// <remarks>

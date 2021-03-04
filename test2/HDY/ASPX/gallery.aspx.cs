@@ -20,6 +20,7 @@ namespace test2.HDY.ASPX
         string CustomerName;
         byte[] img;
         String details_id;
+        int quantity;
              
 
         protected void Page_Load(object sender, EventArgs e)
@@ -282,6 +283,7 @@ namespace test2.HDY.ASPX
                     details.Parameters.AddWithValue("@photo", img);
                     details.Parameters.AddWithValue("@price", price);
                     details.Parameters.AddWithValue("@CustName", CustomerName);
+                   
                    // details.Parameters.AddWithValue("@imgId", imgName);
 
                     details.ExecuteNonQuery();
@@ -313,7 +315,7 @@ namespace test2.HDY.ASPX
                     custname = dtrProd["PostId"].ToString();
                     title = dtrProd["Title"].ToString();
                     price = dtrProd["Price"].ToString();
-
+                    
                     img = (byte[])(dtrProd["ImgUpload"]);
 
                 }

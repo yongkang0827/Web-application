@@ -17,9 +17,6 @@
            
         }       
 
-         .auto-style2 {
-             height: 65px;
-         }
          .auto-style3 {
              height: 174px;
          }
@@ -35,6 +32,11 @@
         .dateLay{
             padding-left:1200px;
         }
+        .qtyInp{
+            
+            font-size:large;
+        }
+        
     </style>
     <div class="dateLay">
     <asp:TextBox ID="txtDate" runat="server" Enabled="False"></asp:TextBox>
@@ -46,7 +48,7 @@
     </div>
      <div class="div2">
          <div>
-           <asp:DataList ID="dlDetails" runat="server" HorizontalAlign="Justify" RepeatColumns="1" RepeatDirection="Horizontal" OnItemDataBound="dlDetails_ItemDataBound" CellPadding="4" ForeColor="#333333" RepeatLayout="Flow">
+           <asp:DataList ID="dlDetails" runat="server" HorizontalAlign="Justify" RepeatColumns="1" RepeatDirection="Horizontal" OnItemDataBound="dlDetails_ItemDataBound" CellPadding="4" ForeColor="#333333" RepeatLayout="Flow" OnSelectedIndexChanged="dlDetails_SelectedIndexChanged" OnItemCommand="dlDetails_ItemCommand">
                <AlternatingItemStyle BackColor="White" ForeColor="#284775" />
                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -63,23 +65,24 @@
                             <h2>Price : <%# Eval("Price") %> </h2>
                             <h2 class="auto-style4">Name : <%# Eval("ImageName") %> </h2>                           
                         </td>
-
                     </tr>                  
-                   <tr>
-                       
-                   </tr>
+                
                </table>
-                                          
+             <br />
+           
             </ItemTemplate>
                <SelectedItemStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
             </asp:DataList>
 
-             <div >
-             <asp:Button ID="btnBuyNow" runat="server" Text="Buy Now" CssClass="pdbtn" OnClick="btnBuyNow_Click"/>
+             <div >            
+             <h2>Quantity:<asp:TextBox ID="txtQty" runat="server"></asp:TextBox>
+                 </h2>                       
+            
+             <asp:Button ID="btnBuyNow" runat="server" Text="Buy Now" CssClass="pdbtn"  CommandArgument='<%# Eval("name") %>' CommandName="Quantity" OnClick="btnBuyNow_Click"/>
             <asp:Button ID="btnBack" runat="server" Text="Back To Gallery" CssClass="pdbtn" OnClick="btnBack_Click"/>
                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Details]"></asp:SqlDataSource>
                                 
-                    <asp:BulletedList ID="BulletedList1" runat="server">
+                    <asp:BulletedList ID="BulletedList1" runat="server"> 
                         <asp:ListItem>Express Shipping</asp:ListItem>
                         <asp:ListItem>Artwork sign by artist</asp:ListItem>
                         <asp:ListItem>Returns Accepted 14 days</asp:ListItem>
@@ -89,5 +92,5 @@
        
                                 
             </div> 
-              
+              </div>
 </asp:Content>
