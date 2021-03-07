@@ -17,9 +17,9 @@ namespace test2.CWK.ASPX
         String ArtistName;
         String history_id;
         string CustomerName, title, price;
-        int currentQty, purchaseQty;
         byte[] img;
         String order_id;
+        int quantity, newQuantity;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -102,7 +102,108 @@ namespace test2.CWK.ASPX
 
         public void Purchase(string WantBuyid)
         {
-            //Store in purchase history
+            if (HavePurchaseRow())
+            {
+                
+
+                con.Open();
+                SqlCommand sdi = new SqlCommand("SELECT * FROM PurchaseHistory Where CustName=@name AND ImageName=@imgName", con);
+
+                sdi.Parameters.AddWithValue("@name", CustomerName);
+                sdi.Parameters.AddWithValue("@imgName", title);
+                SqlDataReader dtrProd = sdi.ExecuteReader();
+
+                if (dtrProd.HasRows)
+                {
+                    while (dtrProd.Read())
+                    {
+                        quantity = Convert.ToInt32(dtrProd["Quantity"].ToString());
+
+                    }
+                }
+                newQuantity = quantity + Convert.ToInt32(txtQty.Text);
+                con.Close();
+
+                con.Open();
+                string strAdd = "Update PurchaseHistory Set Quantity = @quant Where CustName=@name AND ImageName=@imgName";
+                SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+                cmdAdd.Parameters.AddWithValue("@name", CustomerName);
+                cmdAdd.Parameters.AddWithValue("@imgName", title);
+                cmdAdd.Parameters.AddWithValue("@quant", newQuantity);
+
+
+
+                cmdAdd.ExecuteNonQuery();
+                con.Close();
+            }
+            else
+            {
+                //Store in purchase history
+                con.Open();
+                SqlCommand sdi = new SqlCommand("SELECT * FROM Details", con);
+
+                SqlDataReader dtrProd = sdi.ExecuteReader();
+
+                if (dtrProd.HasRows)
+                {
+                    while (dtrProd.Read())
+                    {
+                        title = dtrProd["ImageName"].ToString();
+                        price = dtrProd["Price"].ToString();
+
+                        img = (byte[])(dtrProd["Image"]);
+                    }
+
+                    con.Close();
+                    con.Open();
+
+                    string add = "INSERT INTO PurchaseHistory VALUES (@id, @cust, @name, @date, @photo, @price,@quantity)";
+                    SqlCommand history = new SqlCommand(add, con);
+
+                    history.Parameters.AddWithValue("@id", history_id);
+                    history.Parameters.AddWithValue("@cust", CustomerName);
+                    history.Parameters.AddWithValue("@name", title);
+                    history.Parameters.AddWithValue("@date", txtDate.Text);
+                    history.Parameters.AddWithValue("@photo", img);
+                    history.Parameters.AddWithValue("@price", price);
+                    history.Parameters.AddWithValue("@quantity", txtQty.Text);//add quantity in purchase history
+
+                    history.ExecuteNonQuery();
+                }
+                con.Close();
+            }
+
+            //Update Stock
+            //con.Open();
+            //string updateStk = "Select Quantity from Img where Title=@title";
+            //SqlCommand updateQuery = new SqlCommand(updateStk, con);
+            //updateQuery.Parameters.AddWithValue("@title", title);
+
+            //SqlDataReader dtrUpdate = updateQuery.ExecuteReader();
+
+            //if (dtrUpdate.HasRows)
+            //{
+            //    while (dtrUpdate.Read())
+            //    {
+            //        currentQty = (int)dtrUpdate["Quantity"];
+            //        purchaseQty = Int32.Parse(txtQty.Text);
+            //    }
+            //}
+            //con.Close();
+            //currentQty -= purchaseQty;
+
+            //con.Open();
+            //string reduceStk = "UPDATE Img SET Quantity = @Quantity WHERE Title=@title";
+            //SqlCommand reduceQuery = new SqlCommand(reduceStk, con);
+            //reduceQuery.Parameters.AddWithValue("@Quantity", currentQty);
+            //reduceQuery.Parameters.AddWithValue("@title", title);
+            //reduceQuery.ExecuteNonQuery();
+            //con.Close();
+        }
+
+        public Boolean HavePurchaseRow()
+        {
             con.Open();
             SqlCommand sdi = new SqlCommand("SELECT * FROM Details", con);
 
@@ -117,88 +218,26 @@ namespace test2.CWK.ASPX
 
                     img = (byte[])(dtrProd["Image"]);
                 }
-
-                con.Close();
-                con.Open();
-                
-                string add = "INSERT INTO PurchaseHistory VALUES (@id, @cust, @name, @date, @photo, @price,@quantity)";
-                SqlCommand history = new SqlCommand(add, con);
-
-                history.Parameters.AddWithValue("@id", history_id);
-                history.Parameters.AddWithValue("@cust", CustomerName);
-                history.Parameters.AddWithValue("@name", title);
-                history.Parameters.AddWithValue("@date", txtDate.Text);
-                history.Parameters.AddWithValue("@photo", img);
-                history.Parameters.AddWithValue("@price", price);              
-                history.Parameters.AddWithValue("@quantity", txtQty.Text);//add quantity in purchase history
-
-                history.ExecuteNonQuery();
-                
             }
             con.Close();
-
-            //Update Stock
+            ////////////////////////////////
+            //Checking
             con.Open();
-            string updateStk = "Select Quantity from Img where Title=@title";
-            SqlCommand updateQuery = new SqlCommand(updateStk, con);
-            updateQuery.Parameters.AddWithValue("@title", title);
 
-            SqlDataReader dtrUpdate = updateQuery.ExecuteReader();
+            SqlCommand check = new SqlCommand("SELECT * FROM PurchaseHistory WHERE CustName=@Cust AND ImageName=@img", con);
 
-            if (dtrUpdate.HasRows)
+            check.Parameters.AddWithValue("@Cust", CustomerName);
+            check.Parameters.AddWithValue("@img", title);
+            SqlDataReader dtr = check.ExecuteReader();
+
+            if (dtr.HasRows)
             {
-                while (dtrUpdate.Read())
-                {
-                    currentQty = (int)dtrUpdate["Quantity"];
-                    purchaseQty = Int32.Parse(txtQty.Text);
-                }
+                con.Close();
+                return true;
             }
+
             con.Close();
-            currentQty -= purchaseQty;
-
-            con.Open();
-            string reduceStk = "UPDATE Img SET Quantity = @Quantity WHERE Title=@title";
-            SqlCommand reduceQuery = new SqlCommand(reduceStk, con);
-            reduceQuery.Parameters.AddWithValue("@Quantity", currentQty);
-            reduceQuery.Parameters.AddWithValue("@title", title);
-            reduceQuery.ExecuteNonQuery();
-            con.Close();
-
-            //Store in order
-            //con.Open();
-            //SqlCommand sdOrder = new SqlCommand("SELECT * FROM Details", con);
-
-
-            //SqlDataReader dtrPro = sdOrder.ExecuteReader();
-
-            //if (dtrPro.HasRows)
-            //{
-            //    while (dtrPro.Read())
-            //    {
-            //        CustomerName = dtrPro["CustName"].ToString();
-            //        title = dtrPro["ImageName"].ToString();
-            //        price = dtrPro["Price"].ToString();
-
-            //        img = (byte[])(dtrPro["Image"]);
-
-            //    }
-
-            //    con.Close();
-            //    con.Open();
-
-            //    string add = "INSERT INTO [Order] VALUES (@id, @cust, @name, @photo, @price, @CustName)";
-            //    SqlCommand order = new SqlCommand(add, con);
-
-            //    order.Parameters.AddWithValue("@id", order_id);
-            //    order.Parameters.AddWithValue("@cust", CustomerName);
-            //    order.Parameters.AddWithValue("@name", title);
-            //    order.Parameters.AddWithValue("@photo", img);
-            //    order.Parameters.AddWithValue("@price", price);
-            //    order.Parameters.AddWithValue("@CustName", CustomerName);
-
-            //    order.ExecuteNonQuery();               
-            //}
-            //con.Close();
+            return false;
         }
 
         private void GenerateOrderId()

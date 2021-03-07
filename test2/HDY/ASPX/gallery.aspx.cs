@@ -94,114 +94,6 @@ namespace test2.HDY.ASPX
             con.Close();
         }
 
-        protected void btnView1_Click(object sender, EventArgs e)
-        {
-            String id = "PO1";
-            AddDetails(id);
-        }
-
-        protected void btnView2_Click(object sender, EventArgs e)
-        {
-            String id = "PO10";
-            AddDetails(id);
-        }
-
-        protected void btnView3_Click(object sender, EventArgs e)
-        {
-            String id = "PO11";
-            AddDetails(id);
-        }
-
-        protected void btnView4_Click(object sender, EventArgs e)
-        {
-            String id = "PO12";
-            AddDetails(id);
-        }
-
-        protected void btnView5_Click(object sender, EventArgs e)
-        {
-            String id = "PO13";
-            AddDetails (id);
-        }
-
-        protected void btnView6_Click(object sender, EventArgs e)
-        {
-            String id = "PO14";
-            AddDetails(id);
-        }
-
-        protected void btnView7_Click(object sender, EventArgs e)
-        {
-            String id = "PO15";
-            AddDetails(id);
-        }
-
-        protected void btnView8_Click(object sender, EventArgs e)
-        {
-            String id = "PO16";
-            AddDetails(id);
-        }
-
-        protected void btnView9_Click(object sender, EventArgs e)
-        {
-            String id = "PO17";
-            AddDetails(id);
-        }
-
-        protected void btnView10_Click(object sender, EventArgs e)
-        {
-            String id = "PO18";
-            AddDetails(id);
-        }
-
-        protected void btnView11_Click(object sender, EventArgs e)
-        {
-            String id = "PO2";
-            AddDetails(id);
-        }
-
-        protected void btnView12_Click(object sender, EventArgs e)
-        {
-            String id = "PO3";
-            AddDetails(id);
-        }
-
-        protected void btnView13_Click(object sender, EventArgs e)
-        {
-            String id = "PO4";
-            AddDetails(id);
-        }
-
-        protected void btnView14_Click(object sender, EventArgs e)
-        {
-            String id = "PO5";
-            AddDetails(id);
-        }
-
-        protected void btnView15_Click(object sender, EventArgs e)
-        {
-            String id = "PO6";
-            AddDetails(id);
-        }
-
-        protected void btnView16_Click(object sender, EventArgs e)
-        {
-            String id = "PO7";
-            AddDetails(id);
-        }
-
-        protected void btnView17_Click(object sender, EventArgs e)
-        {
-            String id = "PO8";
-            AddDetails(id);
-        }
-
-        protected void btnView18_Click(object sender, EventArgs e)
-        {
-            String id = "PO9";
-            AddDetails(id);
-        }
-
         protected void Add_ItemCommand(object source, DataListCommandEventArgs e)
         {
  
@@ -211,7 +103,6 @@ namespace test2.HDY.ASPX
             if (e.CommandName == "Addfavourite")
             {
                 imgName = e.CommandArgument.ToString();
-                Label1.Text = imgName;
                 String sdi = "SELECT * FROM Img WHERE Title=@title";
                 SqlCommand cmdAdd = new SqlCommand(sdi, con);
 
@@ -230,29 +121,37 @@ namespace test2.HDY.ASPX
 
                     }
                     con.Close();
-                    con.Open();
-                    title = e.CommandArgument.ToString();
-                    Label1.Text = title;
-                    string add = "INSERT INTO Favourite VALUES (@name, @photo, @price, @CustName)";
-                    SqlCommand favourite = new SqlCommand(add, con);
+                    
+
+                    if (HaveFavouriteRow())
+                    {
+                        con.Open();
+                        title = e.CommandArgument.ToString();
+                        string add = "INSERT INTO Favourite VALUES (@name, @photo, @price, @CustName)";
+                        SqlCommand favourite = new SqlCommand(add, con);
 
 
-                    favourite.Parameters.AddWithValue("@name", title);
-                    favourite.Parameters.AddWithValue("@photo", img);
-                    favourite.Parameters.AddWithValue("@price", price);
-                    favourite.Parameters.AddWithValue("@CustName", CustomerName);
+                        favourite.Parameters.AddWithValue("@name", title);
+                        favourite.Parameters.AddWithValue("@photo", img);
+                        favourite.Parameters.AddWithValue("@price", price);
+                        favourite.Parameters.AddWithValue("@CustName", CustomerName);
 
-                    favourite.ExecuteNonQuery();
-                    con.Close();
+                        favourite.ExecuteNonQuery();
+                        con.Close();
+                    }
 
                 }
             }
             else if (e.CommandName == "Details")
             {
+                string strAdd = "Delete From Details";
+                SqlCommand cmdDelete = new SqlCommand(strAdd, con);
+
+                cmdDelete.ExecuteNonQuery();
+                con.Close();
+                con.Open();
                 imgName = e.CommandArgument.ToString();
-                //string strAdd = "Delete From Details";
-                imgName = e.CommandArgument.ToString();
-                Label1.Text = imgName;
+
                 String sdi = "SELECT * FROM Img WHERE Title=@title";
                 SqlCommand cmdAdd = new SqlCommand(sdi, con);
 
@@ -292,7 +191,28 @@ namespace test2.HDY.ASPX
                 }
             }
         }
-        
+
+        public Boolean HaveFavouriteRow()
+        {
+            //Checking
+            con.Open();
+
+            SqlCommand check = new SqlCommand("SELECT * FROM Favourite WHERE CustName=@Cust AND ImageName=@img", con);
+
+            check.Parameters.AddWithValue("@Cust", CustomerName);
+            check.Parameters.AddWithValue("@img", title);
+            SqlDataReader dtr = check.ExecuteReader();
+
+            if (dtr.HasRows)
+            {
+                con.Close();
+                return false;
+            }
+
+            con.Close();
+            return true;
+        }
+
 
         public void AddDetails(string Detid)
         {

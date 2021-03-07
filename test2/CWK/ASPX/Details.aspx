@@ -36,7 +36,10 @@
             
             font-size:large;
         }
-        
+        .imgSize2{
+            width:180px;
+          
+        }
     </style>
     <div class="dateLay">
     <asp:TextBox ID="txtDate" runat="server" Enabled="False"></asp:TextBox>
@@ -65,7 +68,22 @@
                             <h2>Price : <%# Eval("Price") %> </h2>
                             <h2 class="auto-style4">Name : <%# Eval("ImageName") %> </h2>                           
                         </td>
-                    </tr>                  
+                    </tr>  
+                    <tr>
+                        <td>
+                            
+                        </td>
+                    </tr>
+                    <tr><td>
+                        <img src="../IMG/card.png" class="imgSize2"/></td></tr>
+                    <tr><td>
+                        <asp:Label ID="lblCardNumber" runat="server" Text="Card Number"></asp:Label></td></tr>
+                    <tr><td>
+                        <asp:TextBox ID="txtCardNumber" runat="server" class="textfield"></asp:TextBox></td></tr>
+                    <tr><td>
+                        <asp:Label ID="lblCVV" runat="server" Text="CVV" ></asp:Label></td></tr>
+                    <tr><td>
+                        <asp:TextBox ID="txtCVV" runat="server" TextMode="Password" class="pass"></asp:TextBox></td></tr>
                 
                </table>
              <br />
@@ -75,8 +93,7 @@
             </asp:DataList>
 
              <div >            
-             <h2>Quantity:<asp:TextBox ID="txtQty" runat="server"></asp:TextBox>
-                 </h2>                       
+                     <h2>Quantity:<asp:TextBox ID="txtQty" runat="server"></asp:TextBox></h2>               
             
              <asp:Button ID="btnBuyNow" runat="server" Text="Buy Now" CssClass="pdbtn"  CommandArgument='<%# Eval("name") %>' CommandName="Quantity" OnClick="btnBuyNow_Click"/>
             <asp:Button ID="btnBack" runat="server" Text="Back To Gallery" CssClass="pdbtn" OnClick="btnBack_Click"/>

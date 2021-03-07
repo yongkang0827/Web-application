@@ -18,141 +18,15 @@
             width: 320px;
         }
         
-       .div3{
-            left:580px;
-            top:680px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-        .div3a{
-            left:900px;
-            top:680px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-        .div4{
-            left:580px;
-            top:1150px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-        .div4a{
-            left:900px;
-            top:1150px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-        .div5{
-            left:580px;
-            top:1620px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-        .div5a{
-            left:900px;
-            top:1620px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-        .div6{
-            left:580px;
-            top:2080px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-        .div6a{
-            left:900px;
-            top:2080px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-         .div7{
-            left:580px;
-            top:2540px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-         .div7a{
-            left:900px;
-            top:2540px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-          .div8{
-            left:580px;
-            top:3050px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-          .div8a{
-            left:900px;
-            top:3050px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-          .div9{
-            left:580px;
-            top:3510px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-          .div9a{
-            left:900px;
-            top:3510px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-           .div10{
-            left:580px;
-            top:3970px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-           .div10a{
-            left:900px;
-            top:3970px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-           .div11{
-            left:580px;
-            top:4430px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
-           .div11a{
-            left:900px;
-            top:4430px;
-            position:absolute;
-            width: 239px;
-            height: 35px;
-        }
+
         </style>
     <div class="div1">
         <h1>
             Galleries
         </h1>
     </div>
-    <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
      <div class="div1">         
-         <asp:DataList ID="DataList1" runat="server" HorizontalAlign="center" RepeatColumns="2" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound" CellPadding="4" ForeColor="#34EBD2" OnItemCommand="Add_ItemCommand" AutoPostBack="False">
+         <asp:DataList ID="DataList1" runat="server" HorizontalAlign="center" RepeatColumns="3" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound" CellPadding="4" ForeColor="#34EBD2" OnItemCommand="Add_ItemCommand" AutoPostBack="False">
                <AlternatingItemStyle BackColor="White" ForeColor="#284775" />
                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

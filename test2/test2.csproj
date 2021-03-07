@@ -72,7 +72,12 @@
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
     <Content Include="CWK\ASPX\Details.aspx" />
+    <Content Include="CWK\IMG\card.png" />
     <Content Include="HDY\ASPX\Order.aspx" />
+    <Content Include="LHY\ASPX\ArtistProfile.aspx" />
+    <Content Include="LHY\ASPX\CustomerProfile.aspx" />
+    <Content Include="LHY\ASPX\editArtistProfile.aspx" />
+    <Content Include="LHY\ASPX\editCustProfile.aspx" />
     <Content Include="Master\ASPX\artistHome.aspx" />
     <Content Include="Master\ASPX\cart.aspx" />
     <Content Include="HDY\ASPX\gallery.aspx" />
@@ -145,6 +150,34 @@
     </Compile>
     <Compile Include="HDY\ASPX\Order.aspx.designer.cs">
       <DependentUpon>Order.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LHY\ASPX\ArtistProfile.aspx.cs">
+      <DependentUpon>ArtistProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LHY\ASPX\ArtistProfile.aspx.designer.cs">
+      <DependentUpon>ArtistProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LHY\ASPX\CustomerProfile.aspx.cs">
+      <DependentUpon>CustomerProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LHY\ASPX\CustomerProfile.aspx.designer.cs">
+      <DependentUpon>CustomerProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LHY\ASPX\editArtistProfile.aspx.cs">
+      <DependentUpon>editArtistProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LHY\ASPX\editArtistProfile.aspx.designer.cs">
+      <DependentUpon>editArtistProfile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LHY\ASPX\editCustProfile.aspx.cs">
+      <DependentUpon>editCustProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LHY\ASPX\editCustProfile.aspx.designer.cs">
+      <DependentUpon>editCustProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master\ASPX\artistHome.aspx.cs">
       <DependentUpon>artistHome.aspx</DependentUpon>
@@ -281,9 +314,7 @@
     <Content Include="Web.sitemap" />
     <Content Include="Web1.sitemap" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="CWK\IMG\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
