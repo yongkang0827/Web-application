@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.IO;
 using System.Data;
+using System.Net.Mail;
 
 namespace test2.CWK.ASPX
 {
@@ -20,6 +21,7 @@ namespace test2.CWK.ASPX
         byte[] img;
         String order_id;
         int quantity, newQuantity;
+        int randomPin;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,7 +45,6 @@ namespace test2.CWK.ASPX
 
         }
         
-
         protected void GetArtistName()
         {
             ////Get Now is who webpage
@@ -102,104 +103,85 @@ namespace test2.CWK.ASPX
 
         public void Purchase(string WantBuyid)
         {
-            if (HavePurchaseRow())
+            txtDate.Text = txtPin.Text + "   " + Session["Pin"].ToString();
+            if (Session["Pin"].ToString().Equals(txtPin.Text))
             {
-                
-
-                con.Open();
-                SqlCommand sdi = new SqlCommand("SELECT * FROM PurchaseHistory Where CustName=@name AND ImageName=@imgName", con);
-
-                sdi.Parameters.AddWithValue("@name", CustomerName);
-                sdi.Parameters.AddWithValue("@imgName", title);
-                SqlDataReader dtrProd = sdi.ExecuteReader();
-
-                if (dtrProd.HasRows)
+                if (HavePurchaseRow())
                 {
-                    while (dtrProd.Read())
+                    con.Open();
+                    SqlCommand sdi = new SqlCommand("SELECT * FROM PurchaseHistory Where CustName=@name AND ImageName=@imgName", con);
+
+                    sdi.Parameters.AddWithValue("@name", CustomerName);
+                    sdi.Parameters.AddWithValue("@imgName", title);
+                    SqlDataReader dtrProd = sdi.ExecuteReader();
+
+                    if (dtrProd.HasRows)
                     {
-                        quantity = Convert.ToInt32(dtrProd["Quantity"].ToString());
+                        while (dtrProd.Read())
+                        {
+                            quantity = Convert.ToInt32(dtrProd["Quantity"].ToString());
 
+                        }
                     }
+                    newQuantity = quantity + Convert.ToInt32(txtQty.Text);
+                    con.Close();
+
+                    con.Open();
+                    string strAdd = "Update PurchaseHistory Set Quantity = @quant Where CustName=@name AND ImageName=@imgName";
+                    SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+                    cmdAdd.Parameters.AddWithValue("@name", CustomerName);
+                    cmdAdd.Parameters.AddWithValue("@imgName", title);
+                    cmdAdd.Parameters.AddWithValue("@quant", newQuantity);
+
+
+
+                    cmdAdd.ExecuteNonQuery();
+                    con.Close();
                 }
-                newQuantity = quantity + Convert.ToInt32(txtQty.Text);
-                con.Close();
+                else
+                {
+                    //Store in purchase history
+                    con.Open();
+                    SqlCommand sdi = new SqlCommand("SELECT * FROM Details", con);
 
-                con.Open();
-                string strAdd = "Update PurchaseHistory Set Quantity = @quant Where CustName=@name AND ImageName=@imgName";
-                SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+                    SqlDataReader dtrProd = sdi.ExecuteReader();
 
-                cmdAdd.Parameters.AddWithValue("@name", CustomerName);
-                cmdAdd.Parameters.AddWithValue("@imgName", title);
-                cmdAdd.Parameters.AddWithValue("@quant", newQuantity);
+                    if (dtrProd.HasRows)
+                    {
+                        while (dtrProd.Read())
+                        {
+                            title = dtrProd["ImageName"].ToString();
+                            price = dtrProd["Price"].ToString();
 
+                            img = (byte[])(dtrProd["Image"]);
+                        }
 
+                        con.Close();
+                        con.Open();
 
-                cmdAdd.ExecuteNonQuery();
-                con.Close();
+                        string add = "INSERT INTO PurchaseHistory VALUES (@id, @cust, @name, @date, @photo, @price,@quantity)";
+                        SqlCommand history = new SqlCommand(add, con);
+
+                        history.Parameters.AddWithValue("@id", history_id);
+                        history.Parameters.AddWithValue("@cust", CustomerName);
+                        history.Parameters.AddWithValue("@name", title);
+                        history.Parameters.AddWithValue("@date", txtDate.Text);
+                        history.Parameters.AddWithValue("@photo", img);
+                        history.Parameters.AddWithValue("@price", price);
+                        history.Parameters.AddWithValue("@quantity", txtQty.Text);//add quantity in purchase history
+
+                        history.ExecuteNonQuery();
+                    }
+                    con.Close();
+                }
+                SendMail(title, txtQty.Text);
             }
             else
             {
-                //Store in purchase history
-                con.Open();
-                SqlCommand sdi = new SqlCommand("SELECT * FROM Details", con);
-
-                SqlDataReader dtrProd = sdi.ExecuteReader();
-
-                if (dtrProd.HasRows)
-                {
-                    while (dtrProd.Read())
-                    {
-                        title = dtrProd["ImageName"].ToString();
-                        price = dtrProd["Price"].ToString();
-
-                        img = (byte[])(dtrProd["Image"]);
-                    }
-
-                    con.Close();
-                    con.Open();
-
-                    string add = "INSERT INTO PurchaseHistory VALUES (@id, @cust, @name, @date, @photo, @price,@quantity)";
-                    SqlCommand history = new SqlCommand(add, con);
-
-                    history.Parameters.AddWithValue("@id", history_id);
-                    history.Parameters.AddWithValue("@cust", CustomerName);
-                    history.Parameters.AddWithValue("@name", title);
-                    history.Parameters.AddWithValue("@date", txtDate.Text);
-                    history.Parameters.AddWithValue("@photo", img);
-                    history.Parameters.AddWithValue("@price", price);
-                    history.Parameters.AddWithValue("@quantity", txtQty.Text);//add quantity in purchase history
-
-                    history.ExecuteNonQuery();
-                }
-                con.Close();
+                String msg = "Invalid Pin Number";
+                Response.Write("<script>alert('" + msg + "')</script>");
             }
-
-            //Update Stock
-            //con.Open();
-            //string updateStk = "Select Quantity from Img where Title=@title";
-            //SqlCommand updateQuery = new SqlCommand(updateStk, con);
-            //updateQuery.Parameters.AddWithValue("@title", title);
-
-            //SqlDataReader dtrUpdate = updateQuery.ExecuteReader();
-
-            //if (dtrUpdate.HasRows)
-            //{
-            //    while (dtrUpdate.Read())
-            //    {
-            //        currentQty = (int)dtrUpdate["Quantity"];
-            //        purchaseQty = Int32.Parse(txtQty.Text);
-            //    }
-            //}
-            //con.Close();
-            //currentQty -= purchaseQty;
-
-            //con.Open();
-            //string reduceStk = "UPDATE Img SET Quantity = @Quantity WHERE Title=@title";
-            //SqlCommand reduceQuery = new SqlCommand(reduceStk, con);
-            //reduceQuery.Parameters.AddWithValue("@Quantity", currentQty);
-            //reduceQuery.Parameters.AddWithValue("@title", title);
-            //reduceQuery.ExecuteNonQuery();
-            //con.Close();
         }
 
         public Boolean HavePurchaseRow()
@@ -240,6 +222,33 @@ namespace test2.CWK.ASPX
             return false;
         }
 
+
+        protected void SendMail(String imgName, String totalBuy)
+        {
+            try
+            {
+                String toEmail = "artistweblimgrp@gmail.com";
+                String fromEmail = "limmy-wm18@student.tarc.edu.my";
+                String headEmail = "Art Website Purchase Notice";
+                String bodyEmail = "You Have Purchase : " + imgName + " with quantity = " + totalBuy;
+
+                MailMessage message = new MailMessage(fromEmail, toEmail, headEmail, bodyEmail);
+                message.IsBodyHtml = true;
+
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+                client.EnableSsl = true;
+                client.Credentials = new System.Net.NetworkCredential("artistweblimgrp@gmail.com", "artistweb123");
+                client.Send(message);
+
+                String msg = "Email Sended";
+                Response.Write("<script>alert('" + msg + "')</script>");
+            }
+            catch (Exception ex)
+            {
+                String msg = "Email Send Error";
+                Response.Write("<script>alert('" + msg + "')</script>");
+            }
+        }
         private void GenerateOrderId()
         {
 
@@ -336,6 +345,40 @@ namespace test2.CWK.ASPX
             cmdAdd.ExecuteNonQuery();
             con.Close();
             Response.Redirect("~/HDY/ASPX/Gallery.aspx");
-        }     
+        }
+
+        protected void PinNumber(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            randomPin = random.Next(100000, 999999);
+            Session["Pin"] = Convert.ToString(randomPin);
+            try
+            {
+                String toEmail = "artistweblimgrp@gmail.com";
+                String fromEmail = "artistweblimgrp@gmail.com";
+                String headEmail = "Credit Card Pin Number";
+                String bodyEmail = "Pin Number is " + Convert.ToString(randomPin);
+
+                MailMessage message = new MailMessage(fromEmail, toEmail, headEmail, bodyEmail);
+                message.IsBodyHtml = true;
+
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+                client.EnableSsl = true;
+                client.Credentials = new System.Net.NetworkCredential("artistweblimgrp@gmail.com", "artistweb123");
+                client.Send(message);
+
+                String msg = "Email Sended";
+                Response.Write("<script>alert('" + msg + "')</script>");
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                String msg = "Email Send Error";
+                Response.Write("<script>alert('" + msg + "')</script>");
+            }
+        }
     }
 }

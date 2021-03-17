@@ -66,14 +66,18 @@
                     <tr> 
                         <td class="auto-style3">
                             <h2>Price : <%# Eval("Price") %> </h2>
-                            <h2 class="auto-style4">Name : <%# Eval("ImageName") %> </h2>                           
+                            <h2 class="auto-style4">Name : <%# Eval("ImageName") %> </h2> 
+                            <h2>Quantity : <%# Eval("Quantity") %> </h2> 
                         </td>
-                    </tr>  
-                    <tr>
-                        <td>
-                            
-                        </td>
-                    </tr>
+                    </tr> 
+                </table>
+
+                </ItemTemplate>
+               <SelectedItemStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+            </asp:DataList>
+
+             <table>
+                 <tr><td><h2>Quantity:<asp:TextBox ID="txtQty" runat="server"></asp:TextBox></h2> </td></tr> 
                     <tr><td>
                         <img src="../IMG/card.png" class="imgSize2"/></td></tr>
                     <tr><td>
@@ -84,16 +88,19 @@
                         <asp:Label ID="lblCVV" runat="server" Text="CVV" ></asp:Label></td></tr>
                     <tr><td>
                         <asp:TextBox ID="txtCVV" runat="server" TextMode="Password" class="pass"></asp:TextBox></td></tr>
-                
+                    <tr><td>
+                        <asp:Label ID="lblPin" runat="server" Text="Pin Number" ></asp:Label></td></tr>
+                    <tr><td>
+                        <asp:TextBox ID="txtPin" runat="server"></asp:TextBox></td>
+                        <td>
+                            <asp:Button ID="btnPin" runat="server" Text="Pin Number" onClick="PinNumber"/>
+                    </tr>
                </table>
-             <br />
            
-            </ItemTemplate>
-               <SelectedItemStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-            </asp:DataList>
+            
 
              <div >            
-                     <h2>Quantity:<asp:TextBox ID="txtQty" runat="server"></asp:TextBox></h2>               
+                                   
             
              <asp:Button ID="btnBuyNow" runat="server" Text="Buy Now" CssClass="pdbtn"  CommandArgument='<%# Eval("name") %>' CommandName="Quantity" OnClick="btnBuyNow_Click"/>
             <asp:Button ID="btnBack" runat="server" Text="Back To Gallery" CssClass="pdbtn" OnClick="btnBack_Click"/>

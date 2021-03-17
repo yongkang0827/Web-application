@@ -20,7 +20,7 @@ namespace test2.HDY.ASPX
         string CustomerName;
         byte[] img;
         String details_id;
-        int quantity;
+        string quantity;
              
 
         protected void Page_Load(object sender, EventArgs e)
@@ -165,6 +165,7 @@ namespace test2.HDY.ASPX
                         custname = dtrProd["PostId"].ToString();
                         title = dtrProd["Title"].ToString();
                         price = dtrProd["Price"].ToString();
+                        quantity = dtrProd["Quantity"].ToString();
 
                         img = (byte[])(dtrProd["ImgUpload"]);
 
@@ -173,7 +174,7 @@ namespace test2.HDY.ASPX
                     con.Close();
                     con.Open();
 
-                    string add = "INSERT INTO [Details] VALUES (@id, @cust, @name, @photo, @price, @CustName)";
+                    string add = "INSERT INTO [Details] VALUES (@id, @cust, @name, @photo, @price, @quant, @CustName)";
                     SqlCommand details = new SqlCommand(add, con);
 
                     details.Parameters.AddWithValue("@id", details_id);
@@ -181,6 +182,7 @@ namespace test2.HDY.ASPX
                     details.Parameters.AddWithValue("@name", title);
                     details.Parameters.AddWithValue("@photo", img);
                     details.Parameters.AddWithValue("@price", price);
+                    details.Parameters.AddWithValue("@quant", quantity);
                     details.Parameters.AddWithValue("@CustName", CustomerName);
                    
                    // details.Parameters.AddWithValue("@imgId", imgName);

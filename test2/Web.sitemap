@@ -7,7 +7,7 @@
 	  <siteMapNode url="~/LMY/ASPX/Favourite.aspx" title="Favourite"  description=""/>
 	  <siteMapNode url="~/LMY/ASPX/Purchase History.aspx" title="Purchase History"  description=""/>
 	</siteMapNode>
-
+	  
 	  <siteMapNode url="~/LHY/ASPX/CustomerProfile.aspx" title="My Profile"  description="" roles="C">
 
 	  </siteMapNode>
