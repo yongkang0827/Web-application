@@ -78,6 +78,9 @@
     <Content Include="LHY\ASPX\CustomerProfile.aspx" />
     <Content Include="LHY\ASPX\editArtistProfile.aspx" />
     <Content Include="LHY\ASPX\editCustProfile.aspx" />
+    <Content Include="LMY\ASPX\MakePayment.aspx" />
+    <Content Include="LMY\ASPX\Payment.aspx" />
+    <Content Include="LMY\IMG\card.png" />
     <Content Include="Master\ASPX\artistHome.aspx" />
     <Content Include="Master\ASPX\cart.aspx" />
     <Content Include="HDY\ASPX\gallery.aspx" />
@@ -179,6 +182,21 @@
     <Compile Include="LHY\ASPX\editCustProfile.aspx.designer.cs">
       <DependentUpon>editCustProfile.aspx</DependentUpon>
     </Compile>
+    <Compile Include="LMY\ASPX\MakePayment.aspx.cs">
+      <DependentUpon>MakePayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LMY\ASPX\MakePayment.aspx.designer.cs">
+      <DependentUpon>MakePayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LMY\ASPX\Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LMY\ASPX\Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LMY\ASPX\SqlDatareader.cs" />
     <Compile Include="Master\ASPX\artistHome.aspx.cs">
       <DependentUpon>artistHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -76,33 +76,14 @@
                <SelectedItemStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
             </asp:DataList>
 
-             <table>
-                 <tr><td><h2>Quantity:<asp:TextBox ID="txtQty" runat="server"></asp:TextBox></h2> </td></tr> 
-                    <tr><td>
-                        <img src="../IMG/card.png" class="imgSize2"/></td></tr>
-                    <tr><td>
-                        <asp:Label ID="lblCardNumber" runat="server" Text="Card Number"></asp:Label></td></tr>
-                    <tr><td>
-                        <asp:TextBox ID="txtCardNumber" runat="server" class="textfield"></asp:TextBox></td></tr>
-                    <tr><td>
-                        <asp:Label ID="lblCVV" runat="server" Text="CVV" ></asp:Label></td></tr>
-                    <tr><td>
-                        <asp:TextBox ID="txtCVV" runat="server" TextMode="Password" class="pass"></asp:TextBox></td></tr>
-                    <tr><td>
-                        <asp:Label ID="lblPin" runat="server" Text="Pin Number" ></asp:Label></td></tr>
-                    <tr><td>
-                        <asp:TextBox ID="txtPin" runat="server"></asp:TextBox></td>
-                        <td>
-                            <asp:Button ID="btnPin" runat="server" Text="Pin Number" onClick="PinNumber"/>
-                    </tr>
-               </table>
+             
            
             
 
              <div >            
                                    
             
-             <asp:Button ID="btnBuyNow" runat="server" Text="Buy Now" CssClass="pdbtn"  CommandArgument='<%# Eval("name") %>' CommandName="Quantity" OnClick="btnBuyNow_Click"/>
+             <asp:Button ID="btnBuyNow" runat="server" Text="Add Order List" CssClass="pdbtn"  CommandArgument='<%# Eval("name") %>' CommandName="Quantity" OnClick="btnBuyNow_Click"/>
             <asp:Button ID="btnBack" runat="server" Text="Back To Gallery" CssClass="pdbtn" OnClick="btnBack_Click"/>
                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Details]"></asp:SqlDataSource>
                                 
