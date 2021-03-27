@@ -1,9 +1,10 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Artist.Master" AutoEventWireup="true" CodeBehind="Gallery.aspx.cs" Inherits="test2.TYK.Gallery" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Gallery.aspx.cs" Inherits="test2.TYK.Gallery" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <style type="text/css">
     .addImg{
-        margin-left:400px;
+
+        margin-left:42%;
         border-style:double;
         border-color:black;    
         width:230px;
@@ -12,13 +13,21 @@
             font-family:cursive;
             text-align:left;
         }
+
+    .content{
+			padding-left:17%;
+			padding-right:17%;
+
+	}
+
 </style>
     <div class="div1">
         <h1>
             My Gallery
         </h1>
     </div>
-        <div>
+        <div class="content">
+            <asp:LoginName ID="LoginName1" runat="server" />
            <asp:DataList ID="DataList1" runat="server" HorizontalAlign="Justify" RepeatColumns="3" RepeatDirection="Horizontal" OnItemDataBound="DataList1_ItemDataBound" CellPadding="4" ForeColor="#333333">
                <AlternatingItemStyle BackColor="White" ForeColor="#284775" />
                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />

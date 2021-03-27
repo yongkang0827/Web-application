@@ -96,6 +96,27 @@ namespace test2.TYK
 
         }
 
+        protected void BtnCancel_Click(object sender, EventArgs e)
+        {
+            RequiredFieldValidator1.Enabled = false;
+            RequiredFieldValidator2.Enabled = false;
+            RequiredFieldValidator3.Enabled = false;
+            RangeValidator1.Enabled = false;
+            RequiredFieldValidator4.Enabled = false;
+            RangeValidator2.Enabled = false;
+            ValidationSummary1.Enabled = false;
 
+        }
+
+        private void enable()
+        {
+            RequiredFieldValidator1.Enabled = true;
+            RequiredFieldValidator2.Enabled = true;
+            RequiredFieldValidator3.Enabled = true;
+            RangeValidator1.Enabled = true;
+            RequiredFieldValidator4.Enabled = true;
+            RangeValidator2.Enabled = true;
+            ValidationSummary1.Enabled = true;
+        }
     }
 }

@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.IO;
+using System.Web.Security;
 
 namespace test2.LHY.ASPX
 {
@@ -18,6 +19,7 @@ namespace test2.LHY.ASPX
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+            FormsAuthentication.SignOut();
             con.Open();
         }
 
@@ -47,6 +49,7 @@ namespace test2.LHY.ASPX
                     cmdLogin.ExecuteNonQuery();
                     con.Close();
 
+                    FormsAuthentication.RedirectFromLoginPage(txtUsername.Text,true);
                     Response.Redirect("~/Master/ASPX/custHome.aspx");
                 }
                 else
@@ -79,7 +82,9 @@ namespace test2.LHY.ASPX
                     cmdLogin.ExecuteNonQuery();
                     con.Close();
 
-                    Response.Redirect("~/Master/ASPX/artistHome.aspx");
+                    FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, true);
+                    //                    Response.Redirect("~/Master/ASPX/artistHome.aspx");
+                    Response.Redirect("~/Master/ASPX/custHome.aspx");
                 }
                 else
                 {

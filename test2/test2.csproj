@@ -73,6 +73,7 @@
     </Content>
     <Content Include="CWK\ASPX\Details.aspx" />
     <Content Include="CWK\IMG\card.png" />
+    <Content Include="Global.asax" />
     <Content Include="HDY\ASPX\Order.aspx" />
     <Content Include="LHY\ASPX\ArtistProfile.aspx" />
     <Content Include="LHY\ASPX\CustomerProfile.aspx" />
@@ -146,6 +147,9 @@
     </Compile>
     <Compile Include="CWK\ASPX\Details.aspx.designer.cs">
       <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HDY\ASPX\Order.aspx.cs">
       <DependentUpon>Order.aspx</DependentUpon>
@@ -323,6 +327,7 @@
     <Content Include="Artist.sitemap" />
     <None Include="packages.config" />
     <Content Include="Main.Master" />
+    <Content Include="TYK\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

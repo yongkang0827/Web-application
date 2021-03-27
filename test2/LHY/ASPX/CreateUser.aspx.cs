@@ -7,6 +7,8 @@ using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Configuration;
 using System.IO;
+using System.Web.Security;
+
 namespace test2.LHY.ASPX
 {
     public partial class CreateUser : System.Web.UI.Page
@@ -39,6 +41,11 @@ namespace test2.LHY.ASPX
                     string msg = "Register succesfully";
                     Response.Write("<script>alert('" + msg + "')</script>");
                     cmdAdd.ExecuteNonQuery();
+
+                    Membership.CreateUser(txtUsername.Text, txtPassw.Text);
+                    String[] strUser = new String[] { txtUsername.Text };
+                    Roles.AddUsersToRole(strUser, "Customer");
+
                 }
                 else
                 {
@@ -69,6 +76,10 @@ namespace test2.LHY.ASPX
                     Response.Write("<script>alert('" + msg + "')</script>");
                     cmdAdd.ExecuteNonQuery();
 
+                    Membership.CreateUser(txtUsername.Text, txtPassw.Text);
+                    String[] strUser = new String[] { txtUsername.Text };
+                    Roles.AddUsersToRole(strUser, "Artist");
+                    
                 }
                 else
                 {

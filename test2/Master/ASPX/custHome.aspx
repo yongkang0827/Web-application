@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="custHome.aspx.cs" Inherits="test2.Home" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
- <style>
+    <style>
     .slideshow{
         text-align: center;
         padding-bottom:50px;
@@ -38,7 +38,11 @@
   </div>
 
     <div class="content">
-    <table>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/HDY/ASPX/gallery.aspx">HyperLink</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/TYK/Gallery.aspx">HyperLink</asp:HyperLink>
+        <asp:LoginStatus ID="LoginStatus1" runat="server" />
+        <asp:LoginName ID="LoginName1" runat="server" />
+        <table>
         <tr><td>
             <asp:ImageButton ID="ImageButton1" runat="server" Height="300px" Width="300px" ImageUrl="~/Master/IMG/sample1.jpg" PostBackUrl="~/HDY/ASPX/gallery.aspx" /></td>
             <td class="describeRight"><h2>Johannes Vermeer, Girl with a Pearl Earring, 1665</h2>
