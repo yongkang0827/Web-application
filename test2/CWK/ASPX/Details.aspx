@@ -77,12 +77,14 @@
             </asp:DataList>
 
              
-           
-            
+           <h2>Quantity: </h2><asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Quantity is required" ControlToValidate="txtQuantity">*</asp:RequiredFieldValidator>
+             <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Please enter number" ControlToValidate="txtQuantity" MinimumValue="1"  MaximumValue="1000" Type="Integer"></asp:RangeValidator>
 
+             <br/><br/><br/>
              <div >            
-                                   
-            
+                <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="The following problems have been encountered: " ShowSummary="true" ShowMessageBox="true" ForeColor="Red"/>                   
+            <br/><br/><br/>
              <asp:Button ID="btnBuyNow" runat="server" Text="Add Order List" CssClass="pdbtn"  CommandArgument='<%# Eval("name") %>' CommandName="Quantity" OnClick="btnBuyNow_Click"/>
             <asp:Button ID="btnBack" runat="server" Text="Back To Gallery" CssClass="pdbtn" OnClick="btnBack_Click"/>
                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Details]"></asp:SqlDataSource>

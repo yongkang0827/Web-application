@@ -17,16 +17,15 @@ namespace test2.LMY.ASPX
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetCustomerName();
+            CustomerName = (string)Session["CustName"];
+
             con.Open();
             if (!this.IsPostBack)
             {
-                //SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM PurchaseHistory WHERE CustName = @filter", con);
+                SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM PurchaseHistory WHERE CustName = @filter", con);
 
-                //string filter = CustomerName;
-                //sda.SelectCommand.Parameters.AddWithValue("@filter", CustomerName);
-
-                SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM PurchaseHistory", con);
+                string filter = CustomerName;
+                sda.SelectCommand.Parameters.AddWithValue("@filter", CustomerName);
 
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -42,31 +41,6 @@ namespace test2.LMY.ASPX
             string imageUrl = "data:image/jpg;base64," + Convert.ToBase64String((byte[])dr["Image"]);
             (e.Item.FindControl("Image1") as Image).ImageUrl = imageUrl;
 
-        }
-
-        protected void GetCustomerName()
-        {
-            ////Get Now is who webpage
-            con.Open();
-            string strAdd = "Select * From Login where Id=@ID";
-            SqlCommand cmdAdd = new SqlCommand(strAdd, con);
-
-            //Find ID
-            SqlCommand cmdId = new SqlCommand("Select Count(Id) FROM Login", con);
-            int numLogin = Convert.ToInt32(cmdId.ExecuteScalar());
-
-            //Enter Search
-            cmdAdd.Parameters.AddWithValue("@ID", numLogin);
-            SqlDataReader dtrProd = cmdAdd.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    CustomerName = dtrProd["Username"].ToString();
-                }
-            }
-            con.Close();
         }
     }
 }

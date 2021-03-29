@@ -15,8 +15,8 @@
             <asp:GridView ID="gvImages" runat="server" AutoGenerateColumns="False" OnRowDataBound="OnRowDataBound" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2">
     <Columns>
         <asp:BoundField DataField="OrderId" HeaderText="Image Id" />
-        <asp:BoundField DataField="CustName" HeaderText="Name" />
-        <asp:BoundField DataField="Price" HeaderText="Name" />
+        <asp:BoundField DataField="ImageName" HeaderText="Image Name" />
+        <asp:BoundField DataField="Price" HeaderText="Price" />
         <asp:TemplateField HeaderText="Image" ControlStyle-CssClass="image">
             <ItemTemplate>
                 <asp:Image ID="Image1" runat="server" />
@@ -24,11 +24,7 @@
 
 <ControlStyle CssClass="image"></ControlStyle>
         </asp:TemplateField>
-        <asp:TemplateField HeaderText="Quantity">
-            <ItemTemplate>
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            </ItemTemplate>
-        </asp:TemplateField>
+        <asp:BoundField DataField="Quantity" HeaderText="Quantity" />
         <asp:TemplateField HeaderText="Buy?">
             <ItemTemplate>
                 <asp:CheckBox ID="CheckBox1" runat="server" />
@@ -49,6 +45,17 @@
             <br />
             <br />
              
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
             <asp:Button ID="btnBuy" runat="server" Text="Buy" OnClick="btnBuy_Click" />
             <br />

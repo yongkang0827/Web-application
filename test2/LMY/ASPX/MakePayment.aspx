@@ -11,26 +11,51 @@
     </style>
 
         <div class="div1">
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox1" runat="server" Enabled="False"></asp:TextBox>
+            <br /><br />
             <table>
                   <tr><td>
                         <img src="../IMG/card.png" class="imgSize2"/></td></tr>
+                <tr><td>
+                    <asp:RadioButtonList ID="RadioButtonList1" runat="server" RepeatDirection="Horizontal">
+                        <asp:ListItem>Visa</asp:ListItem>
+                        <asp:ListItem>Master</asp:ListItem>
+                    </asp:RadioButtonList>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Credit Card Type is required" ControlToValidate="RadioButtonList1">*</asp:RequiredFieldValidator>
+                        
+                    </td></tr>
                     <tr><td>
                         <asp:Label ID="lblCardNumber" runat="server" Text="Card Number"></asp:Label></td></tr>
                     <tr><td>
-                        <asp:TextBox ID="txtCardNumber" runat="server" class="textfield"></asp:TextBox></td></tr>
+                        <asp:TextBox ID="txtCardNumber" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ErrorMessage="Card Number is required" ControlToValidate="txtCardNumber">*</asp:RequiredFieldValidator>
+                   <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="txtCardNumber" OnServerValidate="CustomValidator1_ServerValidate" ErrorMessage="" ForeColor="Red" >*</asp:CustomValidator>
+                       
+                </td></tr>
                     <tr><td>
-                        <asp:Label ID="lblCVV" runat="server" Text="CVV" ></asp:Label></td></tr>
+                        <asp:Label ID="lblCVV" runat="server" Text="Card Password" ></asp:Label></td></tr>
                     <tr><td>
-                        <asp:TextBox ID="txtCVV" runat="server" TextMode="Password" class="pass"></asp:TextBox></td></tr>
+                        <asp:TextBox ID="txtCVV" runat="server" TextMode="Password" class="pass"></asp:TextBox>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" 
+                            ErrorMessage="Please enter card password" ControlToValidate="txtCVV">*</asp:RequiredFieldValidator>
+                        <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Enter Password correctly" 
+                            MinimumValue="100000" MaximumValue="999999" Type="Integer" ControlToValidate="txtCVV">*</asp:RangeValidator>
+
+                </td></tr>
                     <tr><td>
                         <asp:Label ID="lblPin" runat="server" Text="Pin Number" ></asp:Label></td></tr>
                     <tr><td>
-                        <asp:TextBox ID="txtPin" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txtPin" runat="server"></asp:TextBox>                        
+                        </td>
                         <td class="auto-style1">
                             <asp:Button ID="btnPin" runat="server" Text="Pin Number" onClick="PinNumber"/>
                     </tr>
+                <tr><td></td><td></td></tr>
+                <tr><td></td><td></td></tr>
                 <tr><td>
+                    
+                    <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="The following problems have been encountered: " ShowSummary="true" ShowMessageBox="true" ForeColor="Red"/>
+                    <br /><br />
                     <asp:Button ID="btnConfirm" runat="server" Text="Confirm" OnClick="btnConfirm_Click" /></td><td class="auto-style1">
                     </td></tr>
                </table>

@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 namespace test2.LMY.ASPX
 {
@@ -20,13 +21,15 @@ namespace test2.LMY.ASPX
         byte[] img;
         String history_id, date;
         int num = 0;
-        String imgName;
+        String imgName, imgQuantity, imgPrice;
         String[] ImgArray = new string[50];
+        String[] ImgQuant = new string[50];
+        String[] ImgPric = new string[50];
         String quantImg;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            GetCustomerName();
+            CustomerName = Session["CustName"].ToString();
             GenerateHistoryId();
             TextBox1.Text = DateTime.Now.ToString();
         }
@@ -34,9 +37,10 @@ namespace test2.LMY.ASPX
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
             con.Open();
-            SqlCommand sdi = new SqlCommand("SELECT * FROM OrderList WHERE Buy=@yes", con);
+            SqlCommand sdi = new SqlCommand("SELECT * FROM OrderList WHERE Buy=@yes AND CustName=@cust", con);
 
             sdi.Parameters.AddWithValue("@yes", "true");
+            sdi.Parameters.AddWithValue("@cust", CustomerName);
             SqlDataReader dtrProdSel = sdi.ExecuteReader();
 
             if (dtrProdSel.HasRows)
@@ -45,6 +49,12 @@ namespace test2.LMY.ASPX
                 {
                     imgName = dtrProdSel["ImageName"].ToString();
                     ImgArray[num] += imgName;
+
+                    imgQuantity = dtrProdSel["Quantity"].ToString();
+                    ImgQuant[num] += imgQuantity;
+
+                    imgPrice = dtrProdSel["Price"].ToString();
+                    ImgPric[num] += imgPrice;
                     num = num + 1; 
                 }               
             }
@@ -79,98 +89,107 @@ namespace test2.LMY.ASPX
 
         private void Payment(String ImageParaName)
         {
-            if (Session["Pin"].ToString().Equals(txtPin.Text))
+            if (Session["Pin"] == null)
             {
-                if (HavePurchaseRow(ImageParaName))
-                {
-                    con.Open();
-                    SqlCommand sdi = new SqlCommand("SELECT * FROM PurchaseHistory Where CustName=@name AND ImageName=@imgName", con);
-
-                    sdi.Parameters.AddWithValue("@name", CustomerName);
-                    sdi.Parameters.AddWithValue("@imgName", ImageParaName);
-                    SqlDataReader dtrProd = sdi.ExecuteReader();
-
-                    if (dtrProd.HasRows)
-                    {
-                        while (dtrProd.Read())
-                        {
-                            oldQuantity = Convert.ToInt32(dtrProd["Quantity"].ToString());
-                        }
-                    }                    
-                    con.Close();
-
-                    con.Open();
-                    SqlCommand sdiNew = new SqlCommand("SELECT * FROM OrderList Where CustName=@name AND ImageName=@imgName", con);
-
-                    sdiNew.Parameters.AddWithValue("@name", CustomerName);
-                    sdiNew.Parameters.AddWithValue("@imgName", ImageParaName);
-                    SqlDataReader dtrProdNew = sdiNew.ExecuteReader();
-
-                    if (dtrProdNew.HasRows)
-                    {
-                        while (dtrProdNew.Read())
-                        {
-                            newQuantity = Convert.ToInt32(dtrProdNew["Quantity"].ToString());
-                        }
-                    }
-                    con.Close();
-
-                    con.Open();
-                    String stringQuantity = Convert.ToString(oldQuantity + newQuantity);
-
-                    string strAdd = "Update PurchaseHistory Set Quantity = @quant Where CustName=@name AND ImageName=@imgName";
-                    SqlCommand cmdAdd = new SqlCommand(strAdd, con);
-
-                    cmdAdd.Parameters.AddWithValue("@name", CustomerName);
-                    cmdAdd.Parameters.AddWithValue("@imgName", ImageParaName);
-                    cmdAdd.Parameters.AddWithValue("@quant", stringQuantity);
-
-
-
-                    cmdAdd.ExecuteNonQuery();
-                    con.Close();
-                }
-                else
-                {
-
-                    con.Open();
-                    SqlCommand sdi = new SqlCommand("SELECT * FROM OrderList WHERE  CustName=@name AND ImageName=@imgName", con);
-
-                    sdi.Parameters.AddWithValue("@name", CustomerName);
-                    sdi.Parameters.AddWithValue("@imgName", ImageParaName);
-                    SqlDataReader dtrProd = sdi.ExecuteReader();
-
-                    if (dtrProd.HasRows)
-                    {
-                        while (dtrProd.Read())
-                        {
-                            quantImg = dtrProd["Quantity"].ToString();
-                        }
-                        
-                        con.Close();
-                        con.Open();
-
-                        string add = "INSERT INTO PurchaseHistory VALUES (@id, @cust, @name, @date, @photo, @price,@quantity)";
-                        SqlCommand history = new SqlCommand(add, con);
-
-                        history.Parameters.AddWithValue("@id", history_id);
-                        history.Parameters.AddWithValue("@cust", CustomerName);
-                        history.Parameters.AddWithValue("@name", ImageParaName);
-                        history.Parameters.AddWithValue("@date", TextBox1.Text);
-                        history.Parameters.AddWithValue("@photo", img);
-                        history.Parameters.AddWithValue("@price", price);
-                        history.Parameters.AddWithValue("@quantity", quantImg);
-
-                        history.ExecuteNonQuery();
-                        SendMail();
-                    }
-                    con.Close();
-                }
+                String msg = "Please press pin button to get pin number";
+                Response.Write("<script>alert('" + msg + "')</script>");
             }
             else
             {
-                String msg = "Invalid Pin Number";
-                Response.Write("<script>alert('" + msg + "')</script>");
+                if (Session["Pin"].ToString().Equals(txtPin.Text))
+                {
+                    if (HavePurchaseRow(ImageParaName))
+                    {
+                        con.Open();
+                        SqlCommand sdi = new SqlCommand("SELECT * FROM PurchaseHistory Where CustName=@name AND ImageName=@imgName", con);
+
+                        sdi.Parameters.AddWithValue("@name", CustomerName);
+                        sdi.Parameters.AddWithValue("@imgName", ImageParaName);
+                        SqlDataReader dtrProd = sdi.ExecuteReader();
+
+                        if (dtrProd.HasRows)
+                        {
+                            while (dtrProd.Read())
+                            {
+                                oldQuantity = Convert.ToInt32(dtrProd["Quantity"].ToString());
+                            }
+                        }
+                        con.Close();
+
+                        con.Open();
+                        SqlCommand sdiNew = new SqlCommand("SELECT * FROM OrderList Where CustName=@name AND ImageName=@imgName", con);
+
+                        sdiNew.Parameters.AddWithValue("@name", CustomerName);
+                        sdiNew.Parameters.AddWithValue("@imgName", ImageParaName);
+                        SqlDataReader dtrProdNew = sdiNew.ExecuteReader();
+
+                        if (dtrProdNew.HasRows)
+                        {
+                            while (dtrProdNew.Read())
+                            {
+                                newQuantity = Convert.ToInt32(dtrProdNew["Quantity"].ToString());
+                            }
+                        }
+                        con.Close();
+
+                        con.Open();
+                        String stringQuantity = Convert.ToString(oldQuantity + newQuantity);
+
+                        string strAdd = "Update PurchaseHistory Set Quantity = @quant Where CustName=@name AND ImageName=@imgName";
+                        SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+                        cmdAdd.Parameters.AddWithValue("@name", CustomerName);
+                        cmdAdd.Parameters.AddWithValue("@imgName", ImageParaName);
+                        cmdAdd.Parameters.AddWithValue("@quant", stringQuantity);
+
+
+
+                        cmdAdd.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    else
+                    {
+
+                        con.Open();
+                        SqlCommand sdi = new SqlCommand("SELECT * FROM OrderList WHERE  CustName=@name AND ImageName=@imgName", con);
+
+                        sdi.Parameters.AddWithValue("@name", CustomerName);
+                        sdi.Parameters.AddWithValue("@imgName", ImageParaName);
+                        SqlDataReader dtrProd = sdi.ExecuteReader();
+
+                        if (dtrProd.HasRows)
+                        {
+                            while (dtrProd.Read())
+                            {
+                                quantImg = dtrProd["Quantity"].ToString();
+                            }
+
+                            con.Close();
+                            con.Open();
+
+                            string add = "INSERT INTO PurchaseHistory VALUES (@id, @cust, @name, @date, @photo, @price,@quantity)";
+                            SqlCommand history = new SqlCommand(add, con);
+
+                            history.Parameters.AddWithValue("@id", history_id);
+                            history.Parameters.AddWithValue("@cust", CustomerName);
+                            history.Parameters.AddWithValue("@name", ImageParaName);
+                            history.Parameters.AddWithValue("@date", TextBox1.Text);
+                            history.Parameters.AddWithValue("@photo", img);
+                            history.Parameters.AddWithValue("@price", price);
+                            history.Parameters.AddWithValue("@quantity", quantImg);
+
+                            history.ExecuteNonQuery();
+                            SendMail();
+                        }
+                        con.Close();
+                    }
+
+                }
+                else
+                {
+                    String msg = "Invalid Pin Number";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                }
             }
         }
 
@@ -237,7 +256,8 @@ namespace test2.LMY.ASPX
                 int i;
                 for (i = 0; i < num; i++)
                 {
-                    totalImgName = totalImgName + ImgArray[i] + " , ";
+                    totalImgName = totalImgName + 
+                        "<br>Name = " + ImgArray[i] + ", Quantity = " + ImgQuant[i] + ", Price per each = " + ImgPric[i];
                 }
                 String bodyEmail = "You Have Purchase : " + totalImgName;
 
@@ -260,31 +280,6 @@ namespace test2.LMY.ASPX
             }
         }
 
-        protected void GetCustomerName()
-        {
-            ////Get Now is who webpage
-            con.Open();
-            string strAdd = "Select * From Login where Id=@ID";
-            SqlCommand cmdAdd = new SqlCommand(strAdd, con);
-
-            //Find ID
-            SqlCommand cmdId = new SqlCommand("Select Count(Id) FROM Login", con);
-            int numLogin = Convert.ToInt32(cmdId.ExecuteScalar());
-
-            //Enter Search
-            cmdAdd.Parameters.AddWithValue("@ID", numLogin);
-            SqlDataReader dtrProd = cmdAdd.ExecuteReader();
-
-            if (dtrProd.HasRows)
-            {
-                while (dtrProd.Read())
-                {
-                    CustomerName = dtrProd["Username"].ToString();
-                }
-            }
-            con.Close();
-        }
-
         private void GenerateHistoryId()
         {
             con.Open();
@@ -293,6 +288,30 @@ namespace test2.LMY.ASPX
             i++;
             history_id = "HO" + i.ToString();
             con.Close();
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            string current = args.Value;
+            Regex regex;
+            string reGex;
+            args.IsValid = false;
+
+
+            if (RadioButtonList1.SelectedValue.Equals("Visa"))
+            {
+                reGex = "^4[0-9]{12}(?:[0-9]{3})?$";
+                regex = new Regex(reGex);
+                CustomValidator1.ErrorMessage = "Invalid Visa number";
+            }
+            else
+            {
+                reGex = "^5[1-5][0-9]{14}$";
+                regex = new Regex(reGex);
+                CustomValidator1.ErrorMessage = "Invalid Mastercard number";
+            }
+            args.IsValid = regex.IsMatch(txtCardNumber.Text);
+
         }
     }
 }

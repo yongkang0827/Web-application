@@ -49,6 +49,7 @@ namespace test2.LHY.ASPX
                     cmdLogin.ExecuteNonQuery();
                     con.Close();
 
+                    Session["CustName"] = txtUsername.Text;
                     FormsAuthentication.RedirectFromLoginPage(txtUsername.Text,true);
                     Response.Redirect("~/Master/ASPX/custHome.aspx");
                 }

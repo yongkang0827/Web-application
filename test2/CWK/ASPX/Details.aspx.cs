@@ -21,7 +21,7 @@ namespace test2.CWK.ASPX
         byte[] img;
         String order_id, orderList_id;
         int quantity, newQuantity;
-        
+        String totalQuantity;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -96,9 +96,7 @@ namespace test2.CWK.ASPX
                 }
             }
             con.Close();
-            Order(detailsid);
-          
-           
+            Order(detailsid);           
         }
 
         public void Order(string wantOrder)
@@ -114,25 +112,51 @@ namespace test2.CWK.ASPX
                 {
                     title = dtrProd["ImageName"].ToString();
                     price = dtrProd["Price"].ToString();
-
+                    totalQuantity = dtrProd["Quantity"].ToString();
                     img = (byte[])(dtrProd["Image"]);
                 }
 
                 con.Close();
-                con.Open();
 
-                string add = "INSERT INTO OrderList VALUES (@id, @cust, @name, @photo, @price,@quantity, @buy)";
-                SqlCommand history = new SqlCommand(add, con);
+                if (Convert.ToInt32(totalQuantity) >= Convert.ToInt32(txtQuantity.Text))
+                {
+                    int enterQuantity = Convert.ToInt32(txtQuantity.Text);
 
-                history.Parameters.AddWithValue("@id", orderList_id);
-                history.Parameters.AddWithValue("@cust", CustomerName);
-                history.Parameters.AddWithValue("@name", title);
-                history.Parameters.AddWithValue("@photo", img);
-                history.Parameters.AddWithValue("@price", price);
-                history.Parameters.AddWithValue("@quantity", "0");
-                history.Parameters.AddWithValue("@buy", "");
+                    con.Open();
 
-                history.ExecuteNonQuery();
+                    string add = "INSERT INTO OrderList VALUES (@id, @cust, @name, @photo, @price,@quantity, @buy)";
+                    SqlCommand history = new SqlCommand(add, con);
+
+                    history.Parameters.AddWithValue("@id", orderList_id);
+                    history.Parameters.AddWithValue("@cust", CustomerName);
+                    history.Parameters.AddWithValue("@name", title);
+                    history.Parameters.AddWithValue("@photo", img);
+                    history.Parameters.AddWithValue("@price", price);
+                    history.Parameters.AddWithValue("@quantity", Convert.ToString(enterQuantity));
+                    history.Parameters.AddWithValue("@buy", "");
+
+                    history.ExecuteNonQuery();
+
+                    con.Close();
+
+                    //Img Gallery
+                    int leftQuantity = Convert.ToInt32(totalQuantity) - Convert.ToInt32(txtQuantity.Text);
+
+                    con.Open();
+                    string strAdd = "Update Img Set Quantity = @quanti Where Title=@titl";
+                    SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+                    cmdAdd.Parameters.AddWithValue("@titl", title);
+                    cmdAdd.Parameters.AddWithValue("@quanti", Convert.ToString(leftQuantity));
+
+                    cmdAdd.ExecuteNonQuery();
+
+                }
+                else
+                {
+                    string msg = "Please enter the quantity less than the stock";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                }
             }
             con.Close();
         }
