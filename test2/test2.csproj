@@ -117,6 +117,7 @@
     <Content Include="LMY\IMG\Torso of a Woman.jpg" />
     <Content Include="LMY\IMG\twitter icon.png" />
     <Content Include="LMY\IMG\youtube icon.png" />
+    <Content Include="Master\ASPX\Home.ascx" />
     <Content Include="Master\ASPX\map.aspx" />
     <Content Include="Master\ASPX\policy.aspx" />
     <Content Include="Master\ASPX\terms.aspx" />
@@ -263,6 +264,13 @@
     </Compile>
     <Compile Include="LMY\ASPX\Purchase History.aspx.designer.cs">
       <DependentUpon>Purchase History.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\ASPX\Home.ascx.cs">
+      <DependentUpon>Home.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\ASPX\Home.ascx.designer.cs">
+      <DependentUpon>Home.ascx</DependentUpon>
     </Compile>
     <Compile Include="Master\ASPX\map.aspx.cs">
       <DependentUpon>map.aspx</DependentUpon>
