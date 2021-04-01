@@ -11,7 +11,7 @@ namespace test2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            UC1.LoginTime = DateTime.Now;
         }
     }
 }

@@ -9,10 +9,17 @@ namespace test2.Master.ASPX
 {
     public partial class artHome : System.Web.UI.UserControl
     {
+        public DateTime LoginTime;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
-                if (!IsPostBack)
+            lblLoginTime1.Text = LoginTime.ToString();
+            HttpCookie cookie = Request.Cookies["UserDetails"];
+            if (cookie != null)
+            {
+                lblName1.Text = cookie["Name"];
+            }
+
+            if (!IsPostBack)
                 {
                     slideShow();
                 }

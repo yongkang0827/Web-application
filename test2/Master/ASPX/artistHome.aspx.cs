@@ -11,7 +11,7 @@ namespace test2.Master.ASPX
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            UC2.LoginTime = DateTime.Now;
         }
     }
 }

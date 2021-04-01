@@ -37,6 +37,8 @@
 
     <div class="content">
         <asp:HyperLink ID="HyperLink1" runat="server" Text="Test" NavigateUrl="~/Master/ASPX/custHome.aspx"></asp:HyperLink>
+        <asp:Label ID="lblName1" runat="server"> </asp:Label>
+        <asp:Label ID="lblLoginTime1" runat="server" Text=""></asp:Label>
     <table>
         <tr><td>
             <asp:ImageButton ID="ImageButton1" runat="server" Height="300px" Width="300px" ImageUrl="~/Master/IMG/sample1.jpg" PostBackUrl="~/HDY/ASPX/gallery.aspx" /></td>

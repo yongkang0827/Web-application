@@ -9,8 +9,15 @@ namespace test2.Master.ASPX
 {
     public partial class Home : System.Web.UI.UserControl
     {
+        public DateTime LoginTime;
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblLoginTime.Text = LoginTime.ToString();
+            HttpCookie cookie = Request.Cookies["UserDetails"];
+            if (cookie != null)
+            {
+                lblName.Text = cookie["Name"];
+            }
             if (!IsPostBack)
             {
                 slideShow();
