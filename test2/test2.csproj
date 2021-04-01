@@ -82,6 +82,7 @@
     <Content Include="LMY\ASPX\MakePayment.aspx" />
     <Content Include="LMY\ASPX\Payment.aspx" />
     <Content Include="LMY\IMG\card.png" />
+    <Content Include="Master\ASPX\artHome.ascx" />
     <Content Include="Master\ASPX\artistHome.aspx" />
     <Content Include="Master\ASPX\cart.aspx" />
     <Content Include="HDY\ASPX\gallery.aspx" />
@@ -202,6 +203,13 @@
       <DependentUpon>Payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="LMY\ASPX\SqlDatareader.cs" />
+    <Compile Include="Master\ASPX\artHome.ascx.cs">
+      <DependentUpon>artHome.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\ASPX\artHome.ascx.designer.cs">
+      <DependentUpon>artHome.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Master\ASPX\artistHome.aspx.cs">
       <DependentUpon>artistHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

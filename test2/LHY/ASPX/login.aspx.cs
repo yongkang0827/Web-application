@@ -84,8 +84,8 @@ namespace test2.LHY.ASPX
                     con.Close();
 
                     FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, true);
-                    //                    Response.Redirect("~/Master/ASPX/artistHome.aspx");
-                    Response.Redirect("~/Master/ASPX/custHome.aspx");
+                                        Response.Redirect("~/Master/ASPX/artistHome.aspx");
+                    //Response.Redirect("~/Master/ASPX/custHome.aspx");
                 }
                 else
                 {
