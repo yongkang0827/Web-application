@@ -27,10 +27,6 @@ namespace test2.LHY.ASPX
         {
             if (ddlRole.SelectedValue.Equals("Customer"))
             {
-                HttpCookie cookie = new HttpCookie("UserDetails");
-                cookie["Name"] = txtUsername.Text;
-                cookie.Expires = DateTime.Now.AddDays(30);
-                Response.Cookies.Add(cookie);
                 string strAdd = "Select * From Customer Where Username=@ID and Password=@Pass";
 
                 SqlCommand cmdAdd = new SqlCommand(strAdd, con);
@@ -56,24 +52,15 @@ namespace test2.LHY.ASPX
                     Session["CustName"] = txtUsername.Text;
                     FormsAuthentication.RedirectFromLoginPage(txtUsername.Text,true);
                     Response.Redirect("~/Master/ASPX/custHome.aspx");
-                   
-
-                    Response.Redirect("custHome.aspx");
                 }
                 else
                 {
                     string msg = "Invalid username or password";
                     Response.Write("<script>alert('" + msg + "')</script>");
                 }
-
-      
             }
             else
             {
-                HttpCookie cookie = new HttpCookie("UserDetails");
-                cookie["Name"] = txtUsername.Text;
-                cookie.Expires = DateTime.Now.AddDays(30);
-                Response.Cookies.Add(cookie);
                 string strAdd = "Select * From Artist Where Username=@ID and Password=@Pass";
 
                 SqlCommand cmdAdd = new SqlCommand(strAdd, con);
@@ -97,8 +84,8 @@ namespace test2.LHY.ASPX
                     con.Close();
 
                     FormsAuthentication.RedirectFromLoginPage(txtUsername.Text, true);
-                                        Response.Redirect("~/Master/ASPX/artistHome.aspx");
-                    //Response.Redirect("~/Master/ASPX/custHome.aspx");
+                    //                    Response.Redirect("~/Master/ASPX/artistHome.aspx");
+                    Response.Redirect("~/Master/ASPX/custHome.aspx");
                 }
                 else
                 {
@@ -112,7 +99,6 @@ namespace test2.LHY.ASPX
 
 
             con.Close();
-
         }
     }
 }

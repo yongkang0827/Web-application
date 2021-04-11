@@ -193,10 +193,8 @@
 	</div>	
         <div >
 			<div class="login">
-			<%--<asp:Label ID="lblCustOrArt" runat="server" Text="Label"></asp:Label>
-			<asp:Label ID="lblName" runat="server" Text="Label"></asp:Label>--%>
-			<asp:Label ID="lblName" runat="server"> </asp:Label>
-			
+			<asp:Label ID="lblCustOrArt" runat="server" Text="Label"></asp:Label>
+			<asp:Label ID="lblName" runat="server" Text="Label"></asp:Label>
 				</div>
 
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

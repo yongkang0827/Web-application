@@ -36,7 +36,7 @@
   </div>
 
     <div class="content">
-      
+        <asp:HyperLink ID="HyperLink1" runat="server" Text="Test" NavigateUrl="~/Master/ASPX/custHome.aspx"></asp:HyperLink>
         <asp:Label ID="lblName1" runat="server"> </asp:Label>
         <asp:Label ID="lblLoginTime1" runat="server" Text=""></asp:Label>
     <table>

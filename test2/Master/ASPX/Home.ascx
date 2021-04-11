@@ -36,7 +36,8 @@
   </div>
 
     <div class="content">
-       
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/HDY/ASPX/gallery.aspx">HyperLink</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/TYK/Gallery.aspx">HyperLink</asp:HyperLink>
        <%-- <asp:LoginStatus ID="LoginStatus1" runat="server" />--%>
        <%-- <asp:LoginName ID="LoginName1" runat="server" />--%>
         <asp:Label ID="lblName" runat="server"> </asp:Label>
