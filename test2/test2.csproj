@@ -127,6 +127,10 @@
     <Content Include="Master\IMG\3.jpg" />
     <Content Include="Master\IMG\4.jpg" />
     <Content Include="Master\IMG\5.jpg" />
+    <Content Include="Master\IMG\arthome1.jpg" />
+    <Content Include="Master\IMG\arthome2.jpg" />
+    <Content Include="Master\IMG\arthome3.jpg" />
+    <Content Include="Master\IMG\arthome4.png" />
     <Content Include="Master\IMG\sample1.jpg" />
     <Content Include="Master\IMG\sample2.jpg" />
     <Content Include="TYK\Gallery.aspx" />

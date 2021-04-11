@@ -78,22 +78,40 @@ namespace test2.Master.ASPX
         protected global::System.Web.UI.WebControls.Label lblLoginTime1;
 
         /// <summary>
-        /// ImageButton1 control.
+        /// IMG2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton1;
+        protected global::System.Web.UI.WebControls.Image IMG2;
 
         /// <summary>
-        /// ImageButton2 control.
+        /// IMG3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButton2;
+        protected global::System.Web.UI.WebControls.Image IMG3;
+
+        /// <summary>
+        /// IMG4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image IMG4;
+
+        /// <summary>
+        /// IMG1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image IMG1;
 
         /// <summary>
         /// ImageButton3 control.

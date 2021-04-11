@@ -7,12 +7,14 @@
    .container1{
        text-align:center;
        margin-left:10%;
+       font-family:cursive;
       
    }
    .content{
        padding-left:7%;
        padding-right:7%;
        padding-bottom:100px;
+       font-family:cursive;
    }
    .imgBet{
        padding-left:50px;
@@ -40,33 +42,41 @@
         <asp:Label ID="lblName1" runat="server"> </asp:Label>
         <asp:Label ID="lblLoginTime1" runat="server" Text=""></asp:Label>
     <table>
-        <tr><td>
-            <asp:ImageButton ID="ImageButton1" runat="server" Height="300px" Width="300px" ImageUrl="~/Master/IMG/sample1.jpg" PostBackUrl="~/HDY/ASPX/gallery.aspx" /></td>
-            <td class="describeRight"><h2>Johannes Vermeer, Girl with a Pearl Earring, 1665</h2>
-                <p>Johannes Vermeer’s 1665 study of a young woman is startlingly real and startlingly modern,
-                   almost as if it were a photograph. This gets into the debate over whether or not Vermeer 
-                   employed a pre-photographic device called a camera obscura to create the image. Leaving 
-                   that aside, the sitter is unknown, though it’s been speculated that she might have been 
-                   Vermeer's maid. He portrays her looking over her shoulder, locking her eyes with the viewer
-                   as if attempting to establish an intimate connection across the centuries. Technically 
-                   speaking, Girl isn’t a portrait, but rather an example of the Dutch genre called a tronie—a
-                   headshot meant more as still life of facial features than as an attempt to capture a likeness.</p>
-            </td></tr>
+        <tr><td><h1>Welcome to Become Our Team !</h1></td></tr>
+       
+        <tr><td><h2>Improves Productivity</h2>
+            <br />
+            <p>Teams that work together are more productive and motivated toward company goals.</p>
+            </td>
+            <td><asp:Image ID="IMG2" runat="server" ImageUrl="~/Master/IMG/arthome2.jpg" /> </td>
+           
+           </tr>
+        <tr>
+            <td><asp:Image ID="IMG3" runat="server" ImageUrl="~/Master/IMG/arthome3.jpg" /> </td>
+            <td><h2> A Synergy of Ideas</h2>
+                <br />
+                <p>Working as a team therefore not only resolves obstacles but also improves workflow speed.</p>
+            </td>
+        </tr>
+        <tr>
+            <td><h2>A Fulfilling Meaningful Experience</h2>
+                <br />
+                <p>Teamwork is a panacea-like so many other variables where successful companies operate on a day-to-day basis. And that’s why it is dubbed a “fulfilling meaningful experience.”</p></td>
+            <td><asp:Image ID="IMG4" runat="server" ImageUrl="~/Master/IMG/arthome4.png" Height="404px" Width="712px" /></td>
+        </tr>
+         <tr>
+            <td colspan="2">
+                <asp:Image ID="IMG1" runat="server" ImageUrl="~/Master/IMG/arthome1.jpg" Width="1513px" />
+            </td>
+        </tr>
     </table>
 
-    <table>
-        <tr><td class="describeLeft"><h2>Vincent van Gogh, The Starry Night, 1889</h2>
-            <p>Vincent Van Gogh’s most popular painting, The Starry Night was created by Van Gogh at the asylum in
-                Saint-Rémy, where he’d committed himself in 1889. Indeed, The Starry Night seems to reflect his 
-                turbulent state of mind at the time, as the night sky comes alive with swirls and orbs of frenetically
-                applied brush marks springing from the yin and yang of his personal demons and awe of nature.
-</p>
-            </td><td>
-            <asp:ImageButton ID="ImageButton2" runat="server" Width="300px" Height="300" ImageUrl="~/Master/IMG/sample2.jpg" PostBackUrl="~/HDY/ASPX/gallery.aspx"  /></td></tr>
-    </table>
+
 </div>
     <table class="container1">
+        <h3>Gallery Artwork</h3>
         <tr><td class="imgBet">
+           
             <asp:ImageButton ID="ImageButton3" runat="server" Height="200px" Width="200px" ImageUrl="~/LMY/IMG/Death Masks.jpg" PostBackUrl="~/HDY/ASPX/gallery.aspx" /></td><td class="imgBet">
                 <asp:ImageButton ID="ImageButton4" runat="server" Height="200px" Width="200px" ImageUrl="~/HDY/IMG/Machines for Suffering.jpeg" PostBackUrl="~/HDY/ASPX/gallery.aspx" /></td><td class="imgBet">
                     <asp:ImageButton ID="ImageButton5" runat="server" Height="200px" Width="200px" ImageUrl="~/LMY/IMG/Prodromes.jpg" PostBackUrl="~/HDY/ASPX/gallery.aspx" /></td><td class="imgBet">
