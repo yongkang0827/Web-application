@@ -16,6 +16,10 @@
        padding-bottom:100px;
        font-family:cursive;
    }
+   .content img{
+       width:300px;
+       height:300px;
+   }
     .content1{
        padding-left:7%;
        padding-right:7%;
@@ -71,11 +75,11 @@
             <td><h2>A Fulfilling Meaningful Experience</h2>
                 <br />
                 <p>Teamwork is a panacea-like so many other variables where successful companies operate on a day-to-day basis. And that’s why it is dubbed a “fulfilling meaningful experience.”</p></td>
-            <td><asp:Image ID="IMG4" runat="server" ImageUrl="~/Master/IMG/arthome4.png" Height="404px" Width="712px" /></td>
+            <td><asp:Image style="width:300px;height:300px;" ID="IMG4" runat="server" ImageUrl="~/Master/IMG/arthome4.png" Height="404px" Width="712px" /></td>
         </tr>
          <tr>
             <td colspan="2">
-                <asp:Image ID="IMG1" runat="server" ImageUrl="~/Master/IMG/arthome1.jpg" Width="1513px" />
+                <asp:Image ID="IMG1" style="width:600px;height:400px;margin-left:25%" runat="server" ImageUrl="~/Master/IMG/arthome1.jpg" Width="1513px" />
             </td>
         </tr>
     </table>

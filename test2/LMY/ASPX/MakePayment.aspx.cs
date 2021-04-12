@@ -26,16 +26,59 @@ namespace test2.LMY.ASPX
         String[] ImgQuant = new string[50];
         String[] ImgPric = new string[50];
         String quantImg;
+        double totalPrice = 0, totalItemPrice = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblAllName.Text = " ";
+            lblAllQuant.Text = " ";
+            lblAllPrice.Text = " ";
+            lblAllTotalPrice.Text = " ";
+            totalPrice = 0;
+            num = 0;
+
             CustomerName = Session["CustName"].ToString();
             GenerateHistoryId();
             TextBox1.Text = DateTime.Now.ToString();
+
+            con.Open();
+            SqlCommand sdi = new SqlCommand("SELECT * FROM OrderList WHERE Buy=@yes AND CustName=@cust", con);
+
+            sdi.Parameters.AddWithValue("@yes", "true");
+            sdi.Parameters.AddWithValue("@cust", CustomerName);
+            SqlDataReader dtrProdSel = sdi.ExecuteReader();
+
+            if (dtrProdSel.HasRows)
+            {
+                while (dtrProdSel.Read())
+                {
+                    imgName = dtrProdSel["ImageName"].ToString();
+                    //ImgArray[num] += imgName;
+                    lblAllName.Text += imgName + "</br>";
+
+                    imgQuantity = dtrProdSel["Quantity"].ToString();
+                    //ImgQuant[num] += imgQuantity;
+                    lblAllQuant.Text += imgQuantity + "</br>";
+
+                    imgPrice = dtrProdSel["Price"].ToString();
+                    //ImgPric[num] += imgPrice;
+                    lblAllPrice.Text += imgPrice + "</br>";
+
+                    totalItemPrice = Convert.ToDouble(imgPrice) * Convert.ToInt32(imgQuantity);
+                    lblAllTotalPrice.Text += Convert.ToString(totalItemPrice) + "</br>";
+
+                    totalPrice += totalItemPrice;
+
+                    num = num + 1;
+                }
+            }
+            lblTotalPay.Text = Convert.ToString(totalPrice);
+            con.Close();
         }
 
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
+            num = 0;
             con.Open();
             SqlCommand sdi = new SqlCommand("SELECT * FROM OrderList WHERE Buy=@yes AND CustName=@cust", con);
 
@@ -55,13 +98,13 @@ namespace test2.LMY.ASPX
 
                     imgPrice = dtrProdSel["Price"].ToString();
                     ImgPric[num] += imgPrice;
-                    num = num + 1; 
-                }               
+                    num = num + 1;
+                }
             }
             con.Close();
             ImgSave();
         }
-        
+
         protected void ImgSave()
         {
             int i;
@@ -146,6 +189,7 @@ namespace test2.LMY.ASPX
 
                         cmdAdd.ExecuteNonQuery();
                         con.Close();
+
                     }
                     else
                     {
@@ -179,10 +223,10 @@ namespace test2.LMY.ASPX
                             history.Parameters.AddWithValue("@quantity", quantImg);
 
                             history.ExecuteNonQuery();
-                            SendMail();
                         }
                         con.Close();
                     }
+                    SendMail();
 
                 }
                 else
@@ -208,7 +252,7 @@ namespace test2.LMY.ASPX
             {
                 con.Close();
                 return true;
-                
+
             }
 
             con.Close();
@@ -256,10 +300,10 @@ namespace test2.LMY.ASPX
                 int i;
                 for (i = 0; i < num; i++)
                 {
-                    totalImgName = totalImgName + 
+                    totalImgName = totalImgName +
                         "<br>Name = " + ImgArray[i] + ", Quantity = " + ImgQuant[i] + ", Price per each = " + ImgPric[i];
                 }
-                String bodyEmail = "You Have Purchase : " + totalImgName;
+                String bodyEmail = "You Have Purchase : " + totalImgName + "</br>Total Prices : " + totalPrice;
 
                 MailMessage message = new MailMessage(fromEmail, toEmail, headEmail, bodyEmail);
                 message.IsBodyHtml = true;

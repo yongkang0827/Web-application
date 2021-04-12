@@ -39,6 +39,7 @@ namespace test2.LMY.ASPX
                     }
                 }
             }
+
         }
 
         protected void OnRowDataBound(object sender, GridViewRowEventArgs e)
@@ -57,7 +58,7 @@ namespace test2.LMY.ASPX
             {
                 CheckBox status = (row.Cells[5].FindControl("Checkbox1") as CheckBox);
                 string orderID = row.Cells[0].Text;
-                if(status.Checked)
+                if (status.Checked)
                 {
                     updateRowSource(orderID, "true");
                     checkCheckBox += 1;
@@ -68,9 +69,16 @@ namespace test2.LMY.ASPX
                 }
             }
 
-            if(checkCheckBox > 0)
+            if (checkCheckBox > 0)
             {
-                Response.Redirect("~/LMY/ASPX/MakePayment.aspx");
+                if (RadioButtonList1.SelectedValue == "1")
+                {
+                    Response.Redirect("~/LMY/ASPX/MakePayment.aspx");
+                }
+                else if (RadioButtonList1.SelectedValue == "2")
+                {
+                    Response.Redirect("~/LMY/ASPX/OnlinePayment.aspx");
+                }
             }
             else
             {
@@ -92,6 +100,57 @@ namespace test2.LMY.ASPX
             con.Close();
         }
 
-        
+        protected void Add_ItemCommand(object source, DataListCommandEventArgs e)
+        {
+            //if (e.CommandName == "Cancel")
+            //{
+            //    //imgName = e.CommandArgument.ToString();
+            //    //String sdi = "SELECT * FROM Img WHERE Title=@title";
+            //    //SqlCommand cmdAdd = new SqlCommand(sdi, con);
+
+            //    //cmdAdd.Parameters.AddWithValue("@title", imgName);
+            //    //SqlDataReader dtrProd = cmdAdd.ExecuteReader();
+
+            //    con.Open();
+            //    string imgName = e.CommandArgument.ToString();
+            //    string strAdd = "Delete From Details Where ImageName=@imgName";
+            //    SqlCommand cmdDelete = new SqlCommand(strAdd, con);
+
+            //    cmdDelete.Parameters.AddWithValue("@imgName", "ART");
+            //    cmdDelete.ExecuteNonQuery();
+            //    con.Close();
+            //}
+        }
+
+        //protected void DeleteOrder(object sender, EventArgs e)
+        //{
+        //foreach (GridViewRow row in gvImages.Rows)
+        //{
+        //    Button status = (row.Cells[5].FindControl("btnCancel") as Button);
+        //    string orderID = row.Cells[0].Text;
+        //    if (status.Click)
+        //    {
+        //        updateRowSource(orderID, "true");
+        //        checkCheckBox += 1;
+        //    }
+        //}
+
+        //string imgName;
+
+        //if (e.CommandName == "Cancel")
+        //{
+        //    imgName = e.CommandArgument.ToString();
+        //    Response.Write(imgName);
+
+        //string strAdd = "Delete From Favourite WHERE CustName=@custName and ImageName=@imgName";
+        //SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+        //cmdAdd.Parameters.AddWithValue("@custName", CustomerName);
+        //cmdAdd.Parameters.AddWithValue("@imgName", imgName);
+
+        //cmdAdd.ExecuteNonQuery();
+        //con.Close();
+        //}
+        //}
     }
 }

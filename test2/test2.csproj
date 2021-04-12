@@ -73,6 +73,8 @@
     </Content>
     <Content Include="CWK\ASPX\Details.aspx" />
     <Content Include="CWK\IMG\card.png" />
+    <Content Include="ErrorPages\FileNotFound.htm" />
+    <Content Include="ErrorPages\GeneralError.aspx" />
     <Content Include="Global.asax" />
     <Content Include="HDY\ASPX\Order.aspx" />
     <Content Include="LHY\ASPX\ArtistProfile.aspx" />
@@ -80,6 +82,7 @@
     <Content Include="LHY\ASPX\editArtistProfile.aspx" />
     <Content Include="LHY\ASPX\editCustProfile.aspx" />
     <Content Include="LMY\ASPX\MakePayment.aspx" />
+    <Content Include="LMY\ASPX\OnlinePayment.aspx" />
     <Content Include="LMY\ASPX\Payment.aspx" />
     <Content Include="LMY\IMG\card.png" />
     <Content Include="Master\ASPX\artHome.ascx" />
@@ -154,6 +157,13 @@
     <Compile Include="CWK\ASPX\Details.aspx.designer.cs">
       <DependentUpon>Details.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ErrorPages\GeneralError.aspx.cs">
+      <DependentUpon>GeneralError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPages\GeneralError.aspx.designer.cs">
+      <DependentUpon>GeneralError.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -198,6 +208,13 @@
     </Compile>
     <Compile Include="LMY\ASPX\MakePayment.aspx.designer.cs">
       <DependentUpon>MakePayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LMY\ASPX\OnlinePayment.aspx.cs">
+      <DependentUpon>OnlinePayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LMY\ASPX\OnlinePayment.aspx.designer.cs">
+      <DependentUpon>OnlinePayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="LMY\ASPX\Payment.aspx.cs">
       <DependentUpon>Payment.aspx</DependentUpon>

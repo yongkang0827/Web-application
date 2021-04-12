@@ -7,11 +7,29 @@
           
         }
 
-        
     </style>
 
         <div class="div1">
             <asp:TextBox ID="TextBox1" runat="server" Enabled="False"></asp:TextBox>
+            <table border="1">
+                <tr>
+                    <td>Image Name</td><td>Quantity</td><td>Price</td><td>Total Price</td>
+                </tr>
+                <tr>
+                    <td><asp:Label ID="lblAllName" runat="server" Text=""></asp:Label></td><td>
+                        <asp:Label ID="lblAllQuant" runat="server" Text=""></asp:Label></td><td>
+                            <asp:Label ID="lblAllPrice" runat="server" Text=""></asp:Label></td><td>
+                                <asp:Label ID="lblAllTotalPrice" runat="server" Text=""></asp:Label></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td><td></td><td></td><td></td>
+                </tr>
+                <tr>
+                    <td></td><td></td><td>Total Prices</td><td>
+                        <asp:Label ID="lblTotalPay" runat="server" Text="Label"></asp:Label></td>
+                </tr>
+            </table>
+            
             <br /><br />
             <table>
                   <tr><td>

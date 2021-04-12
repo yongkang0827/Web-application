@@ -78,7 +78,9 @@
 
              
            <h2>Quantity: </h2><asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Quantity is required" ControlToValidate="txtQuantity">*</asp:RequiredFieldValidator>
+            <asp:Label ID="lblMessage" runat="server" Text=" " ForeColor="Red"></asp:Label>
+
+            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Quantity is required" ControlToValidate="txtQuantity">*</asp:RequiredFieldValidator>--%>
              <asp:RangeValidator ID="RangeValidator1" runat="server" ErrorMessage="Please enter number" ControlToValidate="txtQuantity" MinimumValue="1"  MaximumValue="1000" Type="Integer"></asp:RangeValidator>
 
              <br/><br/><br/>

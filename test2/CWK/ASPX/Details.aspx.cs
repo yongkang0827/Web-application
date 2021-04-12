@@ -118,44 +118,52 @@ namespace test2.CWK.ASPX
 
                 con.Close();
 
-                if (Convert.ToInt32(totalQuantity) >= Convert.ToInt32(txtQuantity.Text))
+                try
                 {
-                    int enterQuantity = Convert.ToInt32(txtQuantity.Text);
+                    int dblNoQuant = Convert.ToInt32(txtQuantity.Text);
+                    if (Convert.ToInt32(totalQuantity) >= Convert.ToInt32(txtQuantity.Text))
+                    {
+                        int enterQuantity = Convert.ToInt32(txtQuantity.Text);
 
-                    con.Open();
+                        con.Open();
 
-                    string add = "INSERT INTO OrderList VALUES (@id, @cust, @name, @photo, @price,@quantity, @buy)";
-                    SqlCommand history = new SqlCommand(add, con);
+                        string add = "INSERT INTO OrderList VALUES (@id, @cust, @name, @photo, @price,@quantity, @buy)";
+                        SqlCommand history = new SqlCommand(add, con);
 
-                    history.Parameters.AddWithValue("@id", orderList_id);
-                    history.Parameters.AddWithValue("@cust", CustomerName);
-                    history.Parameters.AddWithValue("@name", title);
-                    history.Parameters.AddWithValue("@photo", img);
-                    history.Parameters.AddWithValue("@price", price);
-                    history.Parameters.AddWithValue("@quantity", Convert.ToString(enterQuantity));
-                    history.Parameters.AddWithValue("@buy", "");
+                        history.Parameters.AddWithValue("@id", orderList_id);
+                        history.Parameters.AddWithValue("@cust", CustomerName);
+                        history.Parameters.AddWithValue("@name", title);
+                        history.Parameters.AddWithValue("@photo", img);
+                        history.Parameters.AddWithValue("@price", price);
+                        history.Parameters.AddWithValue("@quantity", Convert.ToString(enterQuantity));
+                        history.Parameters.AddWithValue("@buy", "");
 
-                    history.ExecuteNonQuery();
+                        history.ExecuteNonQuery();
 
-                    con.Close();
+                        con.Close();
 
-                    //Img Gallery
-                    int leftQuantity = Convert.ToInt32(totalQuantity) - Convert.ToInt32(txtQuantity.Text);
+                        //Img Gallery
+                        int leftQuantity = Convert.ToInt32(totalQuantity) - Convert.ToInt32(txtQuantity.Text);
 
-                    con.Open();
-                    string strAdd = "Update Img Set Quantity = @quanti Where Title=@titl";
-                    SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+                        con.Open();
+                        string strAdd = "Update Img Set Quantity = @quanti Where Title=@titl";
+                        SqlCommand cmdAdd = new SqlCommand(strAdd, con);
 
-                    cmdAdd.Parameters.AddWithValue("@titl", title);
-                    cmdAdd.Parameters.AddWithValue("@quanti", Convert.ToString(leftQuantity));
+                        cmdAdd.Parameters.AddWithValue("@titl", title);
+                        cmdAdd.Parameters.AddWithValue("@quanti", Convert.ToString(leftQuantity));
 
-                    cmdAdd.ExecuteNonQuery();
+                        cmdAdd.ExecuteNonQuery();
 
+                    }
+                    else
+                    {
+                        string msg = "Please enter the quantity less than the stock";
+                        Response.Write("<script>alert('" + msg + "')</script>");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    string msg = "Please enter the quantity less than the stock";
-                    Response.Write("<script>alert('" + msg + "')</script>");
+                    lblMessage.Text = ex.Message;
                 }
             }
             con.Close();
@@ -269,6 +277,27 @@ namespace test2.CWK.ASPX
             Response.Redirect("~/HDY/ASPX/Gallery.aspx");
         }
 
-        
+        void Page_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+            if (ex != null)
+            {
+                String str = "<div style='background-color:#BBBBBB; font-family:Calibri; padding: 5px 5px 5px 5px'>" +
+                            " Sorry </br> </br>" +
+                           "One error is encountered in this page :  " + "<span style='color: red;font-weight:bold;'>" + ex.Message + "</span >"
+                           + "</div>";
+
+
+                Response.Write(str);
+                Server.ClearError();
+            }
+            else
+            {
+
+                String res = "<p style='color: red;'>No Error</font><br>";
+                Response.Write(res);
+            }
+
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace test2.LMY.ASPX
             CustomerName = (string)Session["CustName"];
             con.Open();
             if (!IsPostBack)
-            {                
+            {
                 SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Favourite WHERE CustName = @filter", con);
 
                 string filter = CustomerName;
@@ -50,7 +50,7 @@ namespace test2.LMY.ASPX
             if (e.CommandName == "Unfavourite")
             {
                 imgName = e.CommandArgument.ToString();
-                
+
 
                 string strAdd = "Delete From Favourite WHERE CustName=@custName and ImageName=@imgName";
                 SqlCommand cmdAdd = new SqlCommand(strAdd, con);

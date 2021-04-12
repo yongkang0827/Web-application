@@ -24,6 +24,51 @@ namespace test2.LMY.ASPX
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
+        /// lblAllName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAllName;
+
+        /// <summary>
+        /// lblAllQuant control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAllQuant;
+
+        /// <summary>
+        /// lblAllPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAllPrice;
+
+        /// <summary>
+        /// lblAllTotalPrice control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAllTotalPrice;
+
+        /// <summary>
+        /// lblTotalPay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalPay;
+
+        /// <summary>
         /// RadioButtonList1 control.
         /// </summary>
         /// <remarks>
