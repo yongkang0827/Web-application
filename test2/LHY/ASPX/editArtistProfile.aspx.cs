@@ -53,13 +53,13 @@ namespace test2.LHY.ASPX
                 cmdAdd.Parameters.AddWithValue("@phone", txtPhone.Text.ToString());
                 cmdAdd.Parameters.AddWithValue("@passw", txtPassw.Text.ToString());
 
-
+                string msg = "Update Successfully \n Username : " + txtUsername.Text.ToString();
+                Response.Write("<script>alert('" + msg + "')</script>");
                 cmdAdd.ExecuteNonQuery();
                 con.Close();
 
 
-                string msg = "Update Successfully \n Username : " + txtUsername.Text.ToString();
-                Response.Write("<script>alert('" + msg + "')</script>");
+                
             }
             else
             {

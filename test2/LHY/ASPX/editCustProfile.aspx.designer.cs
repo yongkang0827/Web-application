@@ -33,6 +33,15 @@ namespace test2.LHY.ASPX
         protected global::System.Web.UI.WebControls.TextBox txtUsername;
 
         /// <summary>
+        /// rfUsername control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfUsername;
+
+        /// <summary>
         /// lblPhone control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,24 @@ namespace test2.LHY.ASPX
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPhone;
+
+        /// <summary>
+        /// rfPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfPhone;
+
+        /// <summary>
+        /// validPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validPhone;
 
         /// <summary>
         /// lblNewPassw control.
@@ -69,6 +96,24 @@ namespace test2.LHY.ASPX
         protected global::System.Web.UI.WebControls.TextBox txtPassw;
 
         /// <summary>
+        /// rfPassw control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfPassw;
+
+        /// <summary>
+        /// validPassw control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validPassw;
+
+        /// <summary>
         /// lblComfirmPassw control.
         /// </summary>
         /// <remarks>
@@ -87,6 +132,15 @@ namespace test2.LHY.ASPX
         protected global::System.Web.UI.WebControls.TextBox txtComfirmPassw;
 
         /// <summary>
+        /// rfConfirmPassw control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfConfirmPassw;
+
+        /// <summary>
         /// btnUpdate control.
         /// </summary>
         /// <remarks>
@@ -94,5 +148,14 @@ namespace test2.LHY.ASPX
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpdate;
+
+        /// <summary>
+        /// vsCreateUser control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary vsCreateUser;
     }
 }

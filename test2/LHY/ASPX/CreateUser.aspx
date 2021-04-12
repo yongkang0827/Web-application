@@ -101,19 +101,29 @@
             <tr><td colspan="2">
                 <asp:Label ID="lblUserName" runat="server" Text="User Name"></asp:Label></td></tr>
             <tr><td colspan="2">
-                <asp:TextBox ID="txtUsername" runat="server" class="textfield" placeholder="First name and Last name" AutoPostBack="True" OnTextChanged="txtUsername_TextChanged"></asp:TextBox></td></tr>
+                <asp:TextBox ID="txtUsername" runat="server" class="textfield" placeholder="First name and Last name" AutoPostBack="True" OnTextChanged="txtUsername_TextChanged"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfUsername" runat="server" ErrorMessage="Username is required" ControlToValidate="txtUsername" ForeColor="Red">*</asp:RequiredFieldValidator></td></tr>
             <tr><td colspan="2">
-                <asp:Label ID="lblPhone" runat="server" Text="Phone Number"></asp:Label></td></tr>
+                <asp:Label ID="lblPhone" runat="server" Text="Phone Number"></asp:Label>
+                </td></tr>
             <tr><td colspan="2">
-                <asp:TextBox ID="txtPhone" runat="server" class="textfield" placeholder="01xxxxxxxxx"></asp:TextBox></td></tr>
+                <asp:TextBox ID="txtPhone" runat="server" class="textfield" placeholder="01xxxxxxxxx"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfPhone" runat="server" ErrorMessage="Phone number is required" ControlToValidate="txtPhone" ForeColor="Red">*</asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="validPhone" runat="server" ErrorMessage="Phone should be only number" ControlToValidate="txtPhone" ValidationExpression="^\d+$" ForeColor="Red">*</asp:RegularExpressionValidator>
+                </td></tr>
             <tr><td colspan="2">
                 <asp:Label ID="lblPassw" runat="server" Text="Password" ></asp:Label></td></tr>
             <tr><td colspan="2">
-                <asp:TextBox ID="txtPassw" runat="server" TextMode="Password" class="pass"></asp:TextBox></td></tr>
+                <asp:TextBox ID="txtPassw" runat="server" TextMode="Password" class="pass"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfPassw" runat="server" ErrorMessage="Password is required" ControlToValidate="txtPassw" ForeColor="Red">*</asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="validPassw" runat="server" ErrorMessage="Password must be 6 characters" ControlToValidate="txtPassw" ValidationExpression="\w{6}" ForeColor="Red">*</asp:RegularExpressionValidator>
+                </td></tr>
             <tr><td colspan="2">
                 <asp:Label ID="lblComfirmPassw" runat="server" Text=" Comfirm Password" ></asp:Label></td></tr>
             <tr><td colspan="2">
-                <asp:TextBox ID="txtComfirmPassw" runat="server" TextMode="Password" class="pass"></asp:TextBox></td></tr>
+                <asp:TextBox ID="txtComfirmPassw" runat="server" TextMode="Password" class="pass"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rfConfirmPassw" runat="server" ErrorMessage="Comfirm password is required" ControlToValidate="txtComfirmPassw" ForeColor="Red">*</asp:RequiredFieldValidator>
+                </td></tr>
             <tr><td colspan="2">
                 <asp:DropDownList ID="ddlRole" runat="server" class="ddlRole">
                     <asp:ListItem>Customer</asp:ListItem>
@@ -127,6 +137,8 @@
                 <asp:Button ID="btnCreate" runat="server" Text="Create User" class="buttonCreate" OnClick="btnCreate_Click"/></td></tr>
                 <tr><td colspan="2">Already have an account? <a href="login.aspx">Sign In</a></td></tr>
         </table>
+
+       <asp:ValidationSummary ID="vsCreateUser" runat="server" showMessageBox="true" ShowSummary="false"/>
 
     </form>
    <div class="footer">
