@@ -16,6 +16,12 @@
        padding-bottom:100px;
        font-family:cursive;
    }
+    .content1{
+       padding-left:7%;
+       padding-right:7%;
+       padding-bottom:30px;
+       font-family:cursive;
+   }
    .imgBet{
        padding-left:50px;
    }
@@ -27,7 +33,12 @@
    }
     </style>
 
+        <div class="content1">
+        <asp:Label ID="lblName1" runat="server"> </asp:Label>
+        <asp:Label ID="lblLoginTime1" runat="server" Text=""></asp:Label>
+        </div>
     <div class="slideshow">
+        
      <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -38,9 +49,7 @@
   </div>
 
     <div class="content">
-        <asp:HyperLink ID="HyperLink1" runat="server" Text="Test" NavigateUrl="~/Master/ASPX/custHome.aspx"></asp:HyperLink>
-        <asp:Label ID="lblName1" runat="server"> </asp:Label>
-        <asp:Label ID="lblLoginTime1" runat="server" Text=""></asp:Label>
+      
     <table>
         <tr><td><h1>Welcome to Become Our Team !</h1></td></tr>
        

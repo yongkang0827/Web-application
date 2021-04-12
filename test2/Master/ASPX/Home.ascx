@@ -14,6 +14,11 @@
        padding-right:7%;
        padding-bottom:100px;
    }
+    .content1{
+       padding-left:7%;
+       padding-right:7%;
+       padding-bottom:30px;
+   }
    .imgBet{
        padding-left:50px;
    }
@@ -24,7 +29,10 @@
        padding-right:50px;
    }
     </style>
-    
+    <div class="content1">
+        <asp:Label ID="lblName" runat="server"> </asp:Label>
+        <asp:Label ID="lblLoginTime" runat="server" Text=""></asp:Label>
+    </div>
     <div class="slideshow">
      <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -36,12 +44,8 @@
   </div>
 
     <div class="content">
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/HDY/ASPX/gallery.aspx">HyperLink</asp:HyperLink>
-        <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/TYK/Gallery.aspx">HyperLink</asp:HyperLink>
-       <%-- <asp:LoginStatus ID="LoginStatus1" runat="server" />--%>
-       <%-- <asp:LoginName ID="LoginName1" runat="server" />--%>
-        <asp:Label ID="lblName" runat="server"> </asp:Label>
-        <asp:Label ID="lblLoginTime" runat="server" Text=""></asp:Label>
+     
+        
         <table>
         <tr><td>
             <asp:ImageButton ID="ImageButton1" runat="server" Height="300px" Width="300px" ImageUrl="~/Master/IMG/sample1.jpg" PostBackUrl="~/HDY/ASPX/gallery.aspx" /></td>
