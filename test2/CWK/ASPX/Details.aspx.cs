@@ -30,6 +30,7 @@ namespace test2.CWK.ASPX
             con.Open();
             GenerateOrderId();
             GenerateOrderListId();
+            con.Open();
             GenerateHistoryId();
             if (!this.IsPostBack)
             {             
@@ -176,7 +177,6 @@ namespace test2.CWK.ASPX
         
         private void GenerateOrderId()
         {
-
             SqlCommand cmdId = new SqlCommand("Select Count(OrderId) FROM [Order]", con);
             int i = Convert.ToInt32(cmdId.ExecuteScalar());
             i++;
@@ -185,11 +185,41 @@ namespace test2.CWK.ASPX
 
         private void GenerateOrderListId()
         {
+            string oldOrderListId = "";
 
-            SqlCommand cmdId = new SqlCommand("Select Count(OrderId) FROM [OrderList]", con);
-            int i = Convert.ToInt32(cmdId.ExecuteScalar());
+
+            con.Close();
+                      
+                //orderList_id = "O" + i.ToString();
+
+                con.Open();
+                string strAdd = "Select * From OrderList";
+                SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+                SqlDataReader dtrProd = cmdAdd.ExecuteReader();
+
+                if (dtrProd.HasRows)
+                {
+                    while (dtrProd.Read())
+                    {
+                        oldOrderListId = dtrProd["OrderId"].ToString();
+                    }
+                }
+                con.Close();
+
+            char[] OrderNum = new char[10];
+
+            int l = 0;
+            for (int k = 1; k < oldOrderListId.Length-1; k++)
+            {
+                OrderNum[l] = oldOrderListId[k];
+                l++;
+            }
+            string order_number = new string(OrderNum);
+
+            int i = Convert.ToInt32(order_number);
             i++;
-            orderList_id = "O" + i.ToString();
+            orderList_id = "O" + i.ToString();     
         }
 
         protected void GetCustomerName()

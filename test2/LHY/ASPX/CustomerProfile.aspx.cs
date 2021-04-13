@@ -13,28 +13,54 @@ namespace test2.LHY.ASPX
     {
         SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString);
         string CustomerName;
+        string artistOrCust;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             GetCustomerName();
+            Response.Write(artistOrCust);
+            string art = "A";
 
-            con.Open();
-            string strAdd = "Select * From Customer where Username=@name";
-            SqlCommand cmdAdd = new SqlCommand(strAdd, con);
-
-            //Enter Search
-            cmdAdd.Parameters.AddWithValue("@name", CustomerName);
-            SqlDataReader dtrProd = cmdAdd.ExecuteReader();
-
-            if (dtrProd.HasRows)
+            if (artistOrCust.Equals(art))
             {
-                while (dtrProd.Read())
+                con.Open();
+                string strAdd = "Select * From Artist where Username=@name";
+                SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+                //Enter Search
+                cmdAdd.Parameters.AddWithValue("@name", CustomerName);
+                SqlDataReader dtrProd = cmdAdd.ExecuteReader();
+
+                if (dtrProd.HasRows)
                 {
-                    lblUsernameAns.Text = dtrProd["Username"].ToString();
-                    lblPhoneAns.Text = dtrProd["Phone"].ToString();
+                    while (dtrProd.Read())
+                    {
+                        lblUsernameAns.Text = dtrProd["Username"].ToString();
+                        lblPhoneAns.Text = dtrProd["Phone"].ToString();
+                    }
                 }
+                con.Close();
             }
-            con.Close();
+            else
+            {
+                con.Open();
+                string strAdd = "Select * From Customer where Username=@name";
+                SqlCommand cmdAdd = new SqlCommand(strAdd, con);
+
+                //Enter Search
+                cmdAdd.Parameters.AddWithValue("@name", CustomerName);
+                SqlDataReader dtrProd = cmdAdd.ExecuteReader();
+
+                if (dtrProd.HasRows)
+                {
+                    while (dtrProd.Read())
+                    {
+                        lblUsernameAns.Text = dtrProd["Username"].ToString();
+                        lblPhoneAns.Text = dtrProd["Phone"].ToString();
+                    }
+                }
+                con.Close();
+            }
         }
 
         protected void GetCustomerName()
@@ -57,6 +83,7 @@ namespace test2.LHY.ASPX
                 while (dtrProd.Read())
                 {
                     CustomerName = dtrProd["Username"].ToString();
+                    artistOrCust = dtrProd["CustOrArt"].ToString();
                 }
             }
             con.Close();
