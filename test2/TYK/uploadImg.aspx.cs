@@ -118,5 +118,20 @@ namespace test2.TYK
             RangeValidator2.Enabled = true;
             ValidationSummary1.Enabled = true;
         }
+
+        void Page_Error(object sender, EventArgs e)
+        {
+            Exception ex = Server.GetLastError();
+            if (ex != null)
+            {
+                Response.Write("<table width='60%' style='background: Silver;'>");
+                Response.Write("<tr><td>Sorry</td></tr><tr><td>One error is encountered in this page: <font color=red>" + ex.Message + "</font></td></tr></table>");
+                Server.ClearError();
+
+            }
+            else
+                Response.Write("No Error");
+        }
+
     }
 }

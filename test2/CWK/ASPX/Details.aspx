@@ -88,7 +88,7 @@
                 <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="The following problems have been encountered: " ShowSummary="true" ShowMessageBox="true" ForeColor="Red"/>                   
             <br/><br/><br/>
              <asp:Button ID="btnBuyNow" runat="server" Text="Add Order List" CssClass="pdbtn"  CommandArgument='<%# Eval("name") %>' CommandName="Quantity" OnClick="btnBuyNow_Click"/>
-            <asp:Button ID="btnBack" runat="server" Text="Back To Gallery" CssClass="pdbtn" OnClick="btnBack_Click"/>
+            <asp:Button ID="btnBack" runat="server" Text="Back To Gallery" CssClass="pdbtn" OnClick="btnBack_Click"  CausesValidation="false"/>
                      <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnectionString %>" SelectCommand="SELECT * FROM [Details]"></asp:SqlDataSource>
                                 
                     <asp:BulletedList ID="BulletedList1" runat="server"> 
