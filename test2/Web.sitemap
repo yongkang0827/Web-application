@@ -13,7 +13,7 @@
 		  <siteMapNode url="~/TYK/uploadImg.aspx" title="Add new Image"  roles="Artist"   description=""/>
 	  </siteMapNode>
 
-	  <siteMapNode url="~/LHY/ASPX/CustomerProfile.aspx" title="My Profile"  description="" roles="*">
+	  <siteMapNode url="~/LHY/ASPX/ArtistProfile.aspx" title="My Profile"  description="" roles="*">
 
 	  </siteMapNode>
 	  
