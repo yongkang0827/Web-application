@@ -26,7 +26,7 @@ namespace test2.LHY.ASPX
         {
             if (ddlRole.SelectedValue.Equals("Customer"))
             {
-                string strAdd = "INSERT INTO Customer VALUES(@ID, @name, @phone,@pass)";
+                string strAdd = "INSERT INTO Customer VALUES(@ID, @name, @phone, @email, @pass)";
 
                 SqlCommand cmdAdd = new SqlCommand(strAdd, con);
 
@@ -35,6 +35,8 @@ namespace test2.LHY.ASPX
                 cmdAdd.Parameters.AddWithValue("@name", txtUsername.Text);
 
                 cmdAdd.Parameters.AddWithValue("@phone", txtPhone.Text);
+
+                cmdAdd.Parameters.AddWithValue("@email", txtEmail.Text);
                 if (txtComfirmPassw.Text.Equals(txtPassw.Text))
                 {
                     cmdAdd.Parameters.AddWithValue("@pass", txtPassw.Text);
@@ -59,7 +61,7 @@ namespace test2.LHY.ASPX
             }
             else
             {
-                string strAdd = "INSERT INTO Artist VALUES(@ID, @name, @phone,@pass)";
+                string strAdd = "INSERT INTO Artist VALUES(@ID, @name, @phone, @email, @pass)";
 
                 SqlCommand cmdAdd = new SqlCommand(strAdd, con);
 
@@ -69,6 +71,7 @@ namespace test2.LHY.ASPX
 
                 cmdAdd.Parameters.AddWithValue("@phone", txtPhone.Text);
 
+                cmdAdd.Parameters.AddWithValue("@email", txtEmail.Text);
                 if (txtComfirmPassw.Text.Equals(txtPassw.Text))
                 {
                     cmdAdd.Parameters.AddWithValue("@pass", txtPassw.Text);

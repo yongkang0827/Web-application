@@ -25,11 +25,13 @@ namespace test2.LMY.ASPX
         String[] ImgArray = new string[50];
         String[] ImgQuant = new string[50];
         String[] ImgPric = new string[50];
-        String quantImg;
+        String quantImg, email;
         double totalPrice = 0, totalItemPrice = 0;
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            email = Session["Email"].ToString();
+
             lblAllName.Text = " ";
             lblAllQuant.Text = " ";
             lblAllPrice.Text = " ";
@@ -266,7 +268,7 @@ namespace test2.LMY.ASPX
             Session["Pin"] = Convert.ToString(randomPin);
             try
             {
-                String toEmail = "artistweblimgrp@gmail.com";
+                String toEmail = email;
                 String fromEmail = "artistweblimgrp@gmail.com";
                 String headEmail = "Credit Card Pin Number";
                 String bodyEmail = "Pin Number is " + Convert.ToString(randomPin);
@@ -293,7 +295,7 @@ namespace test2.LMY.ASPX
         {
             try
             {
-                String toEmail = "artistweblimgrp@gmail.com";
+                String toEmail = email;
                 String fromEmail = "limmy-wm18@student.tarc.edu.my";
                 String headEmail = "Art Website Purchase Notice";
                 String totalImgName = " ";

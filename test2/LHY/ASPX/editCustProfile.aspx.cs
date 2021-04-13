@@ -43,12 +43,13 @@ namespace test2.LHY.ASPX
                 con.Close();
 
                 con.Open();
-                string strAdd = "Update Customer Set Username = @newname, Phone = @phone, Password = @passw Where CustID=@oldid";
+                string strAdd = "Update Customer Set Username = @newname, Phone = @phone, Email = @email, Password = @passw Where CustID=@oldid";
                 SqlCommand cmdAdd = new SqlCommand(strAdd, con);
 
                 cmdAdd.Parameters.AddWithValue("@oldid", userId);
                 cmdAdd.Parameters.AddWithValue("@newname", txtUsername.Text.ToString());
                 cmdAdd.Parameters.AddWithValue("@phone", txtPhone.Text.ToString());
+                cmdAdd.Parameters.AddWithValue("@email", txtEmail.Text.ToString());
                 cmdAdd.Parameters.AddWithValue("@passw", txtPassw.Text.ToString());
 
                 string msg = "Update Successfully \n Username : " + txtUsername.Text.ToString();

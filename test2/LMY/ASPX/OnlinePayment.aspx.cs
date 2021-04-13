@@ -20,7 +20,7 @@ namespace test2.LMY.ASPX
         string CustomerName, history_id;
         double totalPrice = 0, totalItemPrice = 0;
         int num = 0;
-        string imgName, imgQuantity, imgPrice, price, quantImg;
+        string imgName, imgQuantity, imgPrice, price, quantImg, email;
         String[] ImgArray = new string[50];
         String[] ImgQuant = new string[50];
         String[] ImgPric = new string[50];
@@ -29,6 +29,7 @@ namespace test2.LMY.ASPX
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            email = Session["Email"].ToString();
             lblAllName.Text = " ";
             lblAllQuant.Text = " ";
             lblAllPrice.Text = " ";
@@ -82,7 +83,7 @@ namespace test2.LMY.ASPX
             Session["Pin"] = Convert.ToString(randomPin);
             try
             {
-                String toEmail = "artistweblimgrp@gmail.com";
+                String toEmail = email;
                 String fromEmail = "artistweblimgrp@gmail.com";
                 String headEmail = "Credit Card Pin Number";
                 String bodyEmail = "Pin Number is " + Convert.ToString(randomPin);
@@ -322,7 +323,7 @@ namespace test2.LMY.ASPX
         {
             try
             {
-                String toEmail = "artistweblimgrp@gmail.com";
+                String toEmail = email;
                 String fromEmail = "limmy-wm18@student.tarc.edu.my";
                 String headEmail = "Art Website Purchase Notice";
                 String totalImgName = " ";

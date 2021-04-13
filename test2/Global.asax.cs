@@ -60,7 +60,7 @@ namespace test2
             //store the location of file that made error
             Application["location"] = Request.Url.ToString();
             Application["Message"] = ex.Message.ToString();
-            Application["innerMessage"] = ex.InnerException.ToString();
+            //Application["innerMessage"] = ex.InnerException.ToString();
             //clear the error so we can continue onwards
             Server.ClearError();
             //send user to GeneralError page

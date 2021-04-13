@@ -165,6 +165,10 @@ namespace test2.CWK.ASPX
                 {
                     lblMessage.Text = ex.Message;
                 }
+                //catch()
+                //{
+
+                //}
             }
             con.Close();
         }

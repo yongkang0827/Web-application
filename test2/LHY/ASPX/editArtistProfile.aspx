@@ -41,6 +41,14 @@
                 <asp:RegularExpressionValidator ID="validPhone" runat="server" ErrorMessage="Phone should be only number" ControlToValidate="txtPhone" ValidationExpression="^\d+$" ForeColor="Red">*</asp:RegularExpressionValidator>
                 </td></tr>
             <tr><td colspan="2">
+                <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
+                </td></tr>
+            <tr><td colspan="2">
+                <asp:TextBox ID="txtEmail" runat="server" class="textfield" placeholder="xxxx@gmail.com"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Email is required" ControlToValidate="txtEmail" ForeColor="Red">*</asp:RequiredFieldValidator>
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Email must end in @gmail.com" ControlToValidate="txtEmail" ValidationExpression="\w+([-+.']\w+)*@(?:gmail).com" ForeColor="Red">*</asp:RegularExpressionValidator>
+                </td></tr>
+            <tr><td colspan="2">
                 <asp:Label ID="lblNewPassw" runat="server" Text="New Password" ></asp:Label></td></tr>
             <tr><td colspan="2">
                 <asp:TextBox ID="txtPassw" runat="server" TextMode="Password" class="pass"></asp:TextBox>

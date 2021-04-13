@@ -42,6 +42,12 @@ namespace test2.LHY.ASPX
 
                 if (dtrProd.HasRows)
                 {
+                    while (dtrProd.Read())
+                    {
+                        Session["Email"] = dtrProd["Email"].ToString();
+                    }
+                    Session["CustName"] = txtUsername.Text;
+                    
                     con.Close();
                     con.Open();
                     CustOrArt = 'C';
@@ -53,8 +59,7 @@ namespace test2.LHY.ASPX
                     cmdLogin.Parameters.AddWithValue("@cust", CustOrArt);
                     cmdLogin.ExecuteNonQuery();
                     con.Close();
-
-                    Session["CustName"] = txtUsername.Text;
+                    
                     FormsAuthentication.RedirectFromLoginPage(txtUsername.Text,true);
                     Response.Redirect("~/Master/ASPX/custHome.aspx");
                 }
@@ -81,6 +86,12 @@ namespace test2.LHY.ASPX
 
                 if (dtrProd.HasRows)
                 {
+                    while (dtrProd.Read())
+                    {
+                        Session["Email"] = dtrProd["Email"].ToString();
+                    }
+                    Session["CustName"] = txtUsername.Text;
+
                     con.Close();
                     con.Open();
                     CustOrArt = 'A';
