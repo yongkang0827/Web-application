@@ -34,10 +34,18 @@ namespace test2.HDY.ASPX
             {
                 SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Img", con);
 
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                DataList1.DataSource = dt;
-                DataList1.DataBind();
+                try
+                {           
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
+                    DataList1.DataSource = dt;
+                    DataList1.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    string msg = "Some Technical Error occurred,Please visit after some time";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                }
             }
         }
 

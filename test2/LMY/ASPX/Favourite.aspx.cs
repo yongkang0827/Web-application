@@ -26,10 +26,18 @@ namespace test2.LMY.ASPX
                 string filter = CustomerName;
                 sda.SelectCommand.Parameters.AddWithValue("@filter", CustomerName);
 
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-                dlFavourite.DataSource = dt;
-                dlFavourite.DataBind();
+                try
+                {
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
+                    dlFavourite.DataSource = dt;
+                    dlFavourite.DataBind();
+                }
+                catch(Exception ex)
+                {
+                    string msg = "Some Technical Error occurred,Please visit after some time";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                }
             }
         }
 

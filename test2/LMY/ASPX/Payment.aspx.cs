@@ -32,10 +32,17 @@ namespace test2.LMY.ASPX
                         string filter = CustomerName;
                         sda.SelectCommand.Parameters.AddWithValue("@filter", CustomerName);
 
-                        DataTable dt = new DataTable();
-                        sda.Fill(dt);
-                        gvImages.DataSource = dt;
-                        gvImages.DataBind();
+                        try { 
+                            DataTable dt = new DataTable();
+                            sda.Fill(dt);
+                            gvImages.DataSource = dt;
+                            gvImages.DataBind();
+                        }
+                        catch (Exception ex)
+                        {
+                            string msg = "Some Technical Error occurred,Please visit after some time";
+                            Response.Write("<script>alert('" + msg + "')</script>");
+                        }
                     }
                 }
             }
