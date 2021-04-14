@@ -40,7 +40,7 @@
             <tr>
                 <td>
                     <br /><br />
-                    <asp:Button ID="btnUpdate" runat="server" Text="Edit Profile" Width="167px" OnClick="BtnEdit_Click" class="buttonUpdate"/>
+                    <asp:Button ID="btnUpdate" runat="server" Text="Edit Profile" Width="167px" OnClick="BtnEdit_Click" class="buttonUpdate" CausesValidation="False"/>
                 
                 </td>
             </tr>

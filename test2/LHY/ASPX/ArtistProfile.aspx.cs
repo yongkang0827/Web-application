@@ -91,7 +91,10 @@ namespace test2.LHY.ASPX
 
         protected void BtnEdit_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/LHY/ASPX/editArtistProfile.aspx");
+            if (artistOrCust.CompareTo("C") == 1)
+                Response.Redirect("~/LHY/ASPX/editCustProfile.aspx");
+            else
+                Response.Redirect("~/LHY/ASPX/editArtistProfile.aspx");
         }
     }
 }
