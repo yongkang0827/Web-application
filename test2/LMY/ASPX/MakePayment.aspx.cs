@@ -296,7 +296,7 @@ namespace test2.LMY.ASPX
             try
             {
                 String toEmail = email;
-                String fromEmail = "limmy-wm18@student.tarc.edu.my";
+                String fromEmail = "artistweblimgrp@gmail.com";
                 String headEmail = "Art Website Purchase Notice";
                 String totalImgName = " ";
                 int i;

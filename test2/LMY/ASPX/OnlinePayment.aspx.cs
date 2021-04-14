@@ -324,7 +324,7 @@ namespace test2.LMY.ASPX
             try
             {
                 String toEmail = email;
-                String fromEmail = "limmy-wm18@student.tarc.edu.my";
+                String fromEmail = "artistweblimgrp@gmail.com";
                 String headEmail = "Art Website Purchase Notice";
                 String totalImgName = " ";
                 int i;
@@ -353,6 +353,36 @@ namespace test2.LMY.ASPX
                 String msg = "Email Send Error";
                 Response.Write("<script>alert('" + msg + "')</script>");
             }
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            string current = args.Value;
+            Regex regex;
+            string reGex;
+            args.IsValid = false;
+
+
+            if (DropDownList1.SelectedValue.Equals("1"))
+            {
+                reGex = "^[0-9]{12}";
+                regex = new Regex(reGex);
+                CustomValidator1.ErrorMessage = "MayBank Account number should have 12 digit";
+            }
+            else if (DropDownList1.SelectedValue.Equals("2"))
+            {
+                reGex = "^[0-9]{10}";
+                regex = new Regex(reGex);
+                CustomValidator1.ErrorMessage = "Public Bank Account number should have 10 digit";
+            }
+            else
+            {
+                reGex = "^[0-9]{11}";
+                regex = new Regex(reGex);
+                CustomValidator1.ErrorMessage = "Hong Leong Account number should have 11 digit";
+            }
+            args.IsValid = regex.IsMatch(txtAccNum.Text);
+
         }
     }
 }

@@ -33,9 +33,9 @@
         <tr>
             <td>Select Bank</td><td>
                 <asp:DropDownList ID="DropDownList1" runat="server">
-                    <asp:ListItem>Maybank</asp:ListItem>
-                    <asp:ListItem>Public Bank</asp:ListItem>
-                    <asp:ListItem>Hong Leong Bank</asp:ListItem>
+                    <asp:ListItem Value="1">Maybank</asp:ListItem>
+                    <asp:ListItem Value="2">Public Bank</asp:ListItem>
+                    <asp:ListItem Value="3">Hong Leong Bank</asp:ListItem>
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Bank Type is required" ControlToValidate="DropDownList1">*</asp:RequiredFieldValidator>
                                 </td>
@@ -50,8 +50,9 @@
             <td>Account Number</td><td>
                 <asp:TextBox ID="txtAccNum" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Enter Account Number" ControlToValidate="txtAccNum">*</asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Account Number must be 11 number"
-                        ControlToValidate="txtAccNum" ValidationExpression="^[0-9]{11}"></asp:RegularExpressionValidator></td>
+                <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="txtAccNum" OnServerValidate="CustomValidator1_ServerValidate" ErrorMessage="" ForeColor="Red" >*</asp:CustomValidator>
+                <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Account Number must be 11 number"
+                        ControlToValidate="txtAccNum" ValidationExpression="^[0-9]{11}"></asp:RegularExpressionValidator>--%></td>
         </tr>
         <tr>
             <td>Description</td><td>

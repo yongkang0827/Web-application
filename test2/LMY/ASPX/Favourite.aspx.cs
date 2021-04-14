@@ -23,8 +23,16 @@ namespace test2.LMY.ASPX
             {
                 SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Favourite WHERE CustName = @filter", con);
 
-                string filter = CustomerName;
-                sda.SelectCommand.Parameters.AddWithValue("@filter", CustomerName);
+                try
+                {               
+                    string filter = CustomerName;
+                    sda.SelectCommand.Parameters.AddWithValue("@filter", CustomerName);
+                }
+                catch(SqlException sqlx)
+                {
+                    //string msg = "Data Binding Error occurred,Please visit after some time";
+                    Response.Write("<script>alert('" + sqlx.Message + "')</script>");
+                }
 
                 try
                 {
@@ -33,11 +41,16 @@ namespace test2.LMY.ASPX
                     dlFavourite.DataSource = dt;
                     dlFavourite.DataBind();
                 }
-                catch(Exception ex)
+                catch(DataException ex)
                 {
-                    string msg = "Some Technical Error occurred,Please visit after some time";
+                    string msg = "Data Error";
                     Response.Write("<script>alert('" + msg + "')</script>");
                 }
+                catch(Exception ex)
+                {
+                    string msg = "Data Binding Error occurred,Please visit after some time";
+                    Response.Write("<script>alert('" + msg + "')</script>");
+                }                
             }
         }
 
