@@ -1,0 +1,12 @@
+﻿.pic {
+	opacity: 1;
+	display: block;
+	border-radius: 20%;
+	transition: .5s ease;
+	backface-visibility: hidden;
+}
+
+.pic:hover {
+	border-radius: 35%;
+	opacity: 0.5;
+}

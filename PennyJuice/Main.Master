@@ -1,0 +1,208 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="PennyJuice.Main1" %>
+
+<!DOCTYPE html>
+
+<html>
+
+<head runat="server">
+    <style>
+    body{        
+        padding-top: 60px;
+        padding-bottom: 40px;
+    }
+    .container{
+        width: 80%;
+        margin: 0 auto; 
+    }
+    .fixed-header, .fixed-footer{
+        width: 100%;
+        position: fixed;        
+        background: #333;
+        padding: 10px 0;
+        color: #fff;
+    }
+    .fixed-header{
+        top: 0;
+    }
+    .fixed-footer{
+        bottom: 0;
+    }    
+    
+    nav a{
+        color: #fff;
+        text-decoration: none;
+        padding: 7px 25px;
+        display: inline-block;
+    }
+    .container p{
+        line-height: 200px; /* Create scrollbar to test positioning */
+    }
+    .icon {
+			display: block;
+			font-family: cursive;
+            left: 0px;
+            top: 0px;
+		}
+        
+		.icon > ul > li {
+            float: left;
+            padding-left: 4%;
+			list-style-type: none;
+
+		}
+        .auto-style1 {
+            font-family: cursive;
+            left: 0px;
+            top: 0px;
+        }
+        footer{
+			background-color:rgb(30, 30, 30);;
+			color:white;
+			line-height: 1.5em;
+			position: relative;
+			width: 100%;
+			clear: both;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			vertical-align: baseline;
+			padding-top: 5%;
+			bottom:0;
+		}
+		footer ul{
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+
+		footer li{
+			list-style: none;
+			line-height: 1.5em;
+			margin: 0;
+			padding: 0;
+			vertical-align: baseline;
+			border: 0;
+		}
+
+		footer li a{
+			text-decoration:none;
+			color:white;
+		}
+        .flower{
+			margin-left: auto;
+			margin-right: auto;
+			width: 68%;
+			clear: both;
+		}
+		.fmid , .fright{
+			width: 31%;
+			float: left;
+			padding-left: 3%;
+			font-size:medium;
+		}
+
+		.fmid{
+			border-left: 1px solid;
+			border-right: 1px solid;
+		}
+		.fleft{
+			color:white;
+			width: 23%;
+			float: left;
+			padding-left: 8%;
+			font-size:medium;
+		}
+		.body-content {
+			margin-bottom: 30px;
+			margin-top:50px;
+			margin: 50px 15% 20px 15%;
+		}
+</style>
+
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+</head>
+<body class="body">
+    <form runat="server">
+
+        <div class="fixed-header">
+        <div class="container">
+            <nav>
+                <%--<div class="logo-container">--%>
+                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Img/Pennyjuice.png" CssClass="logo"/>
+                    <%--</div>--%>
+  
+                    <a href="#">Home</a>
+					<a href="Menu.aspx">Children Juice</a>
+					<a href="Order.aspx">Order Now</a>
+            </nav>
+        </div>
+        </div>
+
+        <div>
+        </div>
+        <div class="body-content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+
+        </div>
+
+        <br/>
+		   
+		<div class="icon">
+        <br/>
+			<ul>
+				<li style="padding-left:36%"><a href="https://www.facebook.com/">
+                    <asp:Image ID="Image2" runat="server" ImageUrl="~/IMG/facebook icon.png" alt="Facebook" width="50" height="50"/></a></li>
+				<li><a href="https://www.youtube.com/">
+                    <asp:Image ID="Image3" runat="server" ImageUrl="~/IMG/youtube icon.png" alt="Youtube" width="50" height="50"/></a></li>
+				<li><a href="https://www.instagram.com/?hl=en">
+                    <asp:Image ID="Image4" runat="server" ImageUrl="~/IMG/instagram icon.png" alt="Instagram" width="50" height="50"/></a></li>
+				<li style="padding-right:30%"><a href="https://twitter.com/login">
+                    <asp:Image ID="Image5" runat="server" ImageUrl="~/IMG/twitter icon.png" alt="Twitter" width="50" height="50"/></a></li>
+			</ul>
+			<br/><br/><br/>
+			<hr/>
+		</div>
+		<footer class="auto-style1">
+		<div class="flower">
+			<div class="fleft">
+			<ul>
+				
+				<li><a href="contact.aspx">Contact Us</a></li>
+				<li><a href="terms.aspx">Terms and Condition</a></li>
+				<li><a href="policy.aspx">Policy and Condition</a></li>
+				<li><a href="map.aspx">Map</a></li>
+				
+			</ul>
+			</div>
+			<div class="fmid">
+				<ul>
+					<li>All design & content ©2021</li>
+					<li>Artists unless otherwise</li>
+					<li>noted. Leave credit where</li>
+					<li>credit is due</li>
+				</ul>
+			</div>
+			<div class="fright">
+				<ul>
+					<li>Kampus Utama,</li>
+					<li>Jalan Genting Kelang,</li>
+					<li>53300 Kuala Lumpur,</li>
+					<li>Wilayah Persekutuan</li>
+					<li>Kuala Lumpur</li>
+					
+				</ul>
+			</div>
+		</div>
+		<br/><br/><br/><br/><br/><br/><br/>
+        </footer>
+    </form>
+</body>
+</html>
