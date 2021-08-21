@@ -129,6 +129,11 @@ namespace test2.LMY.ASPX
             //}
         }
 
+        protected void gvImages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         //protected void DeleteOrder(object sender, EventArgs e)
         //{
         //foreach (GridViewRow row in gvImages.Rows)

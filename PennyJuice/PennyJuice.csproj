@@ -71,14 +71,18 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="Img\cancel.png" />
     <Content Include="Img\carrot.png" />
     <Content Include="Img\cherry.png" />
+    <Content Include="Img\confirm.png" />
+    <Content Include="Img\edit.png" />
     <Content Include="Img\facebook icon.png" />
     <Content Include="Img\grape.png" />
     <Content Include="Img\greenapple.png" />
     <Content Include="Img\instagram icon.png" />
     <Content Include="Img\kiwi.png" />
     <Content Include="Img\mango.png" />
+    <Content Include="Img\no.png" />
     <Content Include="Img\orange.png" />
     <Content Include="Img\Pennyjuice.png" />
     <Content Include="Img\strawberry.png" />
