@@ -71,6 +71,7 @@
     <Content Include="App_Data\Database1_log.ldf">
       <DependentUpon>Database1.mdf</DependentUpon>
     </Content>
+    <Content Include="Details.aspx" />
     <Content Include="Img\cancel.png" />
     <Content Include="Img\carrot.png" />
     <Content Include="Img\cherry.png" />
@@ -91,11 +92,19 @@
     <Content Include="Img\youtube icon.png" />
     <Content Include="Menu.aspx" />
     <Content Include="Order.aspx" />
+    <Content Include="style\details.css" />
     <Content Include="style\master.css" />
     <Content Include="style\menu.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Main.Master.cs">
       <DependentUpon>Main.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

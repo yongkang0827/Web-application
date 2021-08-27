@@ -4,7 +4,7 @@
 
     <link href="style/menu.css" rel="stylesheet" />
     <div>
-        <h1>Artist List</h1>
+        <h1>Juice List</h1>
         <asp:DataList ID="DataList1" runat="server" DataSourceID="SqlDataSource1" RepeatDirection="Horizontal" RepeatColumns="3" CellSpacing="30" OnItemCommand="DataList1_ItemCommand">
             <ItemTemplate>
                 <div style="text-align:center;box-shadow:20px" >

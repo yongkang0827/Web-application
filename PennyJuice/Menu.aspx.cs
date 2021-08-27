@@ -20,7 +20,7 @@ namespace PennyJuice
             if (e.CommandName == "viewArtist")
             {
                 Session["ArtistList"] = e.CommandArgument.ToString();
-                Response.Redirect("Gallery.aspx?id=" + e.CommandArgument.ToString());
+                Response.Redirect("Details.aspx?id=" + e.CommandArgument.ToString());
 
             }
         }
