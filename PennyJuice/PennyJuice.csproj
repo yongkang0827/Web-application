@@ -76,6 +76,7 @@
     <Content Include="Img\carrot.png" />
     <Content Include="Img\cherry.png" />
     <Content Include="Img\confirm.png" />
+    <Content Include="Img\continue.png" />
     <Content Include="Img\edit.png" />
     <Content Include="Img\facebook icon.png" />
     <Content Include="Img\grape.png" />
@@ -85,14 +86,19 @@
     <Content Include="Img\mango.png" />
     <Content Include="Img\no.png" />
     <Content Include="Img\orange.png" />
+    <Content Include="Img\paypal.png" />
     <Content Include="Img\Pennyjuice.png" />
+    <Content Include="Img\secure_payment.png" />
     <Content Include="Img\strawberry.png" />
     <Content Include="Img\twitter icon.png" />
+    <Content Include="Img\visa.png" />
     <Content Include="Img\watermelon.png" />
     <Content Include="Img\youtube icon.png" />
     <Content Include="Menu.aspx" />
     <Content Include="Order.aspx" />
-    <Content Include="style\details.css" />
+    <Content Include="Payment.aspx" />
+    <Content Include="PayMoney.aspx" />
+    <Content Include="style\detail.css" />
     <Content Include="style\master.css" />
     <Content Include="style\menu.css" />
     <Content Include="Web.config" />
@@ -125,6 +131,20 @@
     </Compile>
     <Compile Include="Order.aspx.designer.cs">
       <DependentUpon>Order.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.aspx.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Payment.aspx.designer.cs">
+      <DependentUpon>Payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PayMoney.aspx.cs">
+      <DependentUpon>PayMoney.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PayMoney.aspx.designer.cs">
+      <DependentUpon>PayMoney.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

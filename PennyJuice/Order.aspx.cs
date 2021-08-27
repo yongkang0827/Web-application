@@ -7,6 +7,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 
 namespace PennyJuice
 {
@@ -17,7 +18,12 @@ namespace PennyJuice
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            con.Open();
+            string strAdd = "Delete From Payment";
+            SqlCommand cmdDelete = new SqlCommand(strAdd, con);
 
+            cmdDelete.ExecuteNonQuery();
+            con.Close();
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -71,19 +77,47 @@ namespace PennyJuice
             "alert",
             "alert('" + msg + "');window.location ='Order.aspx';",
                true);
+            Response.Redirect("~/Payment.aspx");
 
         }
 
         private void updateRowSource(String productName)
         {
+            string quantity = "", price = "";
             con.Open();
-            string strAdd = "DELETE FROM [Order] WHERE [ProductName] = @ProductName";
+            string strAdd = "SELECT * FROM [Order] WHERE [ProductName] = @ProductName";
             SqlCommand cmdAdd = new SqlCommand(strAdd, con);
 
             cmdAdd.Parameters.AddWithValue("@ProductName", productName);
+            SqlDataReader dtrProd = cmdAdd.ExecuteReader();
 
-            cmdAdd.ExecuteNonQuery();
+            if (dtrProd.HasRows)
+            {
+                while (dtrProd.Read())
+                {
+                    quantity = dtrProd["Quantity"].ToString();
+                    price = dtrProd["Price"].ToString();
+                }
+            }
             con.Close();
+
+            /////////////////////////
+            
+            if(price != null && quantity != null)
+            {
+                con.Open();
+                string strAddPay = "INSERT INTO Payment VALUES (@ProductName, @Price, @Quantity, @Buy)";
+                SqlCommand cmdAddPay = new SqlCommand(strAddPay, con);
+
+                cmdAddPay.Parameters.AddWithValue("@ProductName", productName);
+                cmdAddPay.Parameters.AddWithValue("@Price", price);
+                cmdAddPay.Parameters.AddWithValue("@Quantity", quantity);
+                cmdAddPay.Parameters.AddWithValue("@Buy", "Yes");
+
+                cmdAddPay.ExecuteNonQuery();
+                con.Close();
+            }
+           
         }
 
     }

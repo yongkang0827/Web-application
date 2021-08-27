@@ -19,8 +19,19 @@
         margin-top:30px;
         margin-left:80%;
         }
+    .continue{   
+       margin-left:850px;
+       width : 180px;
+       height : 90px;
+    }
+    .ChkBoxClass input {width:50px; height:50px;}
+    .location{
+        margin-top:100px;
+    }
 </style>
-    <div>
+    <div class="location">
+        <h1>Order List</h1>
+
         <asp:SqlDataSource ID="SqlDataSource1" runat="server"  ConnectionString="<%$ ConnectionStrings:ConnectionString %>" 
             SelectCommand="SELECT [Image], [ProductName], [Price], [Quantity] FROM [Order]" 
             DeleteCommand="DELETE FROM [Order] WHERE [ProductName] = @ProductName" 
@@ -48,7 +59,7 @@
             <Columns>
                 <asp:TemplateField HeaderText="Order">
                     <ItemTemplate>
-                        <asp:CheckBox ID="checkBox1" runat="server"></asp:CheckBox>
+                        <asp:CheckBox ID="checkBox1" runat="server" CssClass="ChkBoxClass"></asp:CheckBox>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField  HeaderText="Product">
@@ -58,9 +69,9 @@
                 </asp:TemplateField>
                 <asp:BoundField DataField="ProductName" HeaderText="Name" ReadOnly="true">
                 </asp:BoundField>
-                <asp:BoundField DataField="Price" HeaderText="Price"  ReadOnly="true">
+                <asp:BoundField DataField="Price" HeaderText="Unit Price(RM)"  ReadOnly="true">
                 </asp:BoundField>
-                <asp:BoundField DataField="Quantity" HeaderText="Quantity" >
+                <asp:BoundField DataField="Quantity" HeaderText="Quantity">
                 </asp:BoundField>
                 <asp:CommandField HeaderText="Update" ShowEditButton="True" ButtonType="Image" EditImageUrl="~/Img/edit.png" UpdateImageUrl="~/Img/confirm.png" CancelImageUrl="~/Img/no.png"/>
                 <asp:CommandField HeaderText="Cancel" ShowDeleteButton="True" ButtonType="Image" DeleteImageUrl="~/Img/cancel.png"/>
@@ -77,7 +88,7 @@
             <SortedDescendingHeaderStyle BackColor="#820000" />
         </asp:GridView>
         <br />
-<asp:Button CssClass="Button1" ID="Button1" runat="server" Text="Check Out" Font-Size="XX-Large" OnClick="Button1_Click" />
+        <asp:ImageButton ID="ImageButton1" runat="server" src="Img/continue.png" OnClick="Button1_Click" CssClass="continue"/>
     </div>
 
 

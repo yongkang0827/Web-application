@@ -1,8 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Main.Master"AutoEventWireup="true" CodeBehind="Details.aspx.cs" Inherits="PennyJuice.Details" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <link href="style/details.css" rel="stylesheet" />
-    <div style="width:75%; margin: 0 auto;">
+    <link href="style/detail.css" rel="stylesheet" />
+    <div style="width:75%; margin: 0 auto;margin-top:80px;">
             <asp:DataList ID="DataList2" runat="server" DataKeyField="id" DataSourceID="SqlDataSource2" Width="80%" >
                 <ItemTemplate>
                     <div class="artistTop">
