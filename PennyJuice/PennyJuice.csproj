@@ -84,8 +84,10 @@
     <Content Include="Img\instagram icon.png" />
     <Content Include="Img\kiwi.png" />
     <Content Include="Img\mango.png" />
+    <Content Include="Img\next.png" />
     <Content Include="Img\no.png" />
     <Content Include="Img\orange.png" />
+    <Content Include="Img\pay.png" />
     <Content Include="Img\paypal.png" />
     <Content Include="Img\Pennyjuice.png" />
     <Content Include="Img\secure_payment.png" />

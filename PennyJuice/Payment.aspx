@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Payment.aspx.cs" Inherits="PennyJuice.Payment" %>
+﻿<%@ Page Language="C#" UnobtrusiveValidationMode="None" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="Payment.aspx.cs" Inherits="PennyJuice.Payment" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -42,7 +42,7 @@
     border-bottom-right-radius: 5px;         
     background: #FFFFFF no-repeat 2px 2px;         
     padding:1px 1px 1px 5px;         
-    border:2px solid #9900FF;         
+    border:2px solid #2461BF;         
   }         
   .txtstyle:focus {         
     width: 160px;         
@@ -57,7 +57,7 @@
       color: #fff;
       padding: 5px 10px;
      border-radius: 5px;
-        background-color: #cc2a41;
+        background-color: #2461BF;
     }
      .location{
         margin-left:300px;
@@ -65,7 +65,7 @@
     }
 </style>
     <div class="location">
-    <table style="background-color: #ffffff; filter: alpha(opacity=40); opacity: 0.95;border:1px solid red">
+    <table style="background-color: #ffffff; filter: alpha(opacity=40); opacity: 0.95;border:1px solid black">
         <tr>
             <td></td>
             <td></td>
@@ -122,18 +122,18 @@
         <tr>
             <td class="right">Name: </td>
             <td><asp:TextBox ID="Name" runat="server" class="txtstyle"></asp:TextBox></td>
-            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter your name" ControlToValidate="Name" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
+            <td><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please enter your name" ControlToValidate="Name" ForeColor="Red">*</asp:RequiredFieldValidator></td>
          </tr>
          <tr>
             <td class="right">Address: </td>
             <td><asp:TextBox ID="Address" runat="server" class="txtstyle"></asp:TextBox></td>
-             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Enter Account Number" ControlToValidate="Address">*</asp:RequiredFieldValidator>
-             --%></tr>
+            <td><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Enter Account Number" ControlToValidate="Address" ForeColor="Red">*</asp:RequiredFieldValidator></td>
+             </tr>
          <tr>
             <td class="right">Zip/Postal Code: </td>
             <td><asp:TextBox ID="Postal" runat="server" class="txtstyle"></asp:TextBox></td>
-             <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter postal code" ControlToValidate="Postal" ForeColor="Red">*</asp:RequiredFieldValidator>--%>
-             <%--<asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="Postal" runat="server" ErrorMessage="Only Numbers allowed" ValidationExpression="\d+"></asp:RegularExpressionValidator>--%>
+            <td><asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter postal code" ControlToValidate="Postal" ForeColor="Red">*</asp:RequiredFieldValidator>
+             <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ControlToValidate="Postal" runat="server" ErrorMessage="Only Numbers allowed" ValidationExpression="\d+"></asp:RegularExpressionValidator></td>
         </tr>
         <tr>
             <td class="right">Country: </td>
@@ -147,16 +147,16 @@
         <tr>
             <td class="right">Email: </td>
             <td><asp:TextBox ID="Email" runat="server" class="txtstyle"></asp:TextBox></td>
-            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Email is required" ControlToValidate="Email" ForeColor="Red">*</asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Email must end in @gmail.com" ControlToValidate="Email" ValidationExpression="\w+([-+.']\w+)*@(?:gmail).com" ForeColor="Red">*</asp:RegularExpressionValidator>
-       --%> </tr>
+            <td><asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ErrorMessage="Email is required" ControlToValidate="Email" ForeColor="Red">*</asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ErrorMessage="Email must end in @gmail.com" ControlToValidate="Email" ValidationExpression="\w+([-+.']\w+)*@(?:gmail).com" ForeColor="Red">*</asp:RegularExpressionValidator></td>
+       </tr>
         <tr>
             <td></td><td></td><td class="auto-style3">
-                <asp:ImageButton ID="ImageButton1" runat="server" src="Img/continue.png" OnClick="Pay_Click" CssClass="continue"/>
+                <asp:ImageButton ID="ImageButton1" runat="server" src="Img/next.png" OnClick="Pay_Click" CssClass="continue"/>
                 </td>
         </tr>
     </table>
-    <%--<asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="The following problems have been encountered: " ShowSummary="true" ShowMessageBox="true" ForeColor="Red"/>
-    --%>
+    <asp:ValidationSummary ID="ValidationSummary1" runat="server" HeaderText="The following problems have been encountered: " ShowSummary="true" ShowMessageBox="true" ForeColor="Red"/>
+    
         </div>
 </asp:Content>

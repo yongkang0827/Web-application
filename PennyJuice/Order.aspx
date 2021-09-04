@@ -88,7 +88,7 @@
             <SortedDescendingHeaderStyle BackColor="#820000" />
         </asp:GridView>
         <br />
-        <asp:ImageButton ID="ImageButton1" runat="server" src="Img/continue.png" OnClick="Button1_Click" CssClass="continue"/>
+        <asp:ImageButton ID="ImageButton1" runat="server" src="Img/next.png" OnClick="Button1_Click" CssClass="continue"/>
     </div>
 
 

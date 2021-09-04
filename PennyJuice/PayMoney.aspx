@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#"  MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="PayMoney.aspx.cs" Inherits="PennyJuice.PayMoney" %>
+﻿<%@ Page Language="C#" UnobtrusiveValidationMode="None" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="PayMoney.aspx.cs" Inherits="PennyJuice.PayMoney" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -18,7 +18,7 @@
     border-bottom-right-radius: 5px;         
     background: #FFFFFF no-repeat 2px 2px;         
     padding:1px 1px 1px 5px;         
-    border:2px solid #9900FF;         
+    border:2px solid #2461BF;         
   }         
   .txtstyle:focus {         
     width: 160px;         
@@ -33,11 +33,17 @@
         text-align: right;
     }
     .Button1 {
-        background-color:cornflowerblue;
+        background-color: cornflowerblue; 
+        border: none;
         color: white;
+        padding: 5px;
         text-align: center;
         text-decoration: none;
         display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 12px;
         }
     .location{
         margin-left:350px;
@@ -45,7 +51,7 @@
     }
 </style>
     <div class="location">
-    <table style="background-color: #ffffff; filter: alpha(opacity=40); opacity: 0.95;border:1px solid red">
+    <table style="background-color: #ffffff; filter: alpha(opacity=40); opacity: 0.95;border:1px solid black">
         <tr>
             <td class="right">Payment Information</td>
             <td></td>
@@ -58,17 +64,16 @@
             <td class="normaltxt">Card Number: </td>
             <td>
                 <asp:TextBox ID="Card" runat="server" class="txtstyle"></asp:TextBox ></td>
-            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please Enter Card Name" ControlToValidate="Card">*</asp:RequiredFieldValidator>
-           --%> <td></td>
+            <td><asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Please Enter Card Name" ControlToValidate="Card" ForeColor="Red">*</asp:RequiredFieldValidator>
+           </td>
         </tr>
         <tr><td>&nbsp;</td></tr>
         <tr>
             <td class="normaltxt">Pin Number: </td>
             <td>
                 <asp:TextBox ID="Pin" runat="server" class="txtstyle"></asp:TextBox></td>
-            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Enter Pin Number" ControlToValidate="Pin">*</asp:RequiredFieldValidator>
-            --%>
-            <td></td>
+            <td><asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Please Enter Pin Number" ControlToValidate="Pin" ForeColor="Red">*</asp:RequiredFieldValidator>
+            </td>
         </tr>
          <tr><td>&nbsp;</td></tr>
         <tr>
@@ -81,11 +86,11 @@
         <tr><td>&nbsp;</td></tr>
         <tr><td>&nbsp;</td></tr>
         <tr>
-            <td></td>
-            <td>
-                <asp:ImageButton ID="ImageButton1" runat="server" src="Img/paypal.png" OnClick="Pay_Click" CssClass="continue"/>
-                </td>
-            <td></td>
+
+            <td style="text-align: center;" colspan="3">
+                <asp:ImageButton ID="ImageButton1" runat="server" src="Img/pay.png" OnClick="Pay_Click" CssClass="continue"/>
+            </td>
+
         </tr>
     </table>
 
